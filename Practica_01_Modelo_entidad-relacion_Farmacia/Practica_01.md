@@ -2,63 +2,49 @@
 
 Para diseñar un modelo entidad-relación (MER) para la gestión de una farmacia, hay que identificar las entidades, atributos y relaciones que serán necesarios para representar adecuadamente el sistema.
 
-1. **Entidades Principales:**
-   a. Medicamento
-   b. Receta Médica
-   c. Cliente
-   d. Venta
-   e. Empleado
+El diseño conceptual del modelo entidad/relación para la gestión de una farmacia se puede representar de la siguiente manera:
 
-2. **Atributos de la Entidad "Medicamento":**
-   - Código de Medicamento (clave primaria)
-   - Nombre del Medicamento
-   - Tipo de Medicamento (por ejemplo, jarabe, comprimido, pomada)
-   - Unidades en Stock
-   - Unidades Vendidas
-   - Precio
-   - Venta Libre (booleano para indicar si es de venta libre o no)
+**Entidades Principales:**
 
-3. **Atributos de la Entidad "Receta Médica":**
-   - Número de Receta (clave primaria)
-   - Fecha de Emisión
-   - Médico Prescriptor
-   - Información del Paciente (puede incluir el nombre del paciente, número de seguro social, etc.)
-   - Medicamentos Prescritos (puede ser una lista de medicamentos con sus cantidades)
+1. **Medicamento**:
+   - Atributos: Código de Medicamento (Clave Primaria), Nombre, Tipo de Medicamento, Unidades en Stock, Unidades Vendidas, Precio, Venta con Receta.
 
-4. **Atributos de la Entidad "Cliente":**
-   - ID de Cliente (clave primaria)
-   - Nombre
-   - Dirección
-   - Número de Teléfono
-   - Otros datos relevantes del cliente (por ejemplo, correo electrónico)
+2. **Laboratorio**:
+   - Atributos: Código de Laboratorio (Clave Primaria), Nombre, Teléfono, Dirección, Fax, Nombre de la Persona de Contacto.
 
-5. **Atributos de la Entidad "Venta":**
-   - Número de Venta (clave primaria)
-   - Fecha de Venta
-   - Total de Venta
-   - Método de Pago (efectivo, tarjeta, etc.)
-   - ID de Cliente (clave foránea que relaciona la venta con un cliente, si es una venta registrada)
+3. **Familia de Medicamentos**:
+   - Atributos: Código de Familia (Clave Primaria), Nombre de la Familia.
 
-6. **Atributos de la Entidad "Empleado":**
-   - ID de Empleado (clave primaria)
-   - Nombre
-   - Puesto
-   - Fecha de Contratación
-   - Salario
-   - Otros detalles de empleados (por ejemplo, número de identificación)
+4. **Cliente**:
+   - Atributos: ID de Cliente (Clave Primaria), Nombre, Dirección, Teléfono, Datos Bancarios.
 
-7. **Relaciones:**
-   a. Relación entre "Medicamento" y "Venta":
-      - Un medicamento puede estar presente en varias ventas (relación uno a muchos).
-   b. Relación entre "Medicamento" y "Receta Médica":
-      - Un medicamento puede ser recetado en varias recetas médicas (relación uno a muchos).
-   c. Relación entre "Cliente" y "Venta":
-      - Un cliente puede realizar varias compras, pero una venta está asociada a un cliente (relación uno a muchos).
-   d. Relación entre "Empleado" y "Venta":
-      - Un empleado puede realizar varias ventas (relación uno a muchos).
+5. **Compra**:
+   - Atributos: ID de Compra (Clave Primaria), Fecha de Compra.
 
-8. **Cardinalidad de las Relaciones:**
-   - "Medicamento" -> "Venta": Uno a muchos (un medicamento puede estar presente en varias ventas).
-   - "Medicamento" -> "Receta Médica": Uno a muchos (un medicamento puede ser recetado en varias recetas).
-   - "Cliente" -> "Venta": Uno a muchos (un cliente puede hacer varias compras).
-   - "Empleado" -> "Venta": Uno a muchos (un empleado puede realizar varias ventas).
+6. **Detalle de Compra**:
+   - Atributos: ID de Detalle (Clave Primaria), Cantidad Comprada, Precio Unitario, Total, Medicamento (Clave Foranea), Compra (Clave Foranea).
+
+7. **Pago de Cliente**:
+   - Atributos: ID de Pago (Clave Primaria), Fecha de Pago, Monto, Cliente (Clave Foranea).
+
+**Relaciones:**
+
+- **Medicamento-Laboratorio (1 a N)**:
+  - Un medicamento es fabricado o suministrado por un laboratorio, pero un laboratorio puede tener varios medicamentos. Relación de uno a muchos entre Laboratorio y Medicamento.
+
+- **Medicamento-Familia (N a M)**:
+  - Un medicamento puede pertenecer a una o varias familias de medicamentos, y una familia puede tener varios medicamentos. Relación de muchos a muchos entre Medicamento y Familia de Medicamentos.
+
+- **Compra-Detalle de Compra (1 a N)**:
+  - Una compra puede tener uno o varios detalles de compra, pero cada detalle de compra pertenece a una única compra. Relación de uno a muchos entre Compra y Detalle de Compra.
+
+- **Medicamento-Detalle de Compra (N a M)**:
+  - Un detalle de compra se refiere a un medicamento específico, y un medicamento puede estar presente en varios detalles de compra. Relación de muchos a muchos entre Medicamento y Detalle de Compra.
+
+- **Compra-Cliente (N a 1)**:
+  - Una compra está asociada a un cliente, pero un cliente puede tener varias compras. Relación de uno a muchos entre Cliente y Compra.
+
+- **Pago de Cliente-Cliente (1 a 1)**:
+  - Un pago de cliente está asociado a un cliente y un cliente puede tener varios pagos. Relación uno a uno entre Pago de Cliente y Cliente.
+
+Con este diseño conceptual, puedes gestionar eficazmente los medicamentos, laboratorios, familias de medicamentos, compras, detalles de compra, clientes y pagos en una farmacia, cumpliendo con las especificaciones mencionadas.
