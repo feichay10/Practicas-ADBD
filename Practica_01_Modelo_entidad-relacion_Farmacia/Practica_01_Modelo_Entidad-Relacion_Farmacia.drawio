@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-10-04T09:15:42.519Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.7.5 Chrome/114.0.5735.289 Electron/25.8.1 Safari/537.36" etag="loeUqlXNQlFPjG2-v6Xg" version="21.7.5" type="device">
+<mxfile host="Electron" modified="2023-10-04T09:16:43.641Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.7.5 Chrome/114.0.5735.289 Electron/25.8.1 Safari/537.36" etag="nwjj0R5Qy7GyoBdgUCgP" version="21.7.5" type="device">
   <diagram name="Página-1" id="4huNfL7pB0AyObAqlQ7k">
-    <mxGraphModel dx="1949" dy="1204" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1605" dy="992" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -85,25 +85,25 @@
         <mxCell id="pyem5_0U6EFI_bZUwjQr-53" value="precio" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="495" y="120" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="pyem5_0U6EFI_bZUwjQr-54" value="" style="endArrow=none;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="pyem5_0U6EFI_bZUwjQr-30" target="pyem5_0U6EFI_bZUwjQr-49" edge="1">
+        <mxCell id="pyem5_0U6EFI_bZUwjQr-54" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="pyem5_0U6EFI_bZUwjQr-30" target="pyem5_0U6EFI_bZUwjQr-49" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="650" y="220" as="sourcePoint" />
             <mxPoint x="700" y="170" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pyem5_0U6EFI_bZUwjQr-55" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" source="pyem5_0U6EFI_bZUwjQr-30" target="pyem5_0U6EFI_bZUwjQr-48" edge="1">
+        <mxCell id="pyem5_0U6EFI_bZUwjQr-55" value="" style="endArrow=none;html=1;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" source="pyem5_0U6EFI_bZUwjQr-30" target="pyem5_0U6EFI_bZUwjQr-48" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="620" y="210" as="sourcePoint" />
             <mxPoint x="670" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pyem5_0U6EFI_bZUwjQr-57" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="pyem5_0U6EFI_bZUwjQr-50" target="pyem5_0U6EFI_bZUwjQr-30" edge="1">
+        <mxCell id="pyem5_0U6EFI_bZUwjQr-57" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="pyem5_0U6EFI_bZUwjQr-50" target="pyem5_0U6EFI_bZUwjQr-30" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="550" y="230" as="sourcePoint" />
             <mxPoint x="600" y="180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pyem5_0U6EFI_bZUwjQr-58" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.121;entryY=-0.007;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="pyem5_0U6EFI_bZUwjQr-51" edge="1" target="pyem5_0U6EFI_bZUwjQr-30">
+        <mxCell id="pyem5_0U6EFI_bZUwjQr-58" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="pyem5_0U6EFI_bZUwjQr-51" edge="1" target="pyem5_0U6EFI_bZUwjQr-30">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="550" y="360" as="sourcePoint" />
             <mxPoint x="615" y="270" as="targetPoint" />
