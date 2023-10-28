@@ -14,7 +14,7 @@ restricciones necesarias para realizar las operaciones de eliminación o actuali
 deben abordar todos los escenarios posibles en las tablas involucradas.
 * Incluya ejemplos representativos de las operaciones DELETE.
 
-Antes de realizar la entrega, compruebe que puede importar correctamente el script SQL generado en PostgreSQL
+Antes de realizar la entrega, compruebe que puede importar correctamente el script SQL generado en PostgreSQLpedid
 
 ## 1. Modelo Entidad/Relación
 
