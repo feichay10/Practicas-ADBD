@@ -51,9 +51,55 @@ CLIENTE(<u>dni_cliente</u>, nombre_cliente)
 
 ## 4. Uso script
 ``` bash
-sudo postgres
-psql
+sudo -u postgres psql
 \i script.sql
 ```
 
 ## 5. Salida del script
+### Tabla VIVERO
+
+![Imagen de la Tabla VIVERO](./img/select_vivero.png)
+
+### Tabla ZONA
+
+![Imagen de la Tabla ZONA](./img/select_zona.png)
+
+### Tabla ASIGNA
+
+![Imagen de la Tabla ASIGNA](./img/select_asigna.png)
+
+### Tabla ALMACEN
+
+![Imagen de la Tabla ALMACEN](./img/select_almacen.png)
+
+### Tabla ZONA_EXTERIOR
+
+![Imagen de la Tabla ZONA_EXTERIOR](./img/select_zona-exterior.png)
+
+### Tabla EMPLEADO
+
+![Imagen de la Tabla EMPLEADO](./img/select_empleado.png)
+
+### Tabla CLIENTE_PLUS
+
+![Imagen de la Tabla CLIENTE_PLUS](./img/select_cliente-plus.png)
+
+### Tabla CLIENTE
+
+![Imagen de la Tabla CLIENTE](./img/select_cliente.png)
+
+### Tabla PRODUCTO
+
+![Imagen de la Tabla ASIGNA](./img/select_producto.png)
+
+### Tabla PLANTAS
+
+![Imagen de la Tabla PLANTAS](./img/select_planta.png)
+
+### Tabla JARDINERIA
+
+![Imagen de la Tabla ASIGNA](./img/select_jardineria.png)
+
+### Tabla DECORACION
+
+![Imagen de la Tabla ASIGNA](./img/select_decoracion.png)
