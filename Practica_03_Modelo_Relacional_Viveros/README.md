@@ -103,3 +103,5 @@ sudo -u postgres psql
 ### Tabla DECORACION
 
 ![Imagen de la Tabla ASIGNA](./img/select_decoracion.png)
+
+## 6. Ejemplos representativos de las opereaciones `delete`
