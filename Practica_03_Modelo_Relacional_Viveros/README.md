@@ -18,6 +18,8 @@ Antes de realizar la entrega, compruebe que puede importar correctamente el scri
 
 ## 1. Modelo Entidad/Relación
 
+![Imagen de Modelo Entidad Relacion](./img/Modelo_Entidad-Relacion_Viveros.jpg)
+
 ## 2. Transformación a modelo relacional
 VIVERO(<u>id_vivero</u>, nombre_vivero, latitud_vivero, longitud_vivero) 
 
@@ -44,6 +46,8 @@ CLIENTE_PLUS(<u>dni_plus</u>, nombre_plus, fecha_ingreso, pedidos_realizados, vo
 CLIENTE(<u>dni_cliente</u>, nombre_cliente)
 
 ## 3. Modelo Relacional
+
+![Imagen de Modelo Relacional](./img/Modelo_Relacional.jpg)
 
 ## 4. Uso script
 ``` bash
