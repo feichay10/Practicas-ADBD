@@ -37,6 +37,7 @@ CREATE TABLE VIVERO (
   nombre_vivero VARCHAR(50) NOT NULL,
   latitud_vivero DECIMAL(10, 8) NOT NULL,
   longitud_vivero DECIMAL(11, 8) NOT NULL
+  CONSTRAINT CHK_VIVERO_COORDENADAS CHECK (latitud_vivero BETWEEN -90 AND 90 AND longitud_vivero BETWEEN -180 AND 180)
 );
 
 CREATE TABLE ZONA (
@@ -45,6 +46,7 @@ CREATE TABLE ZONA (
   latitud_zona DECIMAL(10, 8) NOT NULL,
   longitud_zona DECIMAL(11, 8) NOT NULL,
   tipo_zona VARCHAR(50) NOT NULL
+  CONSTRAINT CHK_ZONA_TIPO CHECK (tipo_zona IN ('Almacen', 'Zona_exterior'))
 );
 
 CREATE TABLE ASIGNA (
@@ -216,3 +218,12 @@ VALUES  ('Estatua', 1),
         ('Muebles exterior', 3),
         ('Piedras decorativas', 4),
         ('Lamparas', 5);
+
+-- Verificar la restricción CHECK en la tabla VIVERO
+SELECT * FROM VIVERO 
+WHERE latitud_vivero NOT BETWEEN -90 AND 90 
+OR longitud_vivero NOT BETWEEN -180 AND 180;
+
+-- Verificar la restricción CHECK en la tabla ZONA
+SELECT * FROM ZONA 
+WHERE tipo_zona NOT IN ('Almacen', 'Zona_exterior');
