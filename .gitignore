@@ -1,10 +1,10 @@
 *.dtmp
 *.bkp
 # Ignorar todos los archivos relacionados con Informe seguido de cualquier número excepto Informe.tex y Informe.pdf
-Informe\d+.aux
-Informe\d+.fdb_latexmk
-Informe\d+.fls
-Informe\d+.log
-Informe\d+.out
-Informe\d+.synctex.gz
-Informe\d+.toc
+Informe[0-9]*.aux
+Informe[0-9]*.fdb_latexmk
+Informe[0-9]*.fls
+Informe[0-9]*.log
+Informe[0-9]*.out
+Informe[0-9]*.synctex.gz
+Informe[0-9]*.toc
