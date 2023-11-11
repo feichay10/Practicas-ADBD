@@ -50,12 +50,12 @@
 \makeatother
 
 % Configura para que cada \chapter no comience en una pagina nueva
-% \makeatletter
-% \renewcommand\chapter{\@startsection{chapter}{0}{\z@}%
-%     {-3.5ex \@plus -1ex \@minus -.2ex}%
-%     {2.3ex \@plus.2ex}%
-%     {\normalfont\Large\bfseries}}
-% \makeatother
+\makeatletter
+\renewcommand\chapter{\@startsection{chapter}{0}{\z@}%
+    {-3.5ex \@plus -1ex \@minus -.2ex}%
+    {2.3ex \@plus.2ex}%
+    {\normalfont\Large\bfseries}}
+\makeatother
 
 \begin{document}
 
@@ -220,6 +220,9 @@ alquilerdvd=# \ds
   \item \textbf{Elementos:} \emph{store\_id, manager\_staff\_id, address\_id, last\_update}
 \end{itemize}
 
+% Nueva página 
+\cleardoublepage
+
 % Capitulo 4
 \chapter{Realizacion de consultas}
 
@@ -333,11 +336,149 @@ alquilerdvd=# SELECT actor.first_name || ' ' || actor.last_name AS actor_name,
 
 % Capitulo 5
 \chapter{Vistas de las consultas realizadas}
-Para crear las vistas de las consultas realizadas se usará el prefijo \emph{view\_} para identificarlas. A continuación se muestra el código de cada vista:
+Para crear las vistas de las consultas realizadas se usará el prefijo \emph{VIEW} para identificarlas. A continuación se muestra el código de cada vista:
 
 % Vista a)
 \section{Ventas totales por categoria}
+Para crear la vista de las ventas totales por categoría, se debe ejecutar la siguiente consulta:
+\begin{verbatim}
+alquilerdvd=# CREATE VIEW total_rent_per_category A
+              SELECT category.name, SUM(payment.amount) AS total_sales
+              FROM category
+              INNER JOIN film_category ON category.category_id = film_category.category_id
+              INNER JOIN film ON film_category.film_id = film.film_id
+              INNER JOIN inventory ON film.film_id = inventory.film_id
+              INNER JOIN rental ON inventory.inventory_id = rental.inventory_id
+              INNER JOIN payment ON rental.rental_id = payment.rental_id
+              GROUP BY category.name
+              ORDER BY total_sales DESC;
+\end{verbatim}
 
+% Vista b)
+\section{Ventas totales por tienda}
+Para crear la vista de las ventas totales por tienda, se debe ejecutar la siguiente consulta:
+\begin{verbatim}
+alquilerdvd=# CREATE VIEW total_rent_per_store AS
+              SELECT CONCAT(city.city, ', ', country.country) AS city_country,
+              CONCAT(staff.first_name, ' ', staff.last_name) AS manager,
+              SUM(payment.amount) AS total_sales
+              FROM store
+              INNER JOIN staff ON store.manager_staff_id = staff.staff_id
+              INNER JOIN address ON store.address_id = address.address_id
+              INNER JOIN city ON address.city_id = city.city_id
+              INNER JOIN country ON city.country_id = country.country_id
+              INNER JOIN inventory ON store.store_id = inventory.store_id
+              INNER JOIN rental ON inventory.inventory_id = rental.inventory_id
+              INNER JOIN payment ON rental.rental_id = payment.rental_id
+              GROUP BY city_country, manager
+              ORDER BY total_sales DESC;
+\end{verbatim}
+
+% Nueva página
+\cleardoublepage
+
+% Vista c)
+\section{Lista de películas}
+Para crear la vista de la lista de películas, se debe ejecutar la siguiente consulta:
+\begin{verbatim}
+alquilerdvd=# CREATE VIEW films_list AS
+              SELECT film.film_id, title, description, category.name AS category_name, 
+              rental_rate, length, rating,
+              actor.first_name || '  ' || actor.last_name AS actor_name
+              FROM film
+              INNER JOIN film_actor ON film.film_id = film_actor.film_id
+              INNER JOIN actor ON film_actor.actor_id = actor.actor_id
+              INNER JOIN film_category ON film.film_id = film_category.film_id
+              INNER JOIN category ON film_category.category_id = category.category_id
+              ORDER BY film_id;
+\end{verbatim}
+
+% Vista d)
+\section{Información de los actores}
+Para crear la vista de la información de los actores, se debe ejecutar la siguiente consulta:
+\begin{verbatim}
+alquilerdvd=# CREATE VIEW actor_list AS
+              SELECT actor.first_name || ' ' || actor.last_name AS actor_name,
+              string_agg(DISTINCT category.name, ':') AS categories,
+              string_agg(DISTINCT film.title, ':') AS films
+              FROM actor
+              INNER JOIN film_actor ON actor.actor_id = film_actor.actor_id
+              INNER JOIN film_category ON film_actor.film_id = film_category.film_id
+              INNER JOIN category ON film_category.category_id = category.category_id
+              INNER JOIN film ON film_category.film_id = film.film_id
+              GROUP BY actor_name;
+\end{verbatim}
+
+% Nueva página
+\cleardoublepage
+
+% Capitulo 6
+\chapter{Análisis del modelo y restricciones \emph{CHECK}}
+Dentro del modelo de la base de datos \emph{ALQUILERDVD} se puede observar que existen tablas que emplean atributos
+que hacen uso de identificadores de tuplas que se encuentran en otras tablas, por lo que se puede decir que existen
+relaciones entre las tablas. 
+
+Se podrían implementar restricciones \emph{CHECK} que se encarguen de comprobar que dichos
+números de identificación existan en las tablas relacionadas, de esta manera se asegura que no se inserten datos que
+no existan en la base de datos. Por ejemplo, en la tabla \emph{film\_actor} se puede implementar una restricción
+\emph{CHECK} que compruebe que el identificador de la película exista en la tabla \emph{film} y que el identificador
+del actor exista en la tabla \emph{actor}:
+\begin{verbatim} 
+ALTER TABLE film_actor
+ADD CONSTRAINT CHECK (film_id IN (SELECT film_id FROM film) AND
+                      actor_id IN (SELECT actor_id FROM actor));
+\end{verbatim}
+
+Otra restricción que se podría implementar es que el identificador de la película en la tabla \emph{film\_category}
+exista en la tabla \emph{film}:
+\begin{verbatim}
+ALTER TABLE film_category
+ADD CONSTRAINT CHECK (film_id IN (SELECT film_id FROM film));
+\end{verbatim}
+
+% % Nueva página
+% \cleardoublepage
+
+% Capitulo 7
+\chapter{Funcionamiento del trigger}
+El siguiente trigger:
+\begin{verbatim}
+last_updated BEFORE UPDATE ON customer FOR EACH ROW EXECUTE
+PROCEDURE last_updated()
+\end{verbatim}
+
+Se encarga de actualizar el atributo \emph{last\_update} de la tabla \emph{customer} cada vez que se actualice una
+tupla de la tabla \emph{customer}. Para probar el funcionamiento del trigger, se ejecutará la siguiente consulta:
+\begin{verbatim}
+alquilerdvd=# UPDATE customer SET first_name = 'Cheuk' WHERE customer_id = 1;
+\end{verbatim}
+
+Para comprobar que se ha actualizado el atributo \emph{last\_update} de la tupla con \emph{customer\_id} igual a 1,
+se ejecutará la siguiente consulta:
+\begin{verbatim}
+alquilerdvd=# SELECT last_update FROM customer WHERE customer_id = 1;
+\end{verbatim}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.60]{img/trigger.png}
+  \caption{Funcionamiento del trigger}
+  \label{fig:funcionamiento del trigger}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+% Capitulo 8
+\chapter{Construcción de un disparador}
+Para construir un disparador que se encargue de guardar en una nueva tabla creada por el usuario en la fecha de cuando 
+se insertó un nuevo registro en la tabla \emph{film}, se debe ejecutar la siguiente consulta:
+\begin{verbatim}
+alquilerdvd=# CREATE TABLE updated_table_film (
+              id_updated_table_film SERIAL PRIMARY KEY,
+              last_update TIMESTAMP NOT NULL
+              );
+\end{verbatim}
 
 
 \end{document}
