@@ -28,7 +28,7 @@ EXECUTE PROCEDURE insert_deleted_film_rows();
 
 -- Para comprobar que funciona, borramos una fila de la tabla film
 DELETE FROM film 
-WHERE film_id = 1;
+WHERE title = 'Independe Day';
 
 -- Comprobamos que se ha insertado una fila en la tabla deleted_film_rows
 SELECT * FROM deleted_film_rows;
