@@ -470,15 +470,111 @@ alquilerdvd=# SELECT last_update FROM customer WHERE customer_id = 1;
 \cleardoublepage
 
 % Capitulo 8
-\chapter{Construcción de un disparador}
-Para construir un disparador que se encargue de guardar en una nueva tabla creada por el usuario en la fecha de cuando 
+\chapter{Construcción de disparadores}
+% 8.1
+\section{Disparador de inserción}
+Para construir un disparador que se encargue de guardar en una nueva tabla creada la fecha de cuando 
 se insertó un nuevo registro en la tabla \emph{film}, se debe ejecutar la siguiente consulta:
 \begin{verbatim}
-alquilerdvd=# CREATE TABLE updated_table_film (
-              id_updated_table_film SERIAL PRIMARY KEY,
-              last_update TIMESTAMP NOT NULL
-              );
+CREATE TABLE updated_table_film (
+id_updated_table_film SERIAL PRIMARY KEY,
+last_update TIMESTAMP NOT NULL
+);
 \end{verbatim}
 
+Una vez creada la tabla \emph{updated\_table\_film}, se procederá a crear el disparador; primero se creará la función
+que se encargará de insertar la fecha en la tabla \emph{updated\_table\_film};
+
+\begin{verbatim}
+CREATE OR REPLACE FUNCTION insert_date_updated_table_film()
+RETURNS TRIGGER AS $$
+  BEGIN
+    INSERT INTO updated_table_film (last_update) VALUES (NOW());
+    RETURN NEW;
+  END;
+$$ LANGUAGE plpgsql;
+\end{verbatim}
+
+y luego se creará el disparador que se encargará de ejecutar la función:
+
+\begin{verbatim}
+CREATE TRIGGER insert_date_updated_table_film
+AFTER INSERT ON film
+FOR EACH ROW
+EXECUTE PROCEDURE insert_date_updated_table_film();
+\end{verbatim}
+
+Aqui se puede observar el funcionamiento del disparador:
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.36]{img/trigger_insertion.png}
+  \caption{Funcionamiento del disparador de inserción}
+  \label{fig:funcionamiento del disparador de inserción}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+% 8.2
+\section{Disparador de eliminación}
+Para construir un disparador que se encargue de guardar en una nueva tabla creada la fecha de cuando 
+se eliminó un nuevo registro en la tabla \emph{film} y el identificador del film. Para esto, se debe 
+ejecutar la siguiente consulta:
+\begin{verbatim}
+CREATE TABLE deleted_film_rows (
+id_deleted_film_rows SERIAL PRIMARY KEY,
+film_id INTEGER NOT NULL,
+last_update TIMESTAMP NOT NULL
+);
+\end{verbatim}
+
+Una vez creada la tabla \emph{deleted\_film\_rows}, se procederá a crear el disparador; primero se creará la función
+que se encargará de insertar el identificador del film y la fecha en la tabla \emph{deleted\_film\_rows}:
+
+\begin{verbatim}
+CREATE OR REPLACE FUNCTION insert_deleted_film_rows()
+RETURNS TRIGGER AS $$
+  BEGIN
+    INSERT INTO deleted_film_rows (film_id, last_update) VALUES (OLD.film_id, NOW());
+    RETURN OLD;
+  END;
+$$ LANGUAGE plpgsql;
+\end{verbatim}
+
+y luego se creará el disparador que se encargará de ejecutar la función:
+\begin{verbatim}
+CREATE TRIGGER insert_deleted_film_rows
+AFTER DELETE ON film
+FOR EACH ROW
+EXECUTE PROCEDURE insert_deleted_film_rows();
+\end{verbatim}
+
+% Nueva página
+\cleardoublepage
+
+\chapter{Significado y relevancia de las \emph{sequence}}
+Las \emph{sequence} son objetos que se encargan de generar números de identificación de tuplas de manera automática.
+Estos números de identificación son únicos y no se repiten. Las \emph{sequence} son muy útiles cuando se quiere
+insertar una nueva tupla en una tabla y no se conoce el número de identificación que se le asignará a la tupla, ya
+que la \emph{sequence} se encargará de generar un número de identificación único para la tupla.
+
+Un ejemplo de creación de una \emph{sequence} en PostgreSQL es el siguiente:
+\begin{verbatim}
+CREATE SEQUENCE sequence_name START 1 INCREMENT 1;
+\end{verbatim}
+
+
+\chapter{Exportación de la base de datos en formato \emph{sql}}
+Para exportar la base de datos \emph{ALQUILERDVD} en formato \emph{sql}, se debe ejecutar el siguiente comando:
+\begin{verbatim}
+usuario@ubuntu# pg_dump -U postgres -d alquilerdvd > alquilerdvd.sql
+\end{verbatim}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.55]{img/export_db.png}
+  \caption{Exportación de la base de datos en formato sql}
+  \label{fig:exportación de la base de datos en formato sql}
+\end{figure}
 
 \end{document}
