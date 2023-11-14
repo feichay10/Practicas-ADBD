@@ -1,0 +1,238 @@
+\documentclass[11pt]{report}
+
+% Paquetes y configuraciones adicionales
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{wasysym}
+\usepackage{tikzsymbols}
+\usepackage[spanish]{babel}
+
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}
+}
+
+% Configura los márgenes
+\geometry{
+    left=2cm,   % Ajusta este valor al margen izquierdo deseado
+    right=2cm,  % Ajusta este valor al margen derecho deseado
+    top=3cm,
+    bottom=3cm,
+}
+
+% Configuración de los títulos de las secciones
+\titlespacing{\section}{0pt}{\parskip}{\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{\parskip}
+\titlespacing{\subsubsection}{0pt}{\parskip}{\parskip}
+
+% Redefinir el formato de los capítulos y añadir un punto después del número
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace*{0\p@} % Ajusta este valor para el espaciado deseado antes del título del capítulo
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \thechapter.\ % Añade un punto después del número
+    \fi
+    \interlinepenalty\@M
+    #1\par\nobreak
+    \vspace{10pt} % Ajusta este valor para el espacio deseado después del título del capítulo
+  }}
+\makeatother
+
+% Configura para que cada \chapter no comience en una pagina nueva
+\makeatletter
+\renewcommand\chapter{\@startsection{chapter}{0}{\z@}%
+    {-3.5ex \@plus -1ex \@minus -.2ex}%
+    {2.3ex \@plus.2ex}%
+    {\normalfont\Large\bfseries}}
+\makeatother
+
+\begin{document}
+
+% Portada del informe
+\title{Seguridad e inyección en SQL}
+\subtitle{Administración y Diseño de Bases de Datos}
+\author{Cheuk Kelly Ng Pante, Javier González de la Barreda Arimany y Samuel Toledo Hernández}
+\date{\today}
+
+\maketitle
+
+% Índice
+\tableofcontents
+
+% Nueva página para el primer capítulo
+\cleardoublepage
+
+% % Sangría
+% \setlength{\parindent}{1em}Texto
+
+% % Quitar sangría
+% \noindent
+
+% % Punto
+% \CIRCLE \ \ \textbf{Texto} \emph{algo}
+% \begin{itemize}
+%   \item \textbf{Negrita:} Texto
+%   \item \textbf{Negrita:} Texto
+% \end{itemize}
+
+% \begin{verbatim}
+% ... Codigo
+% \end{verbatim}
+
+% Poner una imagen
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[scale=0.55]{img/}
+%   \caption{Exportación de la base de datos en formato sql}
+%   \label{fig:exportación de la base de datos en formato sql}
+% \end{figure}
+
+% Secciones del informe
+% Capitulo 1
+\chapter{Introducción a la seguridad de bases de datos}
+\section{Introducción a las bases de datos}
+Una base de datos consiste en una colección de datos interrelacionados que representan
+información sobre una organización o área en particular. Estas bases de datos están
+organizadas según modelos de datos que definen la estructura, almacenamiento y
+manipulación de la información. El modelo principal es un modelo relacional que representa
+datos a través de tablas y crea relaciones entre ellos.
+
+Los sistemas de gestión de bases de datos (DBMS) son programas informáticos que
+gestionan, modifican, consultan y crean bases de datos. Entre sus ventajas importantes se
+incluyen la independencia de los datos con respecto a la aplicación respectiva, la garantía
+de integridad mediante reglas de validación; seguridad de la información mediante control
+de acceso; y optimización del rendimiento a través de índices/vistas.
+
+En el diseño de bases de datos intervienen una variedad de etapas, incluido el análisis de
+requisitos, el diseño conceptual, el diseño lógico y el diseño físico. Los modelos de entidad,
+atributos y relaciones se utilizan en el modelo de relación de entidad para representar datos
+en el diseño conceptual. El modelo relacional es la base del diseño lógico, ya que presenta
+datos a través de tablas, claves y restricciones.
+
+El lenguaje utilizado para consultar la base de datos es un conjunto de instrucciones que
+permiten a los usuarios seleccionar, insertar, actualizar y eliminar datos. La mayoría de los
+DBMS pueden ser compatibles con SQL, qué es el lenguaje de consulta más utilizado.
+
+En el ámbito de la programación de bases de datos, se emplean subrutinas, que son
+bloques de código encargados de llevar a cabo tareas específicas relacionadas con los
+datos. Estas subrutinas pueden manifestarse como procedimientos almacenados o
+funciones, diferenciándose en que los procedimientos almacenados pueden retornar varios
+valores o ninguno, mientras que las funciones solo pueden devolver un valor. La ejecución
+de estas subrutinas dentro del Sistema de Gestión de Bases de Datos (SGBD) contribuye a
+mejorar tanto la eficiencia como la seguridad de las bases de datos
+
+\section{Seguridad de bases de datos}
+La seguridad de la base de datos abarca un conjunto de herramientas, medidas y controles
+diseñados para proteger la integridad, confidencialidad y disponibilidad de los datos
+almacenados en una base de datos. Estas “copias” están implementadas para evitar el
+acceso no autorizado, modificaciones inapropiadas o pérdidas accidentales. En este
+contexto, se cubrirán aspectos técnicos y organizativos, incluidas actividades como
+autenticación, auditoría, cumplimiento normativo, gestión de riesgos, educación, etc.
+
+La importancia de la seguridad de las bases de datos reside en su función esencial para
+asegurar el funcionamiento adecuado de las organizaciones y la salvaguardia de la
+privacidad de las personas. Para preservar la integridad del sistema, resulta crucial hacer
+frente a amenazas como ataques internos, errores humanos, vulnerabilidades de software,
+ataques de inyección SQL, ataques de denegación de servicio y la presencia de malware.
+
+Ante las amenazas mencionadas, se sugiere adoptar las mejores prácticas de
+ciberseguridad, que incluyen medidas como salvaguardar la integridad física, aplicar
+controles administrativos y de acceso a la red, asegurar dispositivos y cuentas de usuarios
+finales, proteger el software de bases de datos, garantizar la seguridad de servidores de
+aplicaciones y web, así como implementar precauciones en las copias de respaldo y llevar a
+cabo auditorías periódicas.
+
+La seguridad de las bases de datos emerge como un tema de gran importancia y
+complejidad. En este contexto, se busca resguardar la información almacenada en dichas
+bases contra accesos no autorizados, alteraciones indebidas y pérdidas accidentales o
+maliciosas. La protección de la base de datos involucra diversos elementos críticos como:
+
+\begin{itemize}
+\item \textbf{Datos de la base de datos:} Esta información, que abarca desde nombres y
+contraseñas hasta números de tarjetas de crédito y debe mantenerse confidencial,
+íntegra y accesible únicamente para usuarios autorizados.
+\item \textbf{Sistema de gestión de bases de datos (DBMS):} Desempeña un papel fundamental
+al crear, administrar y manipular las bases de datos. Es esencial que el DBMS esté
+actualizado, configurado y protegido de manera adecuada para prevenir
+vulnerabilidades y ataques.
+\item \textbf{Aplicaciones asociadas:} Los programas que interactúan con la base de datos para
+realizar diversas operaciones deben validar y filtrar las entradas de los usuarios.
+Además, es crucial que utilicen consultas parametrizadas o procedimientos
+almacenados, y limiten los permisos y privilegios de los usuarios y las bases de
+datos.
+\item \textbf{Servidor de base de datos físico y/o virtual y hardware subyacente:} Estos
+dispositivos, ya sean físicos o virtuales, donde residen la base de datos y el DBMS,
+deben contar con protección física, sistemas de copia de seguridad y recuperación,
+así como medidas de seguridad de red, como firewalls, antivirus y cifrado.
+\item \textbf{Infraestructura informática y/o de red para acceder a la base de datos:} Los medios a
+través de los cuales usuarios y aplicaciones se comunican con la base de datos,
+como ordenadores, dispositivos móviles e internet, deben garantizar la seguridad y
+privacidad de las comunicaciones. Esto implica el uso de protocolos seguros,
+contraseñas robustas, certificados de seguridad, entre otras medidas.
+\end{itemize}
+
+La importancia de asegurar las bases de datos radica en la necesidad de prevenir o reducir
+al mínimo los riesgos y las consecuencias asociadas a los ciberataques. Estos eventos
+pueden resultar en daños irreparables tanto para los datos almacenados como para las
+organizaciones y los usuarios involucrados. Algunos de los ciberataques más comunes y
+peligrosos pueden ser:
+
+\begin{itemize}
+\item \textbf{La inyección SQL:} Implica la introducción de código SQL malicioso en las entradas
+de los usuarios para alterar o acceder a la información de la base de datos. Este tipo
+de ataque puede ocasionar la pérdida o el robo de datos sensibles, la modificación o
+eliminación de información crucial, la ejecución de comandos arbitrarios en el
+servidor, o la revelación de datos internos o confidenciales de una organización.
+\item \textbf{El robo de credenciales:} Se refiere a la obtención de contraseñas o nombres de
+usuario de usuarios o aplicaciones que acceden a la base de datos. El propósito de
+este ataque es suplantar identidades o llevar a cabo acciones no autorizadas, lo que
+puede resultar en acceso no autorizado a los datos, alteración o borrado de
+información, o la propagación de malware o virus.
+\item \textbf{El ransomware:} Implica cifrar los datos de la base de datos o bloquear su acceso,
+con el objetivo de exigir un rescate a cambio de su liberación. Este tipo de ataque
+puede conducir a la inaccesibilidad de los datos, interrupciones en el funcionamiento
+del negocio o el pago de grandes sumas de dinero
+\end{itemize}
+
+La seguridad de las bases de datos exige la implementación de un conjunto integral de
+medidas técnicas, organizativas y legales destinadas a resguardar los datos de posibles
+amenazas, tanto internas como externas, como hackers, empleados deshonestos, errores
+humanos, fallas de hardware o software, desastres naturales y violaciones normativas.
+Diversas prácticas, políticas y tecnologías pueden ser adoptadas para fortalecer la
+seguridad de las bases de datos, entre las que se encuentran:
+\begin{itemize}
+  \item Diseñar una arquitectura de base de datos segura que separe los datos sensibles de
+  los no sensibles, que minimice los puntos de acceso y que aplique el principio de
+  mínimo privilegio.
+  \item Implementar un sistema de gestión de bases de datos (DBMS) actualizado y
+  configurado adecuadamente, que ofrezca funciones integradas de seguridad, tales
+  como cifrado, control de acceso, registro de eventos y detección de anomalías.
+  \item Desarrollar una aplicación segura que utilice métodos de conexión seguros, que
+  evite la inyección de código malicioso, valide los datos de entrada y cifre la
+  información en tránsito y en reposo.
+  \item Llevar a cabo pruebas de seguridad periódicas que evalúen la vulnerabilidad de la
+  base de datos e identifiquen y corrijan posibles debilidades o brechas.
+  \item Impartir formación y concienciación a los usuarios y administradores de la base de
+  datos acerca de las mejores prácticas de seguridad, como la utilización de
+  contraseñas sólidas, el cambio regular de credenciales, el bloqueo de sesiones
+  inactivas y la notificación de cualquier incidente sospechoso
+\end{itemize}
+
+% Nueva página para el primer capítulo
+\cleardoublepage
+
+\chapter{Riesgos y consecuencias de la inyección SQL}
+\section{Introducción a SQL}
+
+\end{document}
