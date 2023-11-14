@@ -234,5 +234,91 @@ seguridad de las bases de datos, entre las que se encuentran:
 
 \chapter{Riesgos y consecuencias de la inyección SQL}
 \section{Introducción a SQL}
+SQL (Structured Query Language) se trata de un lenguaje de programación especializado
+diseñado para la gestión y manipulación de bases de datos relacionales. Su función
+principal radica en permitir que los usuarios y las aplicaciones realicen consultas, inserten,
+actualicen y modifiquen datos almacenados en una base de datos.
+Este lenguaje incorpora diversos comandos y cláusulas que posibilitan la interacción de los
+usuarios con los sistemas de gestión de bases de datos (DBMS), tales como MySQL,
+PostgreSQL, Oracle, Microsoft SQL Server, entre otros. Los comandos fundamentales de
+SQL abarcan desde la recuperación de datos mediante la cláusula SELECT, la inserción de
+datos mediante la cláusula INSERT, hasta la actualización y eliminación de datos mediante
+las cláusulas UPDATE y DELETE, respectivamente.
+
+Además de estos comandos básicos, SQL ofrece la capacidad de crear y modificar
+esquemas de bases de datos mediante comandos de definición de datos, como CREATE,
+ALTER y DROP. Estos permiten a los usuarios establecer la estructura de la base de datos
+y sus objetos, como tablas, vistas, índices y procedimientos almacenados.
+
+En términos generales, SQL provee a los usuarios de una herramienta poderosa y eficiente
+para la administración y manipulación efectiva de grandes volúmenes de datos. Esto lo
+posiciona como una herramienta esencial en el ámbito de la gestión de bases de datos y el
+desarrollo de software. Sin embargo, es crucial destacar que su uso indebido o incorrecto
+puede dar lugar a problemas de seguridad, como la inyección SQL, que puede
+comprometer la integridad y confidencialidad de los datos almacenados en la base de datos.
+
+\section{Inyección SQL}
+La inyección SQL es un tipo de ciberataque que se aprovecha de los errores existentes en
+aplicaciones web para meter código malicioso y atacar bases de datos de SQL. Al introducir
+el código van con el fin de quebrantar las medidas de seguridad y privacidad y así acceder a
+datos protegidos o de carácter sensible con el objetivo de eliminar información o incluso
+editar las bases de datos.
+Existen tres clases de ataques principales de inyección SQL. Estos son:
+\begin{itemize}
+\item \textbf{Ataque por error:} Son los más comunes. Se puede obtener información de la base
+de datos.
+\item \textbf{Ataque por unión:} Una página web muestra más resultados de los que debería,
+entre los que se incluye la amenaza.
+\item \textbf{Ataque ciego:} Es el ataque más complicado de realizar. Se hacen preguntas
+cerradas a la base de datos
+\end{itemize}
+
+\subsection{Riesgos y consecuencias que conlleva una inyección SQL}
+Los atacantes de inyección SQL plantean una variedad de amenazas de seguridad para la
+organización afectada, afectando así los usuarios como las entidades que sufren este tipo
+de agresiones. Una vez los ciberdelincuentes se aprovechan de una vulnerabilidad, pueden:
+\begin{itemize}
+\item \textbf{Robo de datos sensibles:} los agresores tienen la capacidad de adquirir información
+confidencial, como contraseñas, detalles de tarjetas de crédito, datos personales o
+información de clientes. Este tipo de datos obtenidos pueden ser utilizados con
+intenciones maliciosas, como llevar a cabo fraudes, robar identidades o realizar
+chantajes.
+\item \textbf{Modificación o eliminación de contenido de la base de datos:} los atacantes pueden
+manipular o suprimir información almacenada en la base de datos. Esta acción
+puede tener consecuencias perjudiciales para el funcionamiento de la aplicación
+web, generando pérdidas económicas o dañando la reputación de la organización.
+\item \textbf{Manipulación y/o ejecución de código:} los atacantes pueden manipular o suprimir
+información almacenada en la base de datos. Esta acción puede tener
+consecuencias perjudiciales para el funcionamiento de la aplicación web, generando
+pérdidas económicas o dañando la reputación de la organización.
+\item \textbf{Escalada de privilegios:} Los atacantes pueden obtener privilegios de administrador o
+de usuario en la base de datos o en el servidor. Esto les permite llevar a cabo
+acciones que normalmente estarían fuera de su alcance, como la creación,
+modificación o eliminación de usuarios, tablas o registros
+\end{itemize}
+
+\subsection{Como evitar ataques e inyección SQL}
+Con el fin de prevenir la inyección SQL, es esencial implementar diversas medidas de
+seguridad, tanto por parte de los desarrolladores como de los usuarios. Algunas de estas
+medidas incluyen:
+\begin{itemize}
+\item Validar y filtrar las entradas de los usuarios para evitar la introducción de caracteres
+o comandos no deseados.
+\item Emplear consultas parametrizadas o procedimientos almacenados, los cuales
+impiden que el código SQL se modifique al ejecutarse.
+\item Restringir los permisos y privilegios de los usuarios y bases de datos para limitar el
+acceso y las acciones posibles.
+\item Mantener actualizados los sistemas, aplicaciones y bases de datos para corregir
+posibles vulnerabilidades o fallos de seguridad.
+\item Utilizar contraseñas seguras y gestores de contraseñas para salvaguardar las
+credenciales de acceso y prevenir posibles robos o adivinanzas.
+\item Proporcionar información personal únicamente en sitios web de confianza que
+cuenten con el protocolo HTTPS y un certificado de seguridad válido.
+\end{itemize}
+
+% Nueva página para el primer capítulo
+\cleardoublepage
+
+\chapter{Tipos de ataques de inyección SQL y ejemplos de casos reales }
 
 \end{document}
