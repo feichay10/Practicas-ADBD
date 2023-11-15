@@ -13,6 +13,7 @@
 \usepackage{parskip}
 \usepackage{wasysym}
 \usepackage{tikzsymbols}
+\usepackage{fancyvrb}
 \usepackage[spanish]{babel}
 
 \newcommand{\subtitle}[1]{
@@ -316,9 +317,118 @@ credenciales de acceso y prevenir posibles robos o adivinanzas.
 cuenten con el protocolo HTTPS y un certificado de seguridad válido.
 \end{itemize}
 
-% Nueva página para el primer capítulo
+% Nueva página 
 \cleardoublepage
 
-\chapter{Tipos de ataques de inyección SQL y ejemplos de casos reales }
+\chapter{Tipos de ataques de inyección SQL y ejemplos de casos reales}
+
+% Nueva página 
+\cleardoublepage
+
+\chapter{Buenas prácticas en el diseño de bases de datos para prevenir la inyección SQL}
+\section{Introducción a las buenas prácticas}
+Con el objetivo de evitar la inyección SQL, se crearon unos estándares para poder aplicar unas 
+“técnicas” adecuadas para evitar estos problemas. Algunos de ellos son:
+
+\begin{enumerate}
+  \item Emplear parámetros en lugar de realizar consultas concatenadas. Estas últimas son conocidas
+  como una de las técnicas más frecuentes para la inserción de código malicioso. La utilización de
+  parámetros previene que el código malicioso sea inyectado en la consulta. Debido a que las consultas
+  concatenadas incluyen directamente variables que pueden tener un contenido malicioso a la hora de hacer la consulta.
+
+  \item Asegurarse de validar todas las entradas de usuario. Este parámetro es crucial para garantizar
+  que no se incluye código malicioso. La validación puede lograrse mediante diversas técnicas, incluyendo
+  la comprobación del formato, la longitud y el contenido de las entradas.
+  
+  \item Utiliza filtros de salida para proteger los datos sensibles de posibles exposiciones. Estos
+  filtros son eficaces para eliminar caracteres especiales que puedan ser aprovechados para inyectar
+  código malicioso.
+\end{enumerate}
+
+\section{Consultas concatenadas}
+Las consultas concatenadas como hemos dicho anteriormente, al permitir la inyección de código malicioso a
+través de la simple concatenación con las entradas de usuario, representan un riesgo evidente, como se 
+demuestra en este ejemplo:
+
+\begin{center}
+\begin{BVerbatim}
+SELECT * FROM users WHERE username = 'admin' AND password = '1234';
+\end{BVerbatim}
+\end{center}
+
+Un atacante o un “craker” puede llegar a aprovecharlo para inyectar código malicioso y eliminar la tabla
+de usuarios de la base de datos.
+Para evitar la inyección SQL, resulta de crucial importancia sustituir las consultas concatenadas con el
+uso de parámetros. De esta manera, los valores se especifican en la consulta, dificultando la inyección
+de código malicioso. Por ejemplo:
+
+\begin{center}
+\begin{BVerbatim}
+SELECT * FROM users WHERE username = :username AND password = :password;
+\end{BVerbatim}
+\end{center}
+
+Aquí, el desarrollador especifica los valores de username y password como parámetros.
+\begin{itemize}
+  \item La validación de todas las entradas de usuario es un paso esencial para asegurarse de las buenas
+  prácticas. También es de debida importancia asegurarse de que las entradas cumplan con formatos específicos,
+  limitar la longitud y eliminar caracteres especiales es clave para prevenir la inyección de código malicioso.
+  
+  \item Los filtros de salida son efectivos para eliminar caracteres especiales, como punto y coma (;), numeral (\#),
+  comilla simple ('), comilla doble ("), menor que (<) y mayor que (>), reduciendo el riesgo de inyección SQL.
+\end{itemize}
+
+% Nueva página 
+\cleardoublepage
+
+\section{Otras prácticas recomendadas}
+Además de las buenas prácticas que se mencionaron en la introducción, existen otras medidas que se pueden tomar en
+el diseño de bases de datos para prevenir la inyección SQL y que están dentro de las buenas prácticas para poder 
+evitar exploits o funcionamientos inadecuados.
+
+Estas medidas son clasificables como las siguientes:
+\begin{enumerate}
+  \item \textbf{Utilizar tablas separadas para datos sensibles.} Los datos sensibles, como las contraseñas, las tarjetas
+  de crédito y los números de seguridad social, deben almacenarse en tablas separadas. Esto dificulta que un atacante 
+  acceda a estos datos si logra inyectar código malicioso en la base de datos.
+
+  Los datos sensibles, como las contraseñas, las tarjetas de crédito y los números de seguridad social, deben almacenarse
+  en tablas separadas. Esto dificulta que un atacante acceda a estos datos si logra inyectar código malicioso en la base
+  de datos. Por ejemplo, una aplicación web que almacena datos de usuarios podría tener una tabla separada para almacenar
+  contraseñas. Esta tabla solo debería permitir el acceso a usuarios autorizados, como administradores.
+  
+  \item \textbf{Utilizar funciones hash para almacenar contraseñas.} Las contraseñas no deben almacenarse en texto plano en
+  la base de datos. En su lugar, deben almacenarse en forma de hash. Esto hace que sea más difícil para un atacante descifrar
+  las contraseñas si logra robarlas. Esto se debe a que las tablas hashes están encriptadas por su función hash.
+
+  Las contraseñas no deben almacenarse en texto plano en la base de datos. En su lugar, deben almacenarse en forma de hash.
+  Esto hace que sea más difícil para un atacante descifrar las contraseñas si logra robarlas.
+  
+  Las funciones hash convierten una contraseña en un valor único que es difícil de descifrar. Cuando un usuario inicia sesión,
+  la contraseña ingresada se compara con el hash almacenado en la base de datos. Si los hashes coinciden, el usuario se autentica.
+  
+  \item \textbf{Utilizar procedimientos almacenados.} Los procedimientos almacenados son funciones que se ejecutan en el servidor
+  de base de datos. Estos procedimientos pueden utilizarse para validar las entradas de usuario y ejecutar consultas SQL de forma segura.
+  
+  Los procedimientos almacenados pueden ayudar a prevenir la inyección SQL de las siguientes maneras:
+  \begin{itemize}
+    \item \textbf{Validación de entradas:} Los procedimientos almacenados pueden utilizarse para validar las entradas de usuario antes de
+    ejecutar una consulta SQL. Esto ayuda a garantizar que las entradas no contengan código malicioso.
+    
+    \item \textbf{Consultas seguras:} Los procedimientos almacenados pueden utilizarse para ejecutar consultas SQL de forma segura. Esto
+    ayuda a evitar que un atacante utilice una consulta SQL para inyectar código malicioso en la base de datos.
+  \end{itemize}
+
+  \item \textbf{Utilizar cifrado para proteger los datos.} Los datos sensibles pueden cifrarse para protegerlos de la exposición. Esto puede
+  hacerse en el servidor de base de datos o en el cliente.
+
+  Los datos sensibles pueden cifrarse para protegerlos de la exposición. Esto puede hacerse en el servidor de base de datos o en el cliente.
+  El cifrado en el servidor de base de datos se realiza antes de que los datos se almacenen en la base de datos. El cifrado en el cliente se
+  realiza antes de que los datos se envíen al servidor de base de datos. El cifrado puede ayudar a proteger los datos sensibles de los ataques
+  de inyección SQL. Si un atacante logra inyectar código malicioso en la base de datos, los datos cifrados estarán protegidos.
+\end{enumerate}
+
+\chapter{Marco legal y cumplimiento normativo}
+\section{Introducción al marco legal}
 
 \end{document}

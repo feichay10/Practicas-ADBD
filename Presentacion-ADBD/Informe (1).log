@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.9)  15 NOV 2023 23:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.9)  15 NOV 2023 22:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -567,22 +567,14 @@ File: tikzlibrarytrees.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \l__tikzsymbols_Summertree_nr_arguments_int=\count383
 \l__tikzsymbols_Autumntree_nr_arguments_int=\count384
 \l__tikzsymbols_Wintertree_nr_arguments_int=\count385
-) (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
-Package: fancyvrb 2023/01/19 4.5a verbatim text (tvz,hv)
-\FV@CodeLineNo=\count386
-\FV@InFile=\read3
-\FV@TabBox=\box69
-\c@FancyVerbLine=\count387
-\FV@StepNumber=\count388
-\FV@OutFile=\write4
 ) (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2023/10/25 v3.96 The Babel package
-\babel@savecnt=\count389
+\babel@savecnt=\count386
 \U@D=\dimen297
 \l@unhyphenated=\language79
  (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
-\bbl@readstream=\read4
-\bbl@dirlevel=\count390
+\bbl@readstream=\read3
+\bbl@dirlevel=\count387
 
 *************************************
 * Local config file bblopts.cfg used
@@ -592,7 +584,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of 
 ) (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks36
-\es@quotdepth=\count391
+\es@quotdepth=\count388
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
@@ -606,36 +598,36 @@ LaTeX Info: Redefining \% on input line 12.
 )
 \openout1 = `Informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
  (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count392
+\scratchcounter=\count389
 \scratchdimen=\dimen298
-\scratchbox=\box70
-\nofMPsegments=\count393
-\nofMParguments=\count394
+\scratchbox=\box69
+\nofMPsegments=\count390
+\nofMParguments=\count391
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count395
+\MPscratchCnt=\count392
 \MPscratchDim=\dimen299
-\MPnumerator=\count396
-\makeMPintoPDFobject=\count397
+\MPnumerator=\count393
+\makeMPintoPDFobject=\count394
 \everyMPtoPDFconversion=\toks38
 ) (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -688,20 +680,20 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 60.
 (Informe.out) (Informe.out)
-\@outlinefile=\write5
-\openout5 = `Informe.out'.
+\@outlinefile=\write4
+\openout4 = `Informe.out'.
 
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
+LaTeX Info: Redefining \. on input line 60.
+LaTeX Info: Redefining \% on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 69.
+(Font)              <12> on input line 68.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 69.
+(Font)              <8> on input line 68.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 69.
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 69.
+(Font)              <6> on input line 68.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 68.
  (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 ) [1
@@ -712,14 +704,14 @@ LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 3.
 )
-\tf@toc=\write6
-\openout6 = `Informe.toc'.
+\tf@toc=\write5
+\openout5 = `Informe.toc'.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.75 \cleardoublepage
+l.74 \cleardoublepage
                       [1] [2
 
 ] [3] [4] [5
@@ -728,9 +720,7 @@ l.75 \cleardoublepage
 
 ] [8
 
-] [9
-
-] [10] (Informe.aux
+] (Informe.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -739,20 +729,20 @@ LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
 Package rerunfilecheck Info: File `Informe.out' has not changed.
-(rerunfilecheck)             Checksum: 447372063466899E653CA836AD9D97BD;3812.
+(rerunfilecheck)             Checksum: 92EDAC44B5A293820166FA88B68FAA54;3170.
  ) 
 Here is how much of TeX's memory you used:
- 26138 strings out of 474592
- 505530 string characters out of 5745799
- 1935533 words of memory out of 5000000
- 47855 multiletter control sequences out of 15000+600000
+ 25720 strings out of 474592
+ 498911 string characters out of 5745799
+ 1936533 words of memory out of 5000000
+ 47450 multiletter control sequences out of 15000+600000
  564284 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,7n,117p,1349b,534s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,7n,117p,1349b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Informe.pdf (11 pages, 141999 bytes).
+Output written on Informe.pdf (9 pages, 131896 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 147 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
