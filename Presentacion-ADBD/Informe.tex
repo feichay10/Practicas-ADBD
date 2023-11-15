@@ -382,11 +382,8 @@ Aquí, el desarrollador especifica los valores de username y password como pará
 \cleardoublepage
 
 \section{Otras prácticas recomendadas}
-Además de las buenas prácticas que se mencionaron en la introducción, existen otras medidas que se pueden tomar en
-el diseño de bases de datos para prevenir la inyección SQL y que están dentro de las buenas prácticas para poder 
-evitar exploits o funcionamientos inadecuados.
-
-Estas medidas son clasificables como las siguientes:
+Existen otras medidas que se pueden tomar en el diseño de bases de datos para prevenir la inyección SQL y que están dentro de las buenas prácticas para poder 
+evitar exploits o funcionamientos inadecuados. Estas medidas son clasificables como las siguientes:
 \begin{enumerate}
   \item \textbf{Utilizar tablas separadas para datos sensibles.} Los datos sensibles, como las contraseñas, las tarjetas
   de crédito y los números de seguridad social, deben almacenarse en tablas separadas. Esto dificulta que un atacante 
@@ -394,8 +391,7 @@ Estas medidas son clasificables como las siguientes:
 
   Los datos sensibles, como las contraseñas, las tarjetas de crédito y los números de seguridad social, deben almacenarse
   en tablas separadas. Esto dificulta que un atacante acceda a estos datos si logra inyectar código malicioso en la base
-  de datos. Por ejemplo, una aplicación web que almacena datos de usuarios podría tener una tabla separada para almacenar
-  contraseñas. Esta tabla solo debería permitir el acceso a usuarios autorizados, como administradores.
+  de datos.
   
   \item \textbf{Utilizar funciones hash para almacenar contraseñas.} Las contraseñas no deben almacenarse en texto plano en
   la base de datos. En su lugar, deben almacenarse en forma de hash. Esto hace que sea más difícil para un atacante descifrar
@@ -430,5 +426,63 @@ Estas medidas son clasificables como las siguientes:
 
 \chapter{Marco legal y cumplimiento normativo}
 \section{Introducción al marco legal}
+La inyección SQL como hemos visto hasta ahora, es una gran vulnerabilidad de seguridad en organizaciones o ambientes de desarrollo de software. 
+Los “crakers” o los atacantes pueden llegar a aprovecharse de estas vulnerabilidades, llegando a robar datos datos o información crítica. Esto
+nos da paso a nuestro siguiente punto el cual es la importancia de comprender y cumplir con el marco legal y las regulaciones relacionadas con
+la inyección SQL.
+
+En el contexto Español, la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD),
+establece las bases legales para abordar la inyección SQL. Dicha ley establece las responsabilidades que deben de manejar las entidades que influyen
+o manejan datos personales, para que así estas contengan las medidas de seguridad correspondientes para proteger la información.
+
+Además el artículo 32 de la LOPDGDD registra que aquellos que son responsables del tratamiento de datos deben adoptar medidas necesarias para
+garantizar un nivel de seguridad adecuado, incluyendo:
+
+\begin{itemize}
+  \item La aplicación de medidas técnicas para proteger los datos personales contra el acceso no autorizado, la alteración, la divulgación,
+  la destrucción o la pérdida accidental, ilícita o maliciosa.
+
+  \item La implementación de medidas organizativas adecuadas para asegurar que solo personas autorizadas tengan acceso a los datos personales.
+
+  \item La realización de copias de seguridad de los datos personales como precaución adicional.
+\end{itemize}
+
+\section{Cumplimiento normativo}
+La inyección SQL es una vulnerabilidad de seguridad grave que puede dar lugar a consecuencias penales graves. En España, la Ley Orgánica 3/2018,
+de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), establece las siguientes consecuencias penales
+para la inyección SQL:
+\begin{itemize}
+  \item Multa si la infracción se comete por imprudencia grave o negligencia grave.
+  \item Prisión de uno a tres años.
+\end{itemize}
+
+Además, la inyección SQL también puede dar lugar a consecuencias penales en virtud de otras leyes, como la Ley Orgánica 10/1995, de 23 de noviembre,
+del Código Penal. Por ejemplo, la inyección SQL puede utilizarse para cometer los siguientes delitos:
+\begin{itemize}
+  \item Robo de datos personales (artículo 197.1 del Código Penal).
+  \item Daños informáticos (artículo 264 del Código Penal).
+  \item Amenazas (artículo 169 del Código Penal).
+  \item Coacción (artículo 172 del Código Penal).
+\end{itemize}
+
+% Nueva página 
+\cleardoublepage
+
+Por lo tanto, es importante que las organizaciones que manejan datos personales tomen medidas para prevenir la inyección SQL. Estas medidas incluyen:
+\begin{itemize}
+  \item Implementar controles de seguridad adecuados, como la validación de entrada, el uso de contraseñas seguras y la formación del personal.
+  \item Tener un plan de respuesta a incidentes en caso de que se produzca una violación de datos.
+\end{itemize}
+
+El Real Decreto 43/2021, de 26 de febrero, por el que se modifica el Reglamento de desarrollo de la Ley Orgánica 3/2018, de 5 de diciembre, de Protección
+de Datos Personales y garantía de los derechos digitales, establece nuevas obligaciones para las organizaciones que manejan datos personales. Estas obligaciones incluyen:
+\begin{itemize}
+  \item Implementar medidas de seguridad técnicas y organizativas adecuadas para garantizar la seguridad de los datos personales. Estas medidas deben ser proporcionales
+  al riesgo al que están expuestos los datos.
+  \item Realizar una evaluación de riesgos para identificar los riesgos a los que están expuestos los datos personales.
+  \item Seleccionar y aplicar medidas de seguridad adecuadas para mitigar los riesgos identificados.
+  \item Documentar las medidas de seguridad implementadas.
+\end{itemize}
+
 
 \end{document}

@@ -14,3 +14,4 @@
 \contentsline {section}{\numberline {4.3}Otras prácticas recomendadas}{9}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Marco legal y cumplimiento normativo}{10}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Introducción al marco legal}{10}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Cumplimiento normativo}{10}{section.5.2}%
