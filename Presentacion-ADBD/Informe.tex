@@ -74,31 +74,6 @@
 % Nueva página para el primer capítulo
 \cleardoublepage
 
-% % Sangría
-% \setlength{\parindent}{1em}Texto
-
-% % Quitar sangría
-% \noindent
-
-% % Punto
-% \CIRCLE \ \ \textbf{Texto} \emph{algo}
-% \begin{itemize}
-%   \item \textbf{Negrita:} Texto
-%   \item \textbf{Negrita:} Texto
-% \end{itemize}
-
-% \begin{verbatim}
-% ... Codigo
-% \end{verbatim}
-
-% Poner una imagen
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[scale=0.55]{img/}
-%   \caption{Exportación de la base de datos en formato sql}
-%   \label{fig:exportación de la base de datos en formato sql}
-% \end{figure}
-
 % Secciones del informe
 % Capitulo 1
 \chapter{Introducción a la seguridad de bases de datos}
@@ -321,6 +296,175 @@ cuenten con el protocolo HTTPS y un certificado de seguridad válido.
 \cleardoublepage
 
 \chapter{Tipos de ataques de inyección SQL y ejemplos de casos reales}
+Las vulnerabilidades de inyección SQL surgen de la falta de validación de la entrada de datos
+proporcionada por los usuarios en una página web. Esta brecha de seguridad permite a un usuario
+concatenar comandos en lenguaje SQL en una consulta de la aplicación, lo que facilita la ejecución
+de código en la página. Existen tres tipos principales de inyección SQL:
+\begin{enumerate}
+  \item \textbf{Inyección SQL In-Band:} Este tipo de ataque permite al usuario obtener información de
+  la base de datos de la aplicación web utilizando el mismo canal de comunicación que se utiliza para
+  explotar la vulnerabilidad. Es decir, los resultados de la consulta maliciosa se muestran en la pantalla
+  del sitio web si se ejecuta el código desde algún campo de entrada. Este tipo de inyección es uno de los
+  más comunes.
+
+  \item \textbf{Inyección SQL basado en error:} Este tipo de inyección permite extraer información de la base
+  de datos al inducir errores a propósito a través de la interacción del cliente. En ocasiones, estos errores
+  revelan información valiosa sobre la estructura y contenido de la base de datos.
+
+  \item \textbf{Inyección SQL a ciegas:} Esta variante de ataque permite obtener información de la base de datos
+  sin que los resultados de la consulta se muestren en la pantalla del sitio web. En lugar de ello, se infieren los
+  resultados a partir de pruebas de verdadero o falso que se pueden ejecutar en los campos de consulta vulnerables.
+\end{enumerate}
+
+\section{Identificación de vulnerabilidades}
+La elección del tipo de inyección SQL adecuado para una aplicación web en particular depende de las vulnerabilidades
+específicas que se encuentren. Para facilitar este proceso, se puede recurrir a herramientas automatizadas, siendo
+SQLmap una de las más destacadas.
+
+SQLmap, un programa de código abierto incluido en Kali Linux, es una herramienta que realiza una amplia variedad de
+pruebas para detectar fallos de inyección SQL en aplicaciones web. Además, proporciona una gama de “payloads“ que pueden
+ejecutarse para explotar las consultas vulnerables. Esto simplifica considerablemente el trabajo del pentester, quien
+solo necesita enfocarse en analizar la aplicación y familiarizarse con el uso de esta herramienta.
+
+El uso de SQLmap permite llevar a cabo ataques de inyección SQL sin requerir un profundo conocimiento de SQL, siendo
+especialmente útil para pruebas de penetración de nivel fácil o intermedio. Sin embargo, es valioso adquirir conocimientos
+más avanzados en este lenguaje para comprender y prevenir ataques de mayor complejidad.
+
+\section{Métodos manuales simples}
+Si se está realizando una prueba de penetración de forma manual y se desea verificar la posibilidad de realizar inyecciones SQL,
+existen métodos sencillos para llevarlo a cabo.
+
+\begin{itemize}
+  \item El primer test consiste en enviar una comilla simple como entrada: 
+  \begin{verbatim}
+    '
+  \end{verbatim} 
+  Si la entrada es vulnerable, la aplicación generará un error.
+
+  % Nueva página 
+  \cleardoublepage
+
+  \item El siguiente test implica enviar el siguiente valor:
+
+  \begin{center}
+    \begin{BVerbatim}
+      ‘1' and '1'='1’
+    \end{BVerbatim}
+  \end{center}
+
+Si la entrada se ejecuta sin problemas, indica que se está inyectando código SQL, ya que la condición '1'='1' siempre es verdadera.
+
+Para verificar, se puede enviar el comando:
+\begin{center}
+  \begin{BVerbatim}
+    ‘1' and '1'='0'
+  \end{BVerbatim}
+\end{center}
+
+Si la entrada NO se ejecuta, se confirma que es posible inyectar código SQL en la entrada, ya que la condición '1'='0' es falsa y, por
+lo tanto, el comando no se ejecutará.
+\end{itemize}
+
+\section{Ejemplos de casos reales}
+\begin{enumerate}
+  \item \textbf{Incidente en Heartland Payment Systems (2008)} \\
+  En el invierno de 2008, el mundo financiero fue sacudido por un acto delictivo de proporciones digitales. Albert González, un conocido
+  pirata informático, lideró un audaz ataque contra Heartland Payment Systems, una empresa encargada de procesar transacciones con tarjetas
+  de crédito y débito. A lo largo de varias semanas, el grupo de González utilizó una técnica conocida como inyección SQL para infiltrarse
+  en las defensas de Heartland.
+
+  Cada día que pasaba, Heartland se convertía inadvertidamente en un tesoro para González. El ataque resultó en una asombrosa violación que
+  afectó a 130 millones de números de tarjetas de crédito y débito. Desde individuos hasta pequeñas empresas, nadie quedó inmune a la magnitud
+  de esta brecha, que se extendió por todo Estados Unidos.
+
+  El daño financiero fue abrumador. Heartland enfrentó pérdidas de más de 145 millones de dólares en indemnizaciones por pagos fraudulentos.
+  Como respuesta, Heartland reforzó sus protocolos de ciberseguridad, implementando la encriptación de extremo a extremo para proteger los
+  datos de las tarjetas, lo que estableció un nuevo estándar en la industria.
+
+  Albert González fue condenado a 20 años de prisión en 2010, marcando el fin de su reinado de terror digital. La brecha en Heartland sirvió
+  como un recordatorio contundente de la escala, alcance y potencial devastador de los ataques de inyección SQL.
+
+  \item \textbf{Incidente en Sony Pictures (2011)} \\
+  En 2011, un ciberataque envió ondas de choque a través de Hollywood, con Sony Pictures como víctima. El grupo de hackers conocido como LulzSec
+  explotó una vulnerabilidad de inyección SQL para infiltrarse en la base de datos de Sony Pictures, dando inicio a una pesadilla digital de varias semanas.
+
+  El impacto del ataque se extendió tan ampliamente como la influencia global de Sony Pictures. Información confidencial se filtró en la red, 
+  incluyendo documentos, correos electrónicos e incluso películas no estrenadas. Fue un ataque directo a la industria del entretenimiento, afectando a 
+  individuos, empresas y gobiernos asociados con Sony Pictures.
+
+  Las consecuencias fueron significativas. Sony Pictures reportó una pérdida de 15 millones de dólares en su informe fiscal anual, directamente atribuida 
+  al ataque. El daño a la reputación de la empresa fue aún más notable.
+
+  Después de que el polvo se asentó, Sony Pictures fortaleció sus medidas de ciberseguridad y estableció estrictas prácticas de seguridad para prevenir 
+  futuros desastres. A diferencia de LulzSec, varios de sus miembros enfrentaron consecuencias legales en los años siguientes, subrayando las serias 
+  repercusiones legales de la ciberdelincuencia.
+
+  \item \textbf{Brecha en Yahoo! (2012)} \\
+  En el verano de 2012, Yahoo!, el gigante digital, sufrió un golpe devastador. El grupo de piratas informáticos conocido como D33Ds Company aprovechó
+  una vulnerabilidad de inyección SQL en la base de datos de Yahoo!, obteniendo acceso a una gran cantidad de datos personales.
+
+  Este ataque internacional afectó a aproximadamente 450.000 usuarios de Yahoo! en todo el mundo. Las víctimas abarcaron desde usuarios comunes hasta
+  pequeñas y medianas empresas que confiaban en Yahoo! para su comunicación digital diaria. Los datos comprometidos incluyeron nombres de usuario, 
+  direcciones de correo electrónico y contraseñas encriptadas de manera insuficiente.
+
+  Las secuelas fueron un testimonio del potencial destructivo de los ataques de inyección SQL. La reputación de Yahoo! se vio afectada y la compañía
+  tuvo que enfrentar batallas legales y acuerdos durante años después de la brecha. A pesar de los considerables daños, Yahoo! utilizó esta experiencia
+  como catalizador para el cambio. Reforzaron sus medidas de seguridad, introduciendo protecciones más robustas y promoviendo mejores prácticas de contraseñas entre sus usuarios.
+
+  A pesar de que la Compañía D33D no fue identificada, el ataque marcó su punto más alto y también su declive. La comunidad internacional y las fuerzas
+  del orden iniciaron una búsqueda que finalmente llevó a la disolución del grupo.
+
+  \item \textbf{Vulnerabilidad en Drupal (2014)} \\
+  En octubre de 2014, se detectó una alarma silenciosa en las oficinas de Drupal, un sistema de gestión de contenidos muy popular. Se encontró una
+  vulnerabilidad de inyección SQL en su sistema, que podría potencialmente afectar a millones de sitios web en todo el mundo.
+
+  La diversidad de usuarios de Drupal, desde individuos y pequeñas empresas hasta gobiernos y grandes corporaciones, estaban todos dentro del alcance
+  de esta ciberamenaza internacional. La naturaleza de los datos en peligro era tan variada como los usuarios de Drupal, desde detalles personales hasta
+  datos corporativos sensibles.
+
+  Aunque el daño financiero fue difícil de cuantificar debido a la naturaleza generalizada del ataque, las ondas de choque se sintieron en todo el mundo
+  digital. A las siete horas de descubrir la vulnerabilidad, Drupal publicó una actualización de software para corregir el agujero de seguridad. Sin embargo,
+  también anunciaron que cualquier sitio no parcheado dentro de esa ventana debía considerarse comprometido, lo que provocó una loca revuelta entre sus usuarios.
+    
+  A pesar de la ausencia de un autor conocido o de un número preciso de afectados, el incidente de Drupal subrayó el potencial alcance de los ataques de inyección SQL.
+  El anonimato de los atacantes fue un escalofriante recordatorio de la naturaleza escurridiza de la ciberdelincuencia. Pero ante la adversidad, la comunidad digital 
+  se unió, actualizando sus sistemas y compartiendo medidas defensivas para capear juntos el temporal.
+
+  % Nueva página 
+  \cleardoublepage
+
+  \item \textbf{Ataque a TalkTalk (2015)} \\
+  En otoño de 2015, TalkTalk, un gigante británico de las telecomunicaciones, se encontró en el punto de mira de un despiadado ciberataque. Un grupo de jóvenes piratas
+  informáticos, liderados por un adolescente de 17 años, explotó una vulnerabilidad de inyección SQL para burlar las defensas digitales de TalkTalk.
+
+  El ataque se produjo a escala nacional, en todo el Reino Unido. Puso al descubierto los datos personales y financieros de 157.000 clientes de TalkTalk. Números de 
+  tarjetas de crédito, datos bancarios, nombres, direcciones, fechas de nacimiento, números de teléfono y direcciones de correo electrónico estaban en juego en este 
+  robo masivo de datos.
+
+  Las consecuencias financieras fueron monumentales. TalkTalk declaró unas pérdidas antes de impuestos de 60 millones de libras al año siguiente, consecuencia directa
+  del ataque. También se enfrentaron a una multa récord de 400.000 libras de la Oficina del Comisionado de Información por fallos de seguridad.
+
+  A raíz de ello, TalkTalk reforzó sus medidas de seguridad, tranquilizó a sus clientes y trabajó incansablemente para restaurar su empañada reputación. Los jóvenes
+  hackers fueron detenidos y se enfrentaron a cargos penales, un severo recordatorio de las graves consecuencias legales de la ciberdelincuencia.
+
+  \item \textbf{Base de Datos de Salud de Estonia (2020)} \\
+  En 2020, la pacífica nación del norte de Europa, Estonia, se enfrentó a un ciberataque de una magnitud sin precedentes. A pesar de su reputación de gobierno digital avanzado,
+  Estonia no fue inmune a los ataques de inyección SQL.
+
+  El objetivo fue la Base de Datos Central de Salud de Estonia, un tesoro de registros médicos sensibles. Mediante un ataque de inyección SQL, los ciberdelincuentes comprometieron
+  potencialmente los historiales médicos de casi todos los ciudadanos de Estonia, una brecha que abarcó toda la nación.
+  
+  El daño financiero sigue sin revelarse, pero el impacto fue profundo, ya que expuso datos sanitarios privados y sacudió la confianza pública. Este ataque supuso una grave intrusión
+  en la privacidad, que afectó tanto a particulares como a entidades gubernamentales.
+  
+  En respuesta, Estonia emprendió inmediatamente amplias contramedidas, mejorando sus protocolos de ciberseguridad e implantando sistemas avanzados de detección de amenazas para evitar
+  ataques similares en el futuro.
+  
+  Aunque la identidad de los autores sigue siendo desconocida, el incidente envió un duro recordatorio a todo el mundo sobre la importancia de unas medidas de ciberseguridad sólidas para
+  salvaguardar la información sensible. La respuesta, la capacidad de recuperación y el compromiso de Estonia con la seguridad digital sirvieron de faro para otras naciones que navegan por
+  los procelosos mares de las ciberamenazas.
+  
+\end{enumerate}
 
 % Nueva página 
 \cleardoublepage
@@ -375,7 +519,7 @@ Aquí, el desarrollador especifica los valores de username y password como pará
   limitar la longitud y eliminar caracteres especiales es clave para prevenir la inyección de código malicioso.
   
   \item Los filtros de salida son efectivos para eliminar caracteres especiales, como punto y coma (;), numeral (\#),
-  comilla simple ('), comilla doble ("), menor que (<) y mayor que (>), reduciendo el riesgo de inyección SQL.
+  comilla simple ('), comilla doble (“), menor que (<) y mayor que (>), reduciendo el riesgo de inyección SQL.
 \end{itemize}
 
 % Nueva página 
@@ -424,28 +568,42 @@ evitar exploits o funcionamientos inadecuados. Estas medidas son clasificables c
   de inyección SQL. Si un atacante logra inyectar código malicioso en la base de datos, los datos cifrados estarán protegidos.
 \end{enumerate}
 
+% Capitulo 5
 \chapter{Marco legal y cumplimiento normativo}
 \section{Introducción al marco legal}
 La inyección SQL como hemos visto hasta ahora, es una gran vulnerabilidad de seguridad en organizaciones o ambientes de desarrollo de software. 
-Los “crakers” o los atacantes pueden llegar a aprovecharse de estas vulnerabilidades, llegando a robar datos datos o información crítica. Esto
-nos da paso a nuestro siguiente punto el cual es la importancia de comprender y cumplir con el marco legal y las regulaciones relacionadas con
-la inyección SQL.
+Tenemos que señalar los riesgos provenientes de los ciberataques que han hecho que  la ciberseguridad sea un campo en el que tanto los estados 
+cómo las empresas tienen que estar cada vez más pendiente ante el manejo de una gran cantidad de datos en red, mediante ataques informático una
+importante cantidad de información confidencial, datos personal son sustraídos a diario. Suponiendo así un gran desafío y un riesgo global.
 
-En el contexto Español, la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD),
-establece las bases legales para abordar la inyección SQL. Dicha ley establece las responsabilidades que deben de manejar las entidades que influyen
-o manejan datos personales, para que así estas contengan las medidas de seguridad correspondientes para proteger la información.
+En un mundo cada vez más interconectado y dependiente de la tecnología, el riesgo a sufrir un ciberataque que destruya o use de manera indebida
+la información de carácter personal aumenta exponencialmente. Por ello es de especial relevancia comprender como la ciberseguridad y el cumplimiento
+normativo son de gran importancia para asegurar la protección de datos de carácter personal.
 
-Además el artículo 32 de la LOPDGDD registra que aquellos que son responsables del tratamiento de datos deben adoptar medidas necesarias para
-garantizar un nivel de seguridad adecuado, incluyendo:
+La protección de las personas físicas en relación con el tratamiento de datos es un derecho protegido por el artículo 18.4 de la constitución 
+española de esta manera nuestra constitución fue pionera en el reconocimiento de la protección de datos de carácter personal cuando dispuso que: 
+“la ley limitará el uso de la informática para garantizar el honor y la intimidad personal y familiar de los ciudadanos y el pleno ejercicio de sus derechos”
 
-\begin{itemize}
-  \item La aplicación de medidas técnicas para proteger los datos personales contra el acceso no autorizado, la alteración, la divulgación,
-  la destrucción o la pérdida accidental, ilícita o maliciosa.
+En el contexto Español, la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), 
+con la progresión de esta nueva Ley Orgánica se pretende adaptar el ordenamiento jurídico nacional al reglamento de la Unión Europea 2016/679 del 
+Parlamento Europeo y del consejo relativo a la protección de las personas físicas y lo que respecta al tratamiento de sus datos personales y a la 
+libre circulación de estos datos. Se establecen las bases legales para abordar la inyección SQL. Dicha ley establece las responsabilidades que deben
+de manejar las entidades que influyen o manejan datos personales, para que así estas contengan las medidas de seguridad correspondientes para proteger la información.
 
-  \item La implementación de medidas organizativas adecuadas para asegurar que solo personas autorizadas tengan acceso a los datos personales.
+Además el artículo 31 de la LOPDGDD registra que aquellos que son responsables del tratamiento de datos deben adoptar medidas necesarias para garantizar
+un nivel de seguridad adecuado, incluyendo:
 
-  \item La realización de copias de seguridad de los datos personales como precaución adicional.
-\end{itemize}
+\emph{1. Los responsables y encargados del tratamiento o, en su caso, sus representantes deberán mantener el registro de actividades de tratamiento al que se refiere el 
+artículo 30 del Reglamento (UE) 2016/679, salvo que sea de aplicación la excepción prevista en su apartado 5.}
+\\ \\
+\emph{2. Los sujetos enumerados en el artículo 77.1 de esta ley orgánica harán público un inventario de sus actividades de tratamiento accesible por medios electrónicos
+en el que constará la información establecida en el artículo 30 del Reglamento (UE) 2016/679 y su base legal.}
+
+No debemos olvidar que el marco jurídico actual se completa con el Real Decreto 1720/2007 por el que se aprueba el desarrollo de la ley LOPDGDD y el Real Decreto 389/2021 
+por el que se aprueba el estatuto de la agencia española de protección de datos.
+
+% Nueva página 
+\cleardoublepage
 
 \section{Cumplimiento normativo}
 La inyección SQL es una vulnerabilidad de seguridad grave que puede dar lugar a consecuencias penales graves. En España, la Ley Orgánica 3/2018,
@@ -465,9 +623,6 @@ del Código Penal. Por ejemplo, la inyección SQL puede utilizarse para cometer 
   \item Coacción (artículo 172 del Código Penal).
 \end{itemize}
 
-% Nueva página 
-\cleardoublepage
-
 Por lo tanto, es importante que las organizaciones que manejan datos personales tomen medidas para prevenir la inyección SQL. Estas medidas incluyen:
 \begin{itemize}
   \item Implementar controles de seguridad adecuados, como la validación de entrada, el uso de contraseñas seguras y la formación del personal.
@@ -475,14 +630,140 @@ Por lo tanto, es importante que las organizaciones que manejan datos personales 
 \end{itemize}
 
 El Real Decreto 43/2021, de 26 de febrero, por el que se modifica el Reglamento de desarrollo de la Ley Orgánica 3/2018, de 5 de diciembre, de Protección
-de Datos Personales y garantía de los derechos digitales, establece nuevas obligaciones para las organizaciones que manejan datos personales. Estas obligaciones incluyen:
+de Datos Personales y garantía de los derechos digitales:
+
+\begin{center}
+  \textbf{“Artículo 28. Obligaciones generales del responsable y encargado del tratamiento.”}
+\end{center}
+\emph{Los responsables y encargados, teniendo en cuenta los elementos enumerados en los artículos 24 y 25 del Reglamento (UE) 2016/679, determinarán las
+medidas técnicas y organizativas apropiadas que deben aplicar a fin de garantizar y acreditar que el tratamiento es conforme con el citado reglamento.}
+
+Establece nuevas obligaciones para las organizaciones que manejan datos personales. Estas obligaciones incluyen:
 \begin{itemize}
-  \item Implementar medidas de seguridad técnicas y organizativas adecuadas para garantizar la seguridad de los datos personales. Estas medidas deben ser proporcionales
-  al riesgo al que están expuestos los datos.
+  \item Implementar medidas de seguridad técnicas y organizativas adecuadas para garantizar la seguridad de los datos personales. Estas medidas deben
+  ser proporcionales al riesgo al que están expuestos los datos.
+
   \item Realizar una evaluación de riesgos para identificar los riesgos a los que están expuestos los datos personales.
+  
   \item Seleccionar y aplicar medidas de seguridad adecuadas para mitigar los riesgos identificados.
+  
   \item Documentar las medidas de seguridad implementadas.
 \end{itemize}
 
+\section{Colaboración con las autoridades}
+En el caso de que una organización experimente una intrusión por inyección de SQL, es crucial que ésta colabore con las autoridades para investigar el
+incidente. Tenemos que tener presente que cualquier persona física o jurídica tiene un deber de colaboración con las autoridades proporcionando a éstas
+la información necesaria para la investigación. Llegar a colaborar con las autoridades puede incluso agilizar el proceso consiguiendo; identificar al atacante,
+la recuperación de datos robados y la prevención de futuras intrusiones, aparte de una mayor solvencia en la resolución del problema
+
+Colaborar con las autoridades le proporciona a la organización la oportunidad de aprovechar los recursos y la experiencia de las autoridades en la investigación de incidentes de seguridad. 
+
+Asimismo, las autoridades pueden colaborar en la recuperación de los datos que hayan sido sustraídos durante el ataque, minimizando así el impacto de la intrusión. 
+Además, existe la posibilidad que mediante  trabajo en conjunto, la organización y las autoridades puedan llegar a desarrollar estrategias para prevenir futuras
+intrusiones al abordar y corregir las vulnerabilidades que permitieron la intrusión inicial.
+
+Enlazado al tópico anterior, existen varios reglamentos que obligan a las organizaciones a colaborar con las autoridades en caso de ciberataques:
+
+La Ley de Enjuiciamiento Criminal, obliga a las organizaciones a informar a las autoridades de cualquier incidente de seguridad que pueda afectar a la integridad
+de la administración de justicia.
+
+La Ley de Protección de Datos Personales y garantía de los derechos digitales, que obliga a las organizaciones a notificar a la Agencia Española de Protección de Datos cualquier violación
+de datos personales.
+
+El Código Penal, que castiga con penas de prisión los delitos informáticos, entre los que se incluye la intrusión en un sistema informático.
+
+Por todo lo expuesto hemos dejado claro que la inyección SQL presenta un gran reto a las autoridades estatales debido a la vulnerabilidad de seguridad que se puede producir en
+las distintas organizaciones o personas físicas y es por ello que todas estas entidades sean capaces de seguir la legislación vigente para poder combatir la inyección SQL.
+
+% Nueva página 
+\cleardoublepage
+
+% Capitulo 6
+\chapter{Futuro de los ataques de SQL Injection y las Bases de Datos}
+Con el rápido avance de la tecnología, se vislumbra un panorama complejo en la seguridad de sistemas y aplicaciones. Los ataques de inferencia surgen 
+como un desafío crítico en el contexto de la Inteligencia Artificial (IA) y el Aprendizaje Automático (Machine Learning, ML).
+
+Los sistemas de ML operan a través de la asimilación progresiva de datos de entrenamiento para perfeccionar sus capacidades de toma de decisiones y 
+predicciones. Es bien sabido que cuantos más datos se suministren, mayor será la precisión en las decisiones resultantes. Una vez en producción, 
+estos sistemas despliegan sus interfaces de programación de aplicaciones (API) públicas, las cuales son accesibles tanto para usuarios como para 
+otras aplicaciones que buscan aprovechar su funcionalidad.
+	
+Sin embargo, esta apertura no viene sin sus preocupaciones. Los modelos de ML, en muchos casos, operan con datos de una naturaleza extremadamente
+confidencial, tales como detalles de tarjetas de crédito o información personal identificable, los cuales representan auténticos tesoros para 
+posibles atacantes.
+
+En este contexto, los ataques de inferencia, específicamente los de membresía (MI), emergen como una amenaza latente. En un ataque de este tipo,
+el objetivo del atacante radica en obtener los datos subyacentes que sirvieron para el entrenamiento del modelo o incluso comprender su funcionamiento
+interno. Estos ataques aprovechan el modo en que los modelos de ML emiten respuestas, basándose en la concordancia entre los datos de entrada y aquellos
+utilizados en el proceso de entrenamiento.
+
+La proliferación del Aprendizaje Automático como Servicio (Machine Learning as a Service, MaaS) en los últimos años ha expandido la superficie de ataque.
+Empresas que desean implementar modelos sin tener que construirlos desde cero ahora pueden hacerlo mediante servicios en la nube. No obstante, esta comodidad
+también implica que los atacantes pueden explotar posibles vulnerabilidades en los modelos de ML, potencialmente llevando a cabo ataques de inferencia contra
+múltiples empresas si se descubren fallos en la implementación.
+
+Para abordar estos desafíos emergentes, es crucial reconocer que los ataques a los modelos de IA y ML demandan enfoques de seguridad distintos. No existe un
+simple “parche” para solucionar un algoritmo, ya que el problema reside en los datos subyacentes utilizados en el entrenamiento.
+
+Por tanto, se deben implementar controles específicos para mitigar estos riesgos:
+\begin{itemize}
+  \item Los modelos de ML deben tener la capacidad de generalizar los datos de entrenamiento, asegurando que las puntuaciones sean coherentes entre datos
+  previamente vistos y no vistos.
+
+  \item Las API de modelos de ML deben contar con características de limitación para detectar posibles consultas maliciosas, siguiendo el modelo de alerta
+  ante múltiples “inicios de sesión fallidos” en una dirección IP, como ejemplo análogo en ciberseguridad.
+  
+  \item Las pruebas de penetración en modelos de IA y ML deben integrarse como parte fundamental de las actividades regulares de seguridad, desarrollando
+  casos de ataque específicos y detallados.
+\end{itemize}
+
+% Nueva página
+\cleardoublepage
+
+\section{Futuros de las bases de datos}
+La migración hacia entornos en la nube se ha establecido como un tema crucial en la gestión de bases de datos en la era actual de la tecnología. Este 
+cambio fundamental en la infraestructura de TI ha generado un impacto significativo en la forma en que las organizaciones gestionan y acceden a sus datos.
+Figuras influyentes en el ámbito de las bases de datos, como Michael Stonebraker, cuyo legado incluye el desarrollo de PostgreSQL y otras tecnologías vanguardistas,
+proporcionan una visión valiosa sobre esta transición hacia la nube.
+
+\textbf{El Rol de la Nube en el Futuro} \\
+La afirmación contundente de Stonebraker de que “La Nube está en Tu Futuro” resuena con la estrategia de titanes tecnológicos como Amazon, Google y Microsoft, 
+que han invertido recursos sustanciales en el desarrollo de soluciones en la nube. Este movimiento hacia la nube refleja una transformación en la forma en que
+las organizaciones abordan el almacenamiento y procesamiento de datos a escala global.
+
+\textbf{Ventajas y Desafíos} \\
+La adopción de la nube abre una serie de oportunidades y desafíos para las organizaciones. En el lado positivo, la reducción de costos es un factor determinante. 
+Stonebraker destaca que, si bien los precios actuales ya son más asequibles, se espera que la creación de un mayor número de centros de datos y la optimización de
+la infraestructura en la nube conduzcan a una reducción aún mayor en los costos de servidores y contenedores.
+
+Además de los beneficios económicos, la elasticidad en el uso de recursos es una ventaja distintiva de la infraestructura en la nube. Las organizaciones pueden
+pagar solo por los recursos que utilizan y escalarlos dinámicamente en respuesta a la demanda, lo que ofrece una flexibilidad operativa sin precedentes.
+
+Sin embargo, la transición a la nube no está exenta de desafíos. Consideraciones de seguridad, restricciones geográficas y legales, así como políticas internas de
+la organización, requieren una planificación meticulosa. Es fundamental abordar estos aspectos para garantizar una migración exitosa y segura.
+
+\textbf{Estrategias de Implementación} \\
+Para maximizar los beneficios de la migración a la nube, Stonebraker subraya la importancia de evitar la dependencia de características propietarias de los proveedores
+de servicios en la nube. Se recomienda evaluar opciones como \emph{Platform as a Service} (PaaS), donde se alquila la plataforma y se gestiona la instalación de instancias, o
+\emph{Database as a Service} (DBaaS), donde se alquila el uso de la base de datos como servicio.
+
+En cuanto a la selección de instancias en la nube, es crucial considerar cuidadosamente el tamaño y el tipo para satisfacer los requisitos específicos de cada proyecto. Se sugiere 
+la posibilidad de iniciar con instancias de gran tamaño y, si es necesario, ajustar dinámicamente los recursos para optimizar el rendimiento.
+
+\textbf{Consideraciones de Rendimiento y Estrategias} \\
+Para mejorar el rendimiento en bases de datos alojadas en la nube, Stonebraker propone una serie de estrategias detalladas. Estas incluyen:
+
+Minimizar la interacción humana con la base de datos para evitar posibles errores humanos y garantizar la eficiencia en el acceso a los datos.
+Utilizar interfaces basadas en procedimientos almacenados para evitar el uso de cursores, lo que puede resultar en un acceso más eficiente y un procesamiento de datos más rápido.
+Modificar la aplicación para evitar la contención de control de concurrencia, lo que puede mejorar la eficiencia en situaciones de alta concurrencia.
+
+Además de estas estrategias, es importante considerar optimizaciones a nivel de implementación del código, como la minimización de modificaciones de datos y la optimización de consultas
+para mejorar la eficiencia de la base de datos.
+
+% Nueva página 
+\cleardoublepage
+
+% Capitulo 7
+\chapter{Bibliografía}
 
 \end{document}

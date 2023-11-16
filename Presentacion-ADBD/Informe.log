@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.9)  15 NOV 2023 23:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.9)  16 NOV 2023 22:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,9 +728,24 @@ l.75 \cleardoublepage
 
 ] [8
 
-] [9
+] [9] [10
 
-] [10] [11
+] [11
+
+] [12
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 597--601
+
+ []
+
+[13] [14
+
+] [15] [16
+
+] [17
+
+] [18] [19
 
 ] (Informe.aux
 LaTeX Info: Redefining \. on input line 12.
@@ -741,20 +756,20 @@ LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
 Package rerunfilecheck Info: File `Informe.out' has not changed.
-(rerunfilecheck)             Checksum: 61B5E9357B40E522E86B6476A6A4F563;3980.
+(rerunfilecheck)             Checksum: 6AC111B1E8D7C79BE4C4162EAF9DFB24;5503.
  ) 
 Here is how much of TeX's memory you used:
- 26141 strings out of 474592
- 505561 string characters out of 5745799
- 1935533 words of memory out of 5000000
- 47856 multiletter control sequences out of 15000+600000
- 564284 words of font info for 58 fonts, out of 8000000 for 9000
+ 26170 strings out of 474592
+ 505844 string characters out of 5745799
+ 1936533 words of memory out of 5000000
+ 47860 multiletter control sequences out of 15000+600000
+ 564630 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,7n,117p,1349b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Informe.pdf (12 pages, 146209 bytes).
+ 99i,7n,117p,1349b,532s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Informe.pdf (20 pages, 201372 bytes).
 PDF statistics:
- 184 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 273 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

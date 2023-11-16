@@ -8,10 +8,17 @@
 \contentsline {subsection}{\numberline {2.2.1}Riesgos y consecuencias que conlleva una inyección SQL}{5}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Como evitar ataques e inyección SQL}{6}{subsection.2.2.2}%
 \contentsline {chapter}{\numberline {3}Tipos de ataques de inyección SQL y ejemplos de casos reales}{7}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Buenas prácticas en el diseño de bases de datos para prevenir la inyección SQL}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introducción a las buenas prácticas}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Consultas concatenadas}{8}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Otras prácticas recomendadas}{9}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Marco legal y cumplimiento normativo}{10}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introducción al marco legal}{10}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Cumplimiento normativo}{10}{section.5.2}%
+\contentsline {section}{\numberline {3.1}Identificación de vulnerabilidades}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Métodos manuales simples}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Ejemplos de casos reales}{8}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Buenas prácticas en el diseño de bases de datos para prevenir la inyección SQL}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introducción a las buenas prácticas}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Consultas concatenadas}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Otras prácticas recomendadas}{12}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Marco legal y cumplimiento normativo}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introducción al marco legal}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Cumplimiento normativo}{14}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Colaboración con las autoridades}{15}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Futuro de los ataques de SQL Injection y las Bases de Datos}{16}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Futuros de las bases de datos}{17}{section.6.1}%
+\contentsline {chapter}{\numberline {7}Bibliografía}{19}{chapter.7}%
