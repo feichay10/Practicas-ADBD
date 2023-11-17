@@ -68,13 +68,81 @@
 
 \maketitle
 
+\pagestyle{empty} % Desactiva la numeración de página para el índice
 % Índice
 \tableofcontents
 
-% Nueva página para el primer capítulo
+% Nueva página
 \cleardoublepage
 
+\pagestyle{plain} % Vuelve a activar la numeración de página
+\setcounter{page}{1} % Reinicia el contador de página a 1
 % Secciones del informe
+% Capitulo 
+\chapter{Introducción a ciberseguridad}
+La ciberseguridad es la práctica de proteger equipos, redes, aplicaciones de software, sistemas críticos y
+datos de posibles amenazas digitales. Las organizaciones tienen la responsabilidad de proteger los datos para
+mantener la confianza del cliente y cumplir la normativa. Utilizan medidas y herramientas de ciberseguridad
+para proteger los datos confidenciales del acceso no autorizado, así como para evitar interrupciones en las
+operaciones empresariales debido a una actividad de red no deseada. Las organizaciones implementan la ciberseguridad 
+al optimizar la defensa digital entre las personas, los procesos y las tecnologías. 
+
+\section{¿Por qué es importante la ciberseguridad?}
+Igual que protegen los recursos físicos, deben proteger también los recursos digitales y los sistemas frente al acceso no intencionado. El evento no intencionado de incumplimiento
+y acceso no autorizado a un sistema informático, una red o recursos conectados se denomina ciberataque. El éxito de
+un ciberataque produce la exposición, sustracción, eliminación o alteración de datos confidenciales. Las medidas de
+ciberseguridad defienden frente a ciberataques y proporcionan los siguientes beneficios.
+
+\begin{itemize}
+  \item \textbf{Prevención o reducción del costo de las brechas} \\
+  Las organizaciones que implementan estrategias de ciberseguridad minimizan las consecuencias no deseadas de ciberataques
+  que pueden afectar a la reputación empresarial, las capacidades financieras, las operaciones empresariales y la confianza
+  del cliente. Por ejemplo, las compañías activan planes de recuperación de desastres para contener las posibles intrusiones
+  y minimizar las interrupciones en las operaciones empresariales.
+
+  \item \textbf{Mantener una conformidad normativa} \\
+  Las empresas de sectores y regiones específicos deben cumplir con los requisitos normativos para proteger los datos confidenciales
+  frente a posibles riesgos cibernéticos. Por ejemplo, las empresas que operan en Europa deben cumplir el Reglamento General de Protección de Datos (GDPR),
+  que espera que las organizaciones adopten las medidas de ciberseguridad adecuadas para garantizar la privacidad de los datos. 
+
+  \item \textbf{Mitigación de las ciberamenazas} \\
+  Los ciberataques evolucionan a la par que las tecnologías cambiantes. Los delincuentes utilizan nuevas herramientas y elaboran nuevas estrategias para el acceso 
+  no autorizado al sistema. Las organizaciones emplean y actualizan las medidas de ciberseguridad para mantenerse al día de estas tecnologías y herramientas de ataque
+  digital nuevas y en desarrollo. 
+\end{itemize}
+
+\section{Los ataques más comunes contra la ciberseguridad}
+Algunos de los tipos de ataques más comunes contra la ciberseguridad son los siguientes:
+\begin{itemize}
+  \item \textbf{Malware:} Significa software malintencionado. Incluye una variedad de programas de software creados para permitir que terceras partes accedan de manera no autorizada a información confidencial o interrumpan el funcionamiento normal de una infraestructura crítica. Entre los ejemplos más comunes de malware se incluyen los troyanos, spyware y virus.
+
+  \item \textbf{Ransomware:} Hace referencia a un modelo empresarial y a un amplio rango de tecnologías asociadas que los delincuentes pueden usar para extorsionar dinero a entidades.
+  
+  % Nueva página
+  \cleardoublepage
+
+  \item \textbf{Phishing: } Es una ciberamenaza que usa técnicas de ingeniería social para engañar a los usuarios a fin de que revelen información de identificación personal. Por ejemplo, los atacantes cibernéticos envían correos electrónicos que inducen a los usuarios a hacer clic e introducir los datos de la tarjeta de crédito en una página web de pagos ficticia. 
+  Los ataques de pishing también pueden incitar a la descarga de datos adjuntos malintencionados que instalen malware en los dispositivos de la empresa.
+
+  \item \textbf{DDoS: } Es un trabajo coordinado para sobrecargar un servidor enviando un gran volumen de solicitudes falsas. Estos eventos impiden que los usuarios normales se conecten o accedan al servidor de destino. 
+  
+  \item \textbf{Amenaza interna: } Es un riesgo de seguridad introducido por personal con malas intenciones dentro de una organización. El personal posee acceso de alto nivel a los sistemas informáticos y puede desestabilizar la seguridad de la infraestructura desde dentro. 
+\end{itemize}
+
+\section{Funcionamiento de la ciberseguridad}
+
+Las organizaciones recurren a la contratación de especialistas en ciberseguridad para llevar a cabo la implementación de estrategias destinadas a salvaguardar sus sistemas informáticos, redes, almacenamiento de datos, aplicaciones y demás dispositivos conectados. Estos profesionales, a su vez, evalúan los riesgos de seguridad presentes en dichos elementos.
+
+Posteriormente, se encargan de desarrollar un marco integral de ciberseguridad y de poner en marcha medidas de protección dentro de la organización. Un programa exitoso en esta área implica la capacitación de los empleados en prácticas de seguridad recomendadas, así como el uso automatizado de tecnologías de defensa cibernética para fortalecer la infraestructura de tecnologías de la información ya existente.
+
+Estos componentes trabajan de manera conjunta para establecer diversas capas de protección en todos los puntos de acceso a los datos, abordando amenazas potenciales. Además, se dedican a la identificación de riesgos, la protección de identidades, infraestructuras y datos, la detección de anomalías y eventos, la respuesta y el análisis de la causa raíz, así como la ejecución de procesos de recuperación tras un incidente.
+
+
+
+
+% Nueva página
+\cleardoublepage
+
 % Capitulo 1
 \chapter{Introducción a la seguridad de bases de datos}
 \section{Introducción a las bases de datos}
@@ -295,6 +363,7 @@ cuenten con el protocolo HTTPS y un certificado de seguridad válido.
 % Nueva página 
 \cleardoublepage
 
+% Capitulo
 \chapter{Tipos de ataques de inyección SQL y ejemplos de casos reales}
 Las vulnerabilidades de inyección SQL surgen de la falta de validación de la entrada de datos
 proporcionada por los usuarios en una página web. Esta brecha de seguridad permite a un usuario
@@ -318,17 +387,52 @@ de código en la página. Existen tres tipos principales de inyección SQL:
 
 \section{Identificación de vulnerabilidades}
 La elección del tipo de inyección SQL adecuado para una aplicación web en particular depende de las vulnerabilidades
-específicas que se encuentren. Para facilitar este proceso, se puede recurrir a herramientas automatizadas, siendo
-SQLmap una de las más destacadas.
+específicas que se encuentren. Para facilitar este proceso, se puede recurrir a herramientas automatizadas, como pueden ser:
 
-SQLmap, un programa de código abierto incluido en Kali Linux, es una herramienta que realiza una amplia variedad de
-pruebas para detectar fallos de inyección SQL en aplicaciones web. Además, proporciona una gama de “payloads“ que pueden
-ejecutarse para explotar las consultas vulnerables. Esto simplifica considerablemente el trabajo del pentester, quien
-solo necesita enfocarse en analizar la aplicación y familiarizarse con el uso de esta herramienta.
+\begin{itemize}
+  \item \textbf{SQLMap:} Es un programa de código abierto incluido en Kali Linux, es una herramienta que realiza una amplia variedad de
+  pruebas para detectar fallos de inyección SQL en aplicaciones web. Además, proporciona una gama de “payloads“ que pueden
+  ejecutarse para explotar las consultas vulnerables. Esto simplifica considerablemente el trabajo del pentester, quien
+  solo necesita enfocarse en analizar la aplicación y familiarizarse con el uso de esta herramienta.
+  
+  El uso de SQLmap permite llevar a cabo ataques de inyección SQL sin requerir un profundo conocimiento de SQL, siendo
+  especialmente útil para pruebas de penetración de nivel fácil o intermedio. Sin embargo, es valioso adquirir conocimientos
+  más avanzados en este lenguaje para comprender y prevenir ataques de mayor complejidad.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/sqlmap.png}
+    \caption{SQLMap}
+    \label{fig:sqlmap}
+  \end{figure}
 
-El uso de SQLmap permite llevar a cabo ataques de inyección SQL sin requerir un profundo conocimiento de SQL, siendo
-especialmente útil para pruebas de penetración de nivel fácil o intermedio. Sin embargo, es valioso adquirir conocimientos
-más avanzados en este lenguaje para comprender y prevenir ataques de mayor complejidad.
+  \item \textbf{suIP.biz:} En principio fue creado para realizar acciones con direcciones IP como pueden ser la recopilacion
+  de rangos IP de países, ciudades, etc; obtener información sobre la dirección IP e IPv6, entre otras. Sin embargo, también
+  permite realizar pruebas de inyección SQL que está impulsado por sqlmap. Para ello, se debe ingresar la URL de la página
+  web a analizar y seleccionar el tipo de inyección SQL a realizar.
+
+  \item \textbf{Acunetix:} Es una herramienta de pruebas de seguridad de aplicaciones que lo ayuda a abordar las vulnerabilidades
+  en todos sus activos web críticos. Este escaner de vulnerabilidades es el más maduro del mercado desarrollado desde 2005 en \emph{C++},
+  lo que es mucho más rapido que otras soluciones.
+
+  Acuteniz utiliza dos tecnologías únicas que lo ayudan a descubrir más vulnerabilidades: AcuMonitor y AcuSensor. Además, AcuSensor
+  le ayuda a encontrar la vulnerabilidad en el código fuente. Además, puede detectar hasta 6500 vulnerabilidades, incluidas las de
+  inyección SQL, XSS, CSRF, etc.
+
+  \item \textbf{SQLi Dumper:} Es una herramienta de inyección SQL automática que escanea aplicaciones web en busca de vulnerabilidades de inyección SQL.
+  Esta herramienta utiliza un proceso de 6 fases para proporcionar la información solicitada. Cada fase, a su vez, tiene varios pasos:
+  \begin{itemize}
+    \item Fase 1. Recoger dorks.
+    \item Fase 2. Usar un Proxy o VPN.
+    \item Fase 3. Insertar dorks e iniciar el escáner.
+    \item Fase 4. Haga clic en Inyección SQL e inciar el explotador.
+    \item Fase 5. Seleccionar las URL para realizar la búsqueda.
+    \item Fase 6. Volcar y guardar los datos.
+  \end{itemize}
+
+  Los \emph{Dorks} son criterios de consultas avanzadas para acceder a información oculta.
+\end{itemize}
+
 
 \section{Métodos manuales simples}
 Si se está realizando una prueba de penetración de forma manual y se desea verificar la posibilidad de realizar inyecciones SQL,
@@ -336,19 +440,14 @@ existen métodos sencillos para llevarlo a cabo.
 
 \begin{itemize}
   \item El primer test consiste en enviar una comilla simple como entrada: 
-  \begin{verbatim}
     '
-  \end{verbatim} 
   Si la entrada es vulnerable, la aplicación generará un error.
-
-  % Nueva página 
-  \cleardoublepage
 
   \item El siguiente test implica enviar el siguiente valor:
 
   \begin{center}
     \begin{BVerbatim}
-      ‘1' and '1'='1’
+      '1' and '1' = '1’
     \end{BVerbatim}
   \end{center}
 
@@ -357,7 +456,7 @@ Si la entrada se ejecuta sin problemas, indica que se está inyectando código S
 Para verificar, se puede enviar el comando:
 \begin{center}
   \begin{BVerbatim}
-    ‘1' and '1'='0'
+    '1' and '1' = '0'
   \end{BVerbatim}
 \end{center}
 
@@ -429,9 +528,6 @@ lo tanto, el comando no se ejecutará.
   A pesar de la ausencia de un autor conocido o de un número preciso de afectados, el incidente de Drupal subrayó el potencial alcance de los ataques de inyección SQL.
   El anonimato de los atacantes fue un escalofriante recordatorio de la naturaleza escurridiza de la ciberdelincuencia. Pero ante la adversidad, la comunidad digital 
   se unió, actualizando sus sistemas y compartiendo medidas defensivas para capear juntos el temporal.
-
-  % Nueva página 
-  \cleardoublepage
 
   \item \textbf{Ataque a TalkTalk (2015)} \\
   En otoño de 2015, TalkTalk, un gigante británico de las telecomunicaciones, se encontró en el punto de mira de un despiadado ciberataque. Un grupo de jóvenes piratas
@@ -568,7 +664,10 @@ evitar exploits o funcionamientos inadecuados. Estas medidas son clasificables c
   de inyección SQL. Si un atacante logra inyectar código malicioso en la base de datos, los datos cifrados estarán protegidos.
 \end{enumerate}
 
-% Capitulo 5
+% Nueva página 
+\cleardoublepage
+
+% Capitulo 
 \chapter{Marco legal y cumplimiento normativo}
 \section{Introducción al marco legal}
 La inyección SQL como hemos visto hasta ahora, es una gran vulnerabilidad de seguridad en organizaciones o ambientes de desarrollo de software. 
@@ -678,8 +777,8 @@ las distintas organizaciones o personas físicas y es por ello que todas estas e
 % Nueva página 
 \cleardoublepage
 
-% Capitulo 6
-\chapter{Futuro de los ataques de SQL Injection y las Bases de Datos}
+% Capitulo 7
+\chapter{Futuro de los ataques de inyección SQL y las bases de datos}
 Con el rápido avance de la tecnología, se vislumbra un panorama complejo en la seguridad de sistemas y aplicaciones. Los ataques de inferencia surgen 
 como un desafío crítico en el contexto de la Inteligencia Artificial (IA) y el Aprendizaje Automático (Machine Learning, ML).
 
@@ -763,7 +862,7 @@ para mejorar la eficiencia de la base de datos.
 % Nueva página 
 \cleardoublepage
 
-% Capitulo 7
+% Capitulo 8
 \chapter{Bibliografía}
 
 \end{document}
