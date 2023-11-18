@@ -69,6 +69,7 @@
 \maketitle
 
 \pagestyle{empty} % Desactiva la numeración de página para el índice
+
 % Índice
 \tableofcontents
 
@@ -91,7 +92,7 @@ al optimizar la defensa digital entre las personas, los procesos y las tecnolog�
 Igual que protegen los recursos físicos, deben proteger también los recursos digitales y los sistemas frente al acceso no intencionado. El evento no intencionado de incumplimiento
 y acceso no autorizado a un sistema informático, una red o recursos conectados se denomina ciberataque. El éxito de
 un ciberataque produce la exposición, sustracción, eliminación o alteración de datos confidenciales. Las medidas de
-ciberseguridad defienden frente a ciberataques y proporcionan los siguientes beneficios.
+ciberseguridad defienden frente a ciberataques y proporcionan los siguientes beneficios:
 
 \begin{itemize}
   \item \textbf{Prevención o reducción del costo de las brechas} \\
@@ -307,15 +308,6 @@ aplicaciones web para meter código malicioso y atacar bases de datos de SQL. Al
 el código van con el fin de quebrantar las medidas de seguridad y privacidad y así acceder a
 datos protegidos o de carácter sensible con el objetivo de eliminar información o incluso
 editar las bases de datos.
-Existen tres clases de ataques principales de inyección SQL. Estos son:
-\begin{itemize}
-\item \textbf{Ataque por error:} Son los más comunes. Se puede obtener información de la base
-de datos.
-\item \textbf{Ataque por unión:} Una página web muestra más resultados de los que debería,
-entre los que se incluye la amenaza.
-\item \textbf{Ataque ciego:} Es el ataque más complicado de realizar. Se hacen preguntas
-cerradas a la base de datos
-\end{itemize}
 
 \subsection{Riesgos y consecuencias que conlleva una inyección SQL}
 Los atacantes de inyección SQL plantean una variedad de amenazas de seguridad para la
@@ -338,26 +330,7 @@ pérdidas económicas o dañando la reputación de la organización.
 \item \textbf{Escalada de privilegios:} Los atacantes pueden obtener privilegios de administrador o
 de usuario en la base de datos o en el servidor. Esto les permite llevar a cabo
 acciones que normalmente estarían fuera de su alcance, como la creación,
-modificación o eliminación de usuarios, tablas o registros
-\end{itemize}
-
-\subsection{Como evitar ataques e inyección SQL}
-Con el fin de prevenir la inyección SQL, es esencial implementar diversas medidas de
-seguridad, tanto por parte de los desarrolladores como de los usuarios. Algunas de estas
-medidas incluyen:
-\begin{itemize}
-\item Validar y filtrar las entradas de los usuarios para evitar la introducción de caracteres
-o comandos no deseados.
-\item Emplear consultas parametrizadas o procedimientos almacenados, los cuales
-impiden que el código SQL se modifique al ejecutarse.
-\item Restringir los permisos y privilegios de los usuarios y bases de datos para limitar el
-acceso y las acciones posibles.
-\item Mantener actualizados los sistemas, aplicaciones y bases de datos para corregir
-posibles vulnerabilidades o fallos de seguridad.
-\item Utilizar contraseñas seguras y gestores de contraseñas para salvaguardar las
-credenciales de acceso y prevenir posibles robos o adivinanzas.
-\item Proporcionar información personal únicamente en sitios web de confianza que
-cuenten con el protocolo HTTPS y un certificado de seguridad válido.
+modificación o eliminación de usuarios, tablas o registros.
 \end{itemize}
 
 % Nueva página 
@@ -567,14 +540,17 @@ lo tanto, el comando no se ejecutará.
 
 \chapter{Buenas prácticas en el diseño de bases de datos para prevenir la inyección SQL}
 \section{Introducción a las buenas prácticas}
-Con el objetivo de evitar la inyección SQL, se crearon unos estándares para poder aplicar unas 
-“técnicas” adecuadas para evitar estos problemas. Algunos de ellos son:
+La seguridad de las bases de datos es un aspecto mas que crítico en el desarrollo de software como ya hemos visto hasta ahora la inyección SQL es una de las amenazas más grandes en este apartado. A modo de resumen ya sabemos que la inyección SQL ocurre cuando un atacante inserta código malicioso “malware” mediante las consultas SQL de una aplicación. Este trocito de código se aprovecha de las vulnerabilidades y compromete la seguridad de la información almacenada dentro de la aplicación. Es por ello que con el objetivo de evitar la inyección SQL, se crearon unos estándares para poder aplicar unas “técnicas” adecuadas para evitar estos problemas. 
+
+Este apartado se centra en explorar y recomendar buenas prácticas específicas que los desarrolladores y administradores de bases de datos pueden adoptar para mitigar los riesgos asociados con la inyección SQL.
+
+De manera general dichas prácticas se pueden dividir en:
+
 
 \begin{enumerate}
-  \item Emplear parámetros en lugar de realizar consultas concatenadas. Estas últimas son conocidas
-  como una de las técnicas más frecuentes para la inserción de código malicioso. La utilización de
-  parámetros previene que el código malicioso sea inyectado en la consulta. Debido a que las consultas
-  concatenadas incluyen directamente variables que pueden tener un contenido malicioso a la hora de hacer la consulta.
+  \item Emplear parámetros en lugar de realizar consultas concatenadas. Estas últimas son conocidas como una de las técnicas más frecuentes para la inserción de código malicioso. 
+  La utilización de parámetros previene que el código malicioso sea inyectado en la consulta. Debido a que las consultas concatenadas incluyen directamente variables que pueden 
+  tener un contenido malicioso a la hora de hacer la consulta.
 
   \item Asegurarse de validar todas las entradas de usuario. Este parámetro es crucial para garantizar
   que no se incluye código malicioso. La validación puede lograrse mediante diversas técnicas, incluyendo
@@ -608,7 +584,7 @@ SELECT * FROM users WHERE username = :username AND password = :password;
 \end{BVerbatim}
 \end{center}
 
-Aquí, el desarrollador especifica los valores de username y password como parámetros.
+Aquí, la consulta especifica los valores de username y password como parámetros.
 \begin{itemize}
   \item La validación de todas las entradas de usuario es un paso esencial para asegurarse de las buenas
   prácticas. También es de debida importancia asegurarse de que las entradas cumplan con formatos específicos,
@@ -618,8 +594,6 @@ Aquí, el desarrollador especifica los valores de username y password como pará
   comilla simple ('), comilla doble (“), menor que (<) y mayor que (>), reduciendo el riesgo de inyección SQL.
 \end{itemize}
 
-% Nueva página 
-\cleardoublepage
 
 \section{Otras prácticas recomendadas}
 Existen otras medidas que se pueden tomar en el diseño de bases de datos para prevenir la inyección SQL y que están dentro de las buenas prácticas para poder 
@@ -643,26 +617,27 @@ evitar exploits o funcionamientos inadecuados. Estas medidas son clasificables c
   Las funciones hash convierten una contraseña en un valor único que es difícil de descifrar. Cuando un usuario inicia sesión,
   la contraseña ingresada se compara con el hash almacenado en la base de datos. Si los hashes coinciden, el usuario se autentica.
   
-  \item \textbf{Utilizar procedimientos almacenados.} Los procedimientos almacenados son funciones que se ejecutan en el servidor
-  de base de datos. Estos procedimientos pueden utilizarse para validar las entradas de usuario y ejecutar consultas SQL de forma segura.
-  
-  Los procedimientos almacenados pueden ayudar a prevenir la inyección SQL de las siguientes maneras:
+  \item \textbf{Utilizar procedimientos almacenados.} Los procedimientos almacenados en SQL son conjuntos predefinidos de instrucciones 
+  SQL que se almacenan en la base de datos para su reutilización, mejorando el rendimiento, la seguridad y facilitando el mantenimiento 
+  de la lógica de la base de datos. Estos procedimientos pueden utilizarse para validar las entradas de usuario y ejecutar consultas SQL
+  de forma segura.
   \begin{itemize}
-    \item \textbf{Validación de entradas:} Los procedimientos almacenados pueden utilizarse para validar las entradas de usuario antes de
-    ejecutar una consulta SQL. Esto ayuda a garantizar que las entradas no contengan código malicioso.
+    \item \textbf{Validación de entradas:} Estos procedimientos pueden utilizarse para validar las entradas de usuario antes de ejecutar 
+    una consulta SQL. Esto ayuda a garantizar que las entradas no contengan código malicioso.
     
-    \item \textbf{Consultas seguras:} Los procedimientos almacenados pueden utilizarse para ejecutar consultas SQL de forma segura. Esto
-    ayuda a evitar que un atacante utilice una consulta SQL para inyectar código malicioso en la base de datos.
+    \item \textbf{Consultas seguras:} También se pueden utilizar para ejecutar consultas SQL de forma segura. Esto ayuda a evitar que un atacante utilice una consulta SQL para inyectar código malicioso en la base de datos
   \end{itemize}
 
-  \item \textbf{Utilizar cifrado para proteger los datos.} Los datos sensibles pueden cifrarse para protegerlos de la exposición. Esto puede
-  hacerse en el servidor de base de datos o en el cliente.
+  \item \textbf{Utilizar cifrado para proteger los datos.} Los datos sensibles pueden cifrarse para protegerlos de la exposición.
 
-  Los datos sensibles pueden cifrarse para protegerlos de la exposición. Esto puede hacerse en el servidor de base de datos o en el cliente.
   El cifrado en el servidor de base de datos se realiza antes de que los datos se almacenen en la base de datos. El cifrado en el cliente se
   realiza antes de que los datos se envíen al servidor de base de datos. El cifrado puede ayudar a proteger los datos sensibles de los ataques
   de inyección SQL. Si un atacante logra inyectar código malicioso en la base de datos, los datos cifrados estarán protegidos.
 \end{enumerate}
+
+En conclusión, la inyección SQL representa una amenaza persistente dentro de la seguridad de las bases de datos, con el potencial de comprometer la información de la base. Sin embargo, al adoptar y aplicar rigurosamente las buenas prácticas discutidas en este apartado, los desarrolladores y administradores de bases de datos pueden fortalecer significativamente las defensas de sus aplicaciones contra este tipo de ataques.
+
+Al integrar las prácticas ya comentadas en los procesos de desarrollo y gestión de bases de datos, las organizaciones pueden reducir significativamente las vulnerabilidades ante un ataque de inyección SQL y garantizar un entorno digital más seguro y resistente.
 
 % Nueva página 
 \cleardoublepage
@@ -863,6 +838,108 @@ para mejorar la eficiencia de la base de datos.
 \cleardoublepage
 
 % Capitulo 8
+\chapter{Estudio sobre un caso real de Inyeccion SQL} 
+La seguridad informática, definida como el conjunto de medios y técnicas para proteger sistemas informáticos y los datos que manejan,
+juega un papel crucial en el ámbito tecnológico y social. Es fundamental considerar los aspectos de seguridad durante el desarrollo
+de software, tanto en contextos profesionales como educativos. En este sentido, se llevaron a cabo pruebas en sistemas web desarrollados
+por estudiantes del Instituto Tecnológico de Pachuca para analizar su nivel de seguridad y determinar formas de mejorar la confiabilidad del software.
+
+En este contexto, se abordará la seguridad de los sistemas web desarrollados por estudiantes del Instituto Tecnológico de Pachuca, evaluando su
+resistencia ante Inyecciones SQL y determinando la necesidad de reforzar la seguridad durante el proceso de desarrollo.
+
+Las pruebas destinadas a determinar la vulnerabilidad de sistemas web a las inyecciones SQL se llevaron a cabo en aplicaciones desarrolladas por
+estudiantes de Ingeniería en Sistemas Computacionales e Ingeniería en Tecnologías de la Información y Comunicación del Instituto Tecnológico
+de Pachuca. Estos estudiantes se dividieron en dos grupos de la primera carrera y uno de la segunda, reflejando la proporción de estudiantes en
+cada disciplina en el instituto.
+
+Los participantes fueron seleccionados en función de encontrarse en los últimos semestres de sus respectivas carreras, asegurando así que habían
+cursado la mayoría de las materias relacionadas con la programación. Esta elección se considera crucial para obtener conclusiones
+precisas y representativas, ya que proporciona una visión más realista de cómo se abordan los aspectos de seguridad durante el proceso de desarrollo
+de software en el entorno educativo. Las aplicaciones desarrolladas por los estudiantes utilizaron software libre, principalmente PHP como lenguaje de
+programación, Apache como servidor web y MySQL como gestor de bases de datos. Dichas aplicaciones presentaron un formulario de inicio de sesión básico
+(nombre de usuario y contraseña), cuyo proceso de autenticación se intentó burlar mediante inyecciones SQL.
+
+La primera prueba consistió en una inyección en el campo de texto del nombre de usuario, utilizando 
+el siguiente query: 
+\begin{center}
+  \begin{BVerbatim}
+    ‘OR 0 = 0 -- comentario'
+  \end{BVerbatim}
+\end{center}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{img/inyeccion_1.png}
+  \caption{Inyección en el campo de texto del nombre de usuario}
+  \label{fig:inyeccion1}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+La segunda prueba involucró una inyección en el campo de la contraseña, empleando el siguiente query: 
+\begin{center}
+  \begin{BVerbatim}
+    ‘OR 0 = 0 -- comentario'
+  \end{BVerbatim}
+\end{center}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/inyeccion_2.png}
+  \caption{Inyección en el campo de la contraseña}
+  \label{fig:inyeccion2}
+\end{figure}
+
+La tercera prueba incluyó la inyección en ambos campos, nombre de usuario y contraseña.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/inyeccion_3.png}
+  \caption{Inyección en ambos campos}
+  \label{fig:inyeccion3}
+\end{figure}
+
+Los resultados que se obtuvieron en la prueba de inyección en el campo de inicio de sesión, se vulneraron un total de 13 aplicaciones web. 
+De la segunda prueba, la inyección en el campo de la contraseña, resultaron afectadas 19 aplicaciones. Se observa un aumento en el número de aplicaciones 
+web vulnerables en la segunda prueba de inyección SQL en el campo de la contraseña, sugiriendo una posible menor protección en comparación con los campos
+de texto destinados para el nombre de usuario. Finalmente, de la última prueba, inyección en los campos de inicio de sesión y contraseña, se vulneraron 
+6 aplicaciones.En total, se analizaron 81 aplicaciones web bajo las mismas condiciones, de las cuales 38 resultaron vulnerables a las inyecciones. Este 
+número representa aproximadamente el 47\% de todos los sistemas evaluados.
+
+Comparación con Estadísticas Generales Según datos del Web Application Security Consortium (WASC), un 12.76\% de las aplicaciones web son vulnerables a inyecciones SQL. 
+Al contrastar estas estadísticas generales con los resultados obtenidos en las pruebas, se observa que el nivel de vulnerabilidad de las aplicaciones desarrolladas por 
+estudiantes del Instituto Tecnológico de Pachuca es notablemente superior, aproximadamente un 34\% por encima de las estadísticas comerciales. Estos hallazgos refuerzan 
+la necesidad de reforzar las medidas de seguridad en las materias relacionadas con el desarrollo de sistemas web.
+
+% Nueva página
+\cleardoublepage
+
+Análisis de Códigos y Recomendaciones Examinando los códigos de algunas aplicaciones vulnerables, se identificó que su proceso de autenticación contenía únicamente las siguientes 
+líneas de código:
+\begin{verbatim}
+$usuario = $_POST['usuario']; 
+$password = $_POST['password'];
+$sql = "SELECT id, id_tipo FROM usuarios 
+WHERE usuario= '$usuario' AND password='$password';
+\end{verbatim}
+
+Como se mencionó previamente, estas líneas de código son vulnerables durante el proceso de autenticación. Para mejorar la seguridad, se recomendaron modificaciones sencillas a los desarrolladores. En resumen, las siguientes modificaciones fueron aplicadas a sus códigos:
+
+\begin{verbatim}
+$usuario = $_POST['usuario'];
+$password = $_POST['password']; 
+$usuario = mysqli_real_escape_string($mysqli, $_POST['usuario']); 
+$password = mysqli_real_escape_string($mysqli, $_POST['password']); 
+$sha1_pass = sha1($password);
+$sql = "SELECT id, id_tipo FROM usuarios
+WHERE usuario= '$usuario' AND password='$sha1_pass'";
+\end{verbatim}
+
+Estas modificaciones buscan fortalecer la seguridad de los sistemas y proteger contra futuras inyecciones SQL.
+
+% Nueva página 
+\cleardoublepage
+
+% Capitulo 9
 \chapter{Bibliografía}
 
 \end{document}

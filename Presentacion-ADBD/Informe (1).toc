@@ -18,11 +18,11 @@
 \contentsline {section}{\numberline {5.1}Introducción a las buenas prácticas}{13}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Consultas concatenadas}{13}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Otras prácticas recomendadas}{14}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Marco legal y cumplimiento normativo}{16}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Introducción al marco legal}{16}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Cumplimiento normativo}{17}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Colaboración con las autoridades}{18}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Futuro de los ataques de inyección SQL y las bases de datos}{19}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Futuros de las bases de datos}{20}{section.7.1}%
-\contentsline {chapter}{\numberline {8}Estudio sobre un caso real de Inyeccion SQL}{22}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Bibliografía}{25}{chapter.9}%
+\contentsline {chapter}{\numberline {6}Marco legal y cumplimiento normativo}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Introducción al marco legal}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Cumplimiento normativo}{16}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Colaboración con las autoridades}{17}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Futuro de los ataques de inyección SQL y las bases de datos}{18}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Futuros de las bases de datos}{19}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Estrategias de educación y concienciación}{21}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Bibliografía}{24}{chapter.9}%
