@@ -14,6 +14,8 @@
 \usepackage{wasysym}
 \usepackage{tikzsymbols}
 \usepackage{fancyvrb}
+\usepackage{xurl}
+\usepackage{hyperref}
 \usepackage[spanish]{babel}
 
 \newcommand{\subtitle}[1]{
@@ -25,10 +27,10 @@
 
 % Configura los márgenes
 \geometry{
-    left=2cm,   % Ajusta este valor al margen izquierdo deseado
-    right=2cm,  % Ajusta este valor al margen derecho deseado
-    top=3cm,
-    bottom=3cm,
+  left=2cm,   % Ajusta este valor al margen izquierdo deseado
+  right=2cm,  % Ajusta este valor al margen derecho deseado
+  top=3cm,
+  bottom=3cm,
 }
 
 % Configuración de los títulos de las secciones
@@ -81,65 +83,44 @@
 % Secciones del informe
 % Capitulo 
 \chapter{Introducción a ciberseguridad}
-La ciberseguridad es la práctica de proteger equipos, redes, aplicaciones de software, sistemas críticos y
-datos de posibles amenazas digitales. Las organizaciones tienen la responsabilidad de proteger los datos para
-mantener la confianza del cliente y cumplir la normativa. Utilizan medidas y herramientas de ciberseguridad
-para proteger los datos confidenciales del acceso no autorizado, así como para evitar interrupciones en las
-operaciones empresariales debido a una actividad de red no deseada. Las organizaciones implementan la ciberseguridad 
-al optimizar la defensa digital entre las personas, los procesos y las tecnologías. 
+La práctica de salvaguardar equipos, redes, aplicaciones de software, sistemas críticos y datos de amenazas digitales potenciales se conoce como ciberseguridad. A las organizaciones les incumbe la responsabilidad de resguardar la integridad de los datos con el fin de preservar la confianza de los clientes y cumplir con las normativas establecidas. Con el empleo de medidas y herramientas de ciberseguridad, se busca prevenir el acceso no autorizado a datos confidenciales y evitar interrupciones en las operaciones empresariales derivadas de actividades de red no deseadas. La implementación de la ciberseguridad por parte de las organizaciones se lleva a cabo mediante la optimización de la defensa digital, involucrando a las personas, los procesos y las tecnologías.
 
 \section{¿Por qué es importante la ciberseguridad?}
-Igual que protegen los recursos físicos, deben proteger también los recursos digitales y los sistemas frente al acceso no intencionado. El evento no intencionado de incumplimiento
-y acceso no autorizado a un sistema informático, una red o recursos conectados se denomina ciberataque. El éxito de
-un ciberataque produce la exposición, sustracción, eliminación o alteración de datos confidenciales. Las medidas de
-ciberseguridad defienden frente a ciberataques y proporcionan los siguientes beneficios:
-
+Al igual que se resguardan los recursos físicos, es imperativo proteger los recursos digitales y sistemas contra el acceso no deseado. El evento involuntario de violación y acceso no autorizado a un sistema informático, una red o recursos interconectados se conoce como ciberataque. La efectividad de un ciberataque resulta en la exposición, sustracción, eliminación o alteración de datos confidenciales. Las medidas de ciberseguridad actúan como defensa contra los ciberataques, ofreciendo los siguientes beneficios:
 \begin{itemize}
   \item \textbf{Prevención o reducción del costo de las brechas} \\
-  Las organizaciones que implementan estrategias de ciberseguridad minimizan las consecuencias no deseadas de ciberataques
-  que pueden afectar a la reputación empresarial, las capacidades financieras, las operaciones empresariales y la confianza
-  del cliente. Por ejemplo, las compañías activan planes de recuperación de desastres para contener las posibles intrusiones
-  y minimizar las interrupciones en las operaciones empresariales.
+  Cuando las organizaciones adoptan estrategias de ciberseguridad, reducen al mínimo las consecuencias no deseadas de ciberataques que podrían repercutir en la reputación empresarial, las capacidades financieras, las operaciones comerciales y la confianza del cliente. A modo de ejemplo, estas empresas implementan planes de recuperación de desastres para contener posibles intrusiones y mitigar interrupciones en las operaciones empresariales.
 
   \item \textbf{Mantener una conformidad normativa} \\
-  Las empresas de sectores y regiones específicos deben cumplir con los requisitos normativos para proteger los datos confidenciales
-  frente a posibles riesgos cibernéticos. Por ejemplo, las empresas que operan en Europa deben cumplir el Reglamento General de Protección de Datos (GDPR),
-  que espera que las organizaciones adopten las medidas de ciberseguridad adecuadas para garantizar la privacidad de los datos. 
-
+  Las empresas pertenecientes a sectores y ubicaciones particulares tienen la obligación de cumplir con requisitos normativos para salvaguardar los datos confidenciales ante posibles amenazas cibernéticas. A título ilustrativo, las empresas que operan en Europa deben adherirse al Reglamento General de Protección de Datos (GDPR), el cual requiere que las organizaciones implementen medidas de ciberseguridad apropiadas con el fin de asegurar la privacidad de los datos.
+  
   \item \textbf{Mitigación de las ciberamenazas} \\
-  Los ciberataques evolucionan a la par que las tecnologías cambiantes. Los delincuentes utilizan nuevas herramientas y elaboran nuevas estrategias para el acceso 
-  no autorizado al sistema. Las organizaciones emplean y actualizan las medidas de ciberseguridad para mantenerse al día de estas tecnologías y herramientas de ataque
-  digital nuevas y en desarrollo. 
+  Los ciberataques evolucionan a la par que las tecnologías cambiantes. Los delincuentes utilizan nuevas herramientas y elaboran nuevas estrategias para el acceso  no autorizado al sistema. Las organizaciones emplean y actualizan las medidas de ciberseguridad para mantenerse al día de estas tecnologías y herramientas de ataque digital nuevas y en desarrollo. 
 \end{itemize}
 
 \section{Los ataques más comunes contra la ciberseguridad}
 Algunos de los tipos de ataques más comunes contra la ciberseguridad son los siguientes:
 \begin{itemize}
-  \item \textbf{Malware:} Significa software malintencionado. Incluye una variedad de programas de software creados para permitir que terceras partes accedan de manera no autorizada a información confidencial o interrumpan el funcionamiento normal de una infraestructura crítica. Entre los ejemplos más comunes de malware se incluyen los troyanos, spyware y virus.
+  \item \textbf{Malware:} Se refiere al software malicioso, que abarca una diversidad de programas diseñados para facilitar el acceso no autorizado de terceros a información confidencial o interrumpir el funcionamiento normal de una infraestructura crítica. Algunos ejemplos comunes de malware incluyen troyanos, spyware y virus.
 
-  \item \textbf{Ransomware:} Hace referencia a un modelo empresarial y a un amplio rango de tecnologías asociadas que los delincuentes pueden usar para extorsionar dinero a entidades.
+  \item \textbf{Ransomware:} Se refiere a un modelo empresarial y a un amplio conjunto de tecnologías asociadas que los delincuentes pueden emplear para extorsionar dinero de entidades.
   
   % Nueva página
   \cleardoublepage
 
-  \item \textbf{Phishing: } Es una ciberamenaza que usa técnicas de ingeniería social para engañar a los usuarios a fin de que revelen información de identificación personal. Por ejemplo, los atacantes cibernéticos envían correos electrónicos que inducen a los usuarios a hacer clic e introducir los datos de la tarjeta de crédito en una página web de pagos ficticia. 
-  Los ataques de pishing también pueden incitar a la descarga de datos adjuntos malintencionados que instalen malware en los dispositivos de la empresa.
+  \item \textbf{Phishing: } Se trata de una ciberamenaza que utiliza técnicas de ingeniería social para engañar a los usuarios y lograr que revelen información de identificación personal. 
 
   \item \textbf{DDoS: } Es un trabajo coordinado para sobrecargar un servidor enviando un gran volumen de solicitudes falsas. Estos eventos impiden que los usuarios normales se conecten o accedan al servidor de destino. 
   
-  \item \textbf{Amenaza interna: } Es un riesgo de seguridad introducido por personal con malas intenciones dentro de una organización. El personal posee acceso de alto nivel a los sistemas informáticos y puede desestabilizar la seguridad de la infraestructura desde dentro. 
+  \item \textbf{Amenaza interna: } Se trata de un riesgo de seguridad originado por personal con intenciones maliciosas dentro de una organización. Este personal cuenta con acceso de alto nivel a los sistemas informáticos y tiene la capacidad de comprometer la seguridad de la infraestructura desde el interior.
 \end{itemize}
 
 \section{Funcionamiento de la ciberseguridad}
+Las organizaciones optan por contratar especialistas en ciberseguridad para llevar a cabo la implementación de estrategias destinadas a salvaguardar sus sistemas informáticos, redes, almacenamiento de datos, aplicaciones y otros dispositivos conectados. Estos profesionales, a su vez, evalúan los riesgos de seguridad presentes en dichos elementos.
 
-Las organizaciones recurren a la contratación de especialistas en ciberseguridad para llevar a cabo la implementación de estrategias destinadas a salvaguardar sus sistemas informáticos, redes, almacenamiento de datos, aplicaciones y demás dispositivos conectados. Estos profesionales, a su vez, evalúan los riesgos de seguridad presentes en dichos elementos.
-
-Posteriormente, se encargan de desarrollar un marco integral de ciberseguridad y de poner en marcha medidas de protección dentro de la organización. Un programa exitoso en esta área implica la capacitación de los empleados en prácticas de seguridad recomendadas, así como el uso automatizado de tecnologías de defensa cibernética para fortalecer la infraestructura de tecnologías de la información ya existente.
+Posteriormente, se encargan de desarrollar un marco integral de ciberseguridad y de implementar medidas de protección dentro de la organización. Un programa exitoso en esta área implica la capacitación de los empleados en prácticas de seguridad recomendadas, así como el uso automatizado de tecnologías de defensa cibernética para fortalecer la infraestructura de tecnologías de la información ya existente.
 
 Estos componentes trabajan de manera conjunta para establecer diversas capas de protección en todos los puntos de acceso a los datos, abordando amenazas potenciales. Además, se dedican a la identificación de riesgos, la protección de identidades, infraestructuras y datos, la detección de anomalías y eventos, la respuesta y el análisis de la causa raíz, así como la ejecución de procesos de recuperación tras un incidente.
-
-
-
 
 % Nueva página
 \cleardoublepage
@@ -290,7 +271,7 @@ SQL abarcan desde la recuperación de datos mediante la cláusula SELECT, la ins
 datos mediante la cláusula INSERT, hasta la actualización y eliminación de datos mediante
 las cláusulas UPDATE y DELETE, respectivamente.
 
-Además de estos comandos básicos, SQL ofrece la capacidad de crear y modificar
+SQL ofrece la capacidad de crear y modificar
 esquemas de bases de datos mediante comandos de definición de datos, como CREATE,
 ALTER y DROP. Estos permiten a los usuarios establecer la estructura de la base de datos
 y sus objetos, como tablas, vistas, índices y procedimientos almacenados.
@@ -323,10 +304,6 @@ chantajes.
 manipular o suprimir información almacenada en la base de datos. Esta acción
 puede tener consecuencias perjudiciales para el funcionamiento de la aplicación
 web, generando pérdidas económicas o dañando la reputación de la organización.
-\item \textbf{Manipulación y/o ejecución de código:} los atacantes pueden manipular o suprimir
-información almacenada en la base de datos. Esta acción puede tener
-consecuencias perjudiciales para el funcionamiento de la aplicación web, generando
-pérdidas económicas o dañando la reputación de la organización.
 \item \textbf{Escalada de privilegios:} Los atacantes pueden obtener privilegios de administrador o
 de usuario en la base de datos o en el servidor. Esto les permite llevar a cabo
 acciones que normalmente estarían fuera de su alcance, como la creación,
@@ -388,7 +365,7 @@ específicas que se encuentren. Para facilitar este proceso, se puede recurrir a
   en todos sus activos web críticos. Este escaner de vulnerabilidades es el más maduro del mercado desarrollado desde 2005 en \emph{C++},
   lo que es mucho más rapido que otras soluciones.
 
-  Acuteniz utiliza dos tecnologías únicas que lo ayudan a descubrir más vulnerabilidades: AcuMonitor y AcuSensor. Además, AcuSensor
+  Acunetix utiliza dos tecnologías únicas que lo ayudan a descubrir más vulnerabilidades: AcuMonitor y AcuSensor. Además, AcuSensor
   le ayuda a encontrar la vulnerabilidad en el código fuente. Además, puede detectar hasta 6500 vulnerabilidades, incluidas las de
   inyección SQL, XSS, CSRF, etc.
 
@@ -667,11 +644,11 @@ de manejar las entidades que influyen o manejan datos personales, para que así 
 Además el artículo 31 de la LOPDGDD registra que aquellos que son responsables del tratamiento de datos deben adoptar medidas necesarias para garantizar
 un nivel de seguridad adecuado, incluyendo:
 
-\emph{1. Los responsables y encargados del tratamiento o, en su caso, sus representantes deberán mantener el registro de actividades de tratamiento al que se refiere el 
-artículo 30 del Reglamento (UE) 2016/679, salvo que sea de aplicación la excepción prevista en su apartado 5.}
+\emph{“1. Los responsables y encargados del tratamiento o, en su caso, sus representantes deberán mantener el registro de actividades de tratamiento al que se refiere el 
+artículo 30 del Reglamento (UE) 2016/679, salvo que sea de aplicación la excepción prevista en su apartado 5."}
 \\ \\
-\emph{2. Los sujetos enumerados en el artículo 77.1 de esta ley orgánica harán público un inventario de sus actividades de tratamiento accesible por medios electrónicos
-en el que constará la información establecida en el artículo 30 del Reglamento (UE) 2016/679 y su base legal.}
+\emph{“2. Los sujetos enumerados en el artículo 77.1 de esta ley orgánica harán público un inventario de sus actividades de tratamiento accesible por medios electrónicos
+en el que constará la información establecida en el artículo 30 del Reglamento (UE) 2016/679 y su base legal.”}
 
 No debemos olvidar que el marco jurídico actual se completa con el Real Decreto 1720/2007 por el que se aprueba el desarrollo de la ley LOPDGDD y el Real Decreto 389/2021 
 por el que se aprueba el estatuto de la agencia española de protección de datos.
@@ -941,5 +918,59 @@ Estas modificaciones buscan fortalecer la seguridad de los sistemas y proteger c
 
 % Capitulo 9
 \chapter{Bibliografía}
+\begin{enumerate}
+\item UV. (2003). Introducción a las bases de datos. Recuperado de \url{http://informatica.uv.es/docencia/biblioguia/BD/ficheros/tema1.pdf}
+
+\item Márquez, M. (2023). Base de datos: qué es, para qué sirve, tipos, ejemplos.... .
+Recuperado de \url{https://es.ccm.net/aplicaciones-e-internet/museo-de-internet/enciclopedia/10820-que-es-una-base-de-datos-y-para-que-sirve/\#google\_vignette}
+
+\item IBM. (s.f.). Seguridad de las bases de datos: guía básica. Recuperado de \url{https://www.ibm.com/es-es/topics/database-security}
+
+\item Oracle España. (s.f.). ¿Qué es la seguridad de datos?. Recuperado de \url{https://www.oracle.com/es/security/database-security/what-is-data-security/}
+
+\item Red Seguridad. (2021). Ataques de inyección SQL: consecuencias, tipos y consejos preventivos. Recuperado de \url{https://www.redseguridad.com/actualidad/ciberseguridad/ataques-de-inyeccion-sql-consecuencias-tipos-y-consejos-preventivos_20210508.html}
+
+\item Grigas, L. (2023). Inyección de SQL: cómo funciona y cómo prevenirla. Recuperado de \url{https://nordpass.com/es/blog/what-is-sql-injection/}
+
+\item Daityari, S. (2023). Inyección SQL: Guía Detallada para Usuarios de WordPress. Recuperado de \url{https://kinsta.com/es/blog/inyeccion-sql/}
+
+\item Ahona, R. (2023). 5 consejos para evitar ataques de inyección SQL. Recuperado de \url{https://powerdmarc.com/es/sql-injection-prevention/}
+
+\item IBM. (2021). Validación de sentencias SQL y XQuery. Recuperado de \url{https://www.ibm.com/docs/es/ida/9.1.2?topic=editor-validating-sql-xquery-statements}
+
+\item Hostalia. (2013). Ataques de inyección SQL: qué son y cómo protegerse. Recuperado de \url{https://pressroom.hostalia.com/white-papers/ataques-inyeccion-sql/}
+
+\item Hiken, A. (2020). Cómo prevenir la inyección SQL. Recuperado de \url{https://es.parasoft.com/blog/how-to-prevent-sql-injection/}
+
+\item Dragonjar. (s.f.). SQLMap - Herramienta Automática de Inyección SQL. Recuperado de \url{https://www.dragonjar.org/sqlmap-herramienta-automatica-de-inyeccion-sql.xhtml}
+
+\item Linux-Console.net. (s.f.). ¿Qué es el sitio web suip.biz? Análogos y espejos suip.biz. Recuperado de \url{https://es.linux-console.net/?p=8687}
+
+\item Suip.biz. (2023). Recuperado de \url{https://suip.biz}
+
+\item North Team. (2022). ¿Que es Acunetix?, Pruebas de Vulnerabilidad Web. Recuperado de \url{https://www.north-networks.com/que-es-acunetix}
+
+\item Kempa, D. (2020). Pentesting with the SQLi Dumper v8 Tool. Recuperado de \url{https://www.cybrary.it/blog/pentesting-sqli-dumper-v8-tool}
+
+\item Keep Coding. (2022). Tipos de inyección SQL. Recuperado de \url{https://keepcoding.io/blog/tipos-de-inyeccion-sql/}
+
+\item Moes, T. (2023). ¿Qué es la inyección SQL? Los 6 ejemplos más terribles. Recuperado de \url{https://softwarelab.org/es/blog/que-es-la-inyeccion-sql/}
+
+\item Stonebraker, M. (2022). Michael Stonebraker: El Futuro De Las Bases De Datos. Recuperado de \url{https://altenwald.org/2022/03/07/el-futuro-de-las-bases-de-datos/}
+
+\item Ijla, Tl. (2022). Inference Attacks — The SQL Injection of The Future. Recuperado de \url{https://pub.towardsai.net/inference-attacks-the-sql-injection-of-the-future-ba6daa563682}
+
+\item BOE. (2021). Real Decreto 43/2021, de 26 de enero, por el que se desarrolla el Real Decreto-ley 12/2018, de 7 de septiembre, de seguridad de las redes y sistemas de información. Recuperado de \url{https://www.boe.es/buscar/act.php?id=BOE-A-2021-1192}
+
+\item BOE. (2018). Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales. Recuperado de \url{https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673&p=20230509&tn=1#a3-4}
+
+\item BOE. (1995). Ley Orgánica 10/1995, de 23 de noviembre, del Código Penal. Recuperado de \url{https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444}
+
+\item Ministerio de Hacienda y Función Pública. (2016). Normativa sobre datos personales. Recuperado de \url{https://www.hacienda.gob.es/es-ES/El%20Ministerio/Paginas/DPD/Normativa_PD.aspx}
+
+\item BOE. (1992). Ley Orgánica 5/1992, de 29 de octubre, de regulación del tratamiento automatizado de los datos de carácter personal. Recuperado de \url{https://www.boe.es/buscar/doc.php?id=BOE-A-1992-24189}
+
+
+\end{enumerate}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.9)  18 NOV 2023 10:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.9)  19 NOV 2023 16:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -575,6 +575,8 @@ Package: fancyvrb 2023/01/19 4.5a verbatim text (tvz,hv)
 \c@FancyVerbLine=\count387
 \FV@StepNumber=\count388
 \FV@OutFile=\write4
+) (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
 ) (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2023/10/25 v3.96 The Babel package
 \babel@savecnt=\count389
@@ -606,24 +608,24 @@ LaTeX Info: Redefining \% on input line 12.
 )
 \openout1 = `Informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
  (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count392
@@ -688,20 +690,20 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 63.
 (Informe.out) (Informe.out)
 \@outlinefile=\write5
 \openout5 = `Informe.out'.
 
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 69.
+(Font)              <12> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 69.
+(Font)              <8> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 69.
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 69.
+(Font)              <6> on input line 71.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 71.
  (C:\Users\cheuk\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 ) [1
@@ -719,12 +721,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.77 \cleardoublepage
+l.79 \cleardoublepage
                       [1]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.123   \cleardoublepage
+l.109   \cleardoublepage
                          [1
 
 ] [2
@@ -733,55 +735,55 @@ l.123   \cleardoublepage
 
 ] [4] [5] [6
 
-] [7]
-<img/sqlmap.png, id=183, 545.03625pt x 272.51813pt>
+]
+<img/sqlmap.png, id=179, 545.03625pt x 272.51813pt>
 File: img/sqlmap.png Graphic file (type png)
 <use img/sqlmap.png>
-Package pdftex.def Info: img/sqlmap.png  used on input line 377.
+Package pdftex.def Info: img/sqlmap.png  used on input line 354.
 (pdftex.def)             Requested size: 218.01064pt x 109.00531pt.
- [8
+ [7
 
- <./img/sqlmap.png>] [9] [10] [11] [12] [13
+ <./img/sqlmap.png>] [8] [9] [10] [11] [12
 
-] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 671--675
+] [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 648--652
 
  []
 
-[16
+[15
 
-] [17
+] [16
 
-] [18] [19
+] [17] [18
 
-] [20
+] [19
 
-] [21]
-<img/inyeccion_1.png, id=264, 255.20343pt x 137.01187pt>
+] [20]
+<img/inyeccion_1.png, id=260, 255.20343pt x 137.01187pt>
 File: img/inyeccion_1.png Graphic file (type png)
 <use img/inyeccion_1.png>
-Package pdftex.def Info: img/inyeccion_1.png  used on input line 871.
+Package pdftex.def Info: img/inyeccion_1.png  used on input line 848.
 (pdftex.def)             Requested size: 250.24199pt x 134.35434pt.
- [22
+ [21
 
  <./img/inyeccion_1.png>]
-<img/inyeccion_2.png, id=271, 252.945pt x 125.71968pt>
+<img/inyeccion_2.png, id=267, 252.945pt x 125.71968pt>
 File: img/inyeccion_2.png Graphic file (type png)
 <use img/inyeccion_2.png>
-Package pdftex.def Info: img/inyeccion_2.png  used on input line 888.
+Package pdftex.def Info: img/inyeccion_2.png  used on input line 865.
 (pdftex.def)             Requested size: 200.19054pt x 99.5016pt.
-<img/inyeccion_3.png, id=272, 355.3275pt x 171.64125pt>
+<img/inyeccion_3.png, id=268, 355.3275pt x 171.64125pt>
 File: img/inyeccion_3.png Graphic file (type png)
 <use img/inyeccion_3.png>
-Package pdftex.def Info: img/inyeccion_3.png  used on input line 896.
+Package pdftex.def Info: img/inyeccion_3.png  used on input line 873.
 (pdftex.def)             Requested size: 200.19054pt x 96.7051pt.
- [23
+ [22
 
- <./img/inyeccion_2.png> <./img/inyeccion_3.png>] [24
+ <./img/inyeccion_2.png> <./img/inyeccion_3.png>] [23
 
-] [25
+] [24
 
-] (Informe.aux
+] [25] (Informe.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -793,17 +795,17 @@ Package rerunfilecheck Info: File `Informe.out' has not changed.
 (rerunfilecheck)             Checksum: 36C14338FE7158F90049B55534BE3A5E;6565.
  ) 
 Here is how much of TeX's memory you used:
- 26232 strings out of 474592
- 506992 string characters out of 5745799
- 1936533 words of memory out of 5000000
- 47907 multiletter control sequences out of 15000+600000
+ 26288 strings out of 474592
+ 507881 string characters out of 5745799
+ 1957533 words of memory out of 5000000
+ 47934 multiletter control sequences out of 15000+600000
  564971 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,7n,117p,1349b,534s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\cheuk\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/cheuk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Informe.pdf (27 pages, 330785 bytes).
+Output written on Informe.pdf (27 pages, 351445 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 74 named destinations out of 1000 (max. 500000)
+ 416 PDF objects out of 1000 (max. 8388607)
+ 99 named destinations out of 1000 (max. 500000)
  249 words of extra memory for PDF output out of 10000 (max. 10000000)
 
