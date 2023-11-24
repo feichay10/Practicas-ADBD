@@ -130,12 +130,32 @@
 
 % Secciones del informe
 % Capitulo 1
-\chapter{Capitulo 1}
+\chapter{Restauracion de la base de datos \emph{postgres\_air}}
+Para la restauración de la base de datos se ha optado por usar la base de datos \emph{postgres\_air.backup}.
+Antes de restaurar la base de datos, hay que crear la base de datos \emph{postgres\_air}, primero entramos
+en la consola de postgres y luego creamos la base de datos con la siguiente sentencia:
+\begin{center}
+  \begin{BVerbatim}
+    CREATE DATABASE postgres_air;
+  \end{BVerbatim}
+\end{center}
+
+Una vez creada la base de datos, la restauramos con el siguiente comando:
+\begin{center}
+  \begin{BVerbatim}
+    pg_restore -x --no-owner -U postgres -d postgres_air ./postgres_air.backup
+  \end{BVerbatim}
+\end{center}
 
 % Capitulo 2
-\chapter{Capitulo 2}
-% 2.1
-\section{Seccion 2.1}
+\chapter{Incluir sentencias SQL para la creación de los índices}
+Tenemos las siguientes sentencias SQL:
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.65]{img/sentencias_sql.png}
+  \caption{Sentencias SQL}
+  \label{fig:sentencias SQL}
+\end{figure}
 
 \chapter{Bibliografía} % En formato APA
 \begin{enumerate}
