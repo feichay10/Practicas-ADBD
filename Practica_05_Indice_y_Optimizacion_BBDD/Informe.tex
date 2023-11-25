@@ -16,6 +16,7 @@
 \usepackage{fancyvrb}
 \usepackage{xurl}
 \usepackage{hyperref}
+\usepackage{subcaption}
 \usepackage[spanish]{babel}
 
 \newcommand{\subtitle}[1]{
@@ -59,53 +60,6 @@
     {2.3ex \@plus.2ex}%
     {\normalfont\Large\bfseries}}
 \makeatother
-
-%==============================================================================
-% Cosas para la documentación LateX
-% % Sangría
-% \setlength{\parindent}{1em}Texto
-
-% % Quitar sangría
-% \noindent
-
-% % Punto
-% \CIRCLE \ \ \textbf{Texto} \emph{algo}
-% \begin{itemize}
-%   \item \textbf{Negrita:} Texto
-%   \item \textbf{Negrita:} Texto
-% \end{itemize}
-
-% % Introducir código
-% \begin{center}
-%   \begin{BVerbatim}
-%     ... Código
-%   \end{BVerbatim}
-% \end{center}
-
-% Poner una imagen
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[scale=0.55]{img/}
-%   \caption{Exportación de la base de datos en formato sql}
-%   \label{fig:exportación de la base de datos en formato sql}
-% \end{figure}
-
-% % Poner una tabla
-% \begin{table}[H]
-%   \centering
-%   \begin{tabular}{|c|c|c|c|}
-%     \hline
-%     \textbf{Campo 1} & \textbf{Campo 2} & \textbf{Campo 3} & \textbf{Campo 4} \\ \hline
-%     Texto & Texto & Texto & Texto \\ \hline
-%     Texto & Texto & Texto & Texto \\ \hline
-%     Texto & Texto & Texto & Texto \\ \hline
-%     Texto & Texto & Texto & Texto \\ \hline
-%   \end{tabular}
-%   \caption{Nombre de la tabla}
-%   \label{tab:nombre de la tabla}
-% \end{table}
-
-%==============================================================================
 
 \begin{document}
 
@@ -356,15 +310,54 @@ además devuelve muchas menos filas.
 
 % Capitulo 7
 \chapter{Comparación de consultas}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{img/comparacion_rendimiento.png}
+  \label{fig:comparación de rendimiento}
+\end{figure}
+
+\section{Construir índices}
+Para construir los índices, se han usado las siguientes sentencias SQL:
+\begin{itemize}
+  \item Consulta A:
+  \begin{verbatim}
+    CREATE INDEX flight_idx_brin ON flight USING BRIN(flight_id);
+  \end{verbatim}
+
+  \item Consulta B:
+  \begin{verbatim}
+    
+  \end{verbatim}
+\end{itemize}
 
 
-% Nueva página
-\cleardoublepage
 
-\chapter{Bibliografía} % En formato APA
-\begin{enumerate}
-\item Ng Pante, C. (2001). Titulo. Nombre pagina web. Recuperado de \url{http://url.com}
 
-\end{enumerate}
+
+\section{Evaluación del rendimiento}
+Al realizar la consulta sin índices de la consulta \emph{A} y \emph{B} obtenemos lo siguiente:
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.7]{img/consulta_A_sin_indice.png}
+    \caption{Descripción de la primera imagen.}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.7]{img/consulta_b_sin_indice.png}
+    \caption{Descripción de la segunda imagen.}
+  \end{subfigure}
+  \caption{Consultas de ambas consultas sin índices}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
