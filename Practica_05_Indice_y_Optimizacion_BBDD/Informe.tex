@@ -283,14 +283,14 @@ Las tablas principales son las siguientes:
 \chapter{Realizar la siguiente consulta}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.75]{img/consulta_5.png}
+  \includegraphics[scale=0.75]{img/consulta_US.png}
   \label{fig:consulta}
 \end{figure}
 
 \section{Utilizar \emph{EXPLAIN} para obtener el plan de consulta}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.6]{img/consulta_explain.png}
+  \includegraphics[scale=0.6]{img/consulta_explain_US.png}
   \caption{Consulta con \emph{EXPLAIN}}
   \label{fig:consulta con EXPLAIN}
 \end{figure}
@@ -306,29 +306,10 @@ Las tablas principales son las siguientes:
 \section{Repetir la consulta con \emph{EXPLAIN} con un limite de 15 registros}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.55]{img/consulta_explain_limit.png}
+  \includegraphics[scale=0.55]{img/consulta_explain_limit_US.png}
   \caption{Consulta con \emph{EXPLAIN} y límite de 15 registros}
   \label{fig:consulta con EXPLAIN y límite de 15 registros}
 \end{figure}
-
-% postgres_air=# EXPLAIN SELECT flight_id, scheduled_departure
-% FROM flight f
-% JOIN airport a
-% ON departure_airport=airport_code
-% AND iso_country='US'
-% LIMIT 15;
-%                                            QUERY PLAN                                           
-% ------------------------------------------------------------------------------------------------
-%  Limit  (cost=0.29..3.67 rows=15 width=12)
-%    ->  Nested Loop  (cost=0.29..32658.60 rows=144636 width=12)
-%          ->  Seq Scan on flight f  (cost=0.00..15398.76 rows=683176 width=16)
-%          ->  Memoize  (cost=0.29..0.31 rows=1 width=4)
-%                Cache Key: f.departure_airport
-%                Cache Mode: logical
-%                ->  Index Scan using airport_pkey on airport a  (cost=0.28..0.30 rows=1 width=4)
-%                      Index Cond: (airport_code = f.departure_airport)
-%                      Filter: (iso_country = 'US'::text)
-% (9 rows)
 
 \section{Obtener información de la consulta \emph{EXPLAIN} con un limite de 15 registros}
 Hay una reducción del costo abismal. Hay en total 2 pasos principales, que son dos los
@@ -347,6 +328,35 @@ previamente creados.
 
 % Capitulo 6
 \chapter{Realizar la siguiente consulta similar a la anterior}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.8]{img/consulta_CZ.png}
+  \caption{Consulta con \emph{EXPLAIN}}
+  \label{fig:consulta con EXPLAIN 2}
+\end{figure}
+
+\section{Utilizar \emph{EXPLAIN} para obtener el plan de consulta}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.55]{img/consulta_explain_CZ.png}
+  \caption{Consulta con \emph{EXPLAIN}}
+  \label{fig:consulta con EXPLAIN CZ}
+\end{figure}
+
+\section{Comparar resultados con la consulta anterior}
+Esta consulta tiene un bajo costo, para no haber limitado la consulta de ninguna manera.
+
+\section{Diferencia de rendimiento}
+El principal motivo de que esta consulta sea más ligera se debe precisamente a que sus
+operaciones son más sencillas de usar, pues no realiza grandes joins como antes, y que
+además devuelve muchas menos filas.
+
+% Nueva página
+\cleardoublepage
+
+% Capitulo 7
+\chapter{Comparación de consultas}
+
 
 % Nueva página
 \cleardoublepage
