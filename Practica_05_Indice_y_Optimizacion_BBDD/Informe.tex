@@ -168,6 +168,189 @@ Aqui una captura de pantalla de la ejecución de las sentencias SQL:
   \label{fig:ejecución de las sentencias SQL}
 \end{figure}
 
+% Nueva página
+\cleardoublepage
+
+% Capitulo 3
+\chapter{Identifique las tablas principales y sus principales elementos}
+Las tablas principales son las siguientes:
+\begin{itemize}
+  \item \textbf{accounts:} Contiene información de las cuentas de los usuarios.
+    \subitem \textbf{account\_id:} Identificador de la cuenta, de tipo \emph{INTEGER}.
+    \subitem \textbf{login:} Nombre de usuario, de tipo \emph{TEXT}.
+    \subitem \textbf{first\_name} Nombre del usuario, de tipo \emph{TEXT}.
+    \subitem \textbf{last\_name} Apellido del usuario, de tipo \emph{TEXT}.
+    \subitem \textbf{frequent\_flyer\_id} Identificador del viajero frecuente, de tipo \emph{INTEGER}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+  \item \textbf{aircraft:} Contiene información de los aviones.
+    \subitem \textbf{model} Modelo del avión, de tipo \emph{TEXT}.
+    \subitem \textbf{range} Rango del avión, de tipo \emph{NUMERIC}.
+    \subitem \textbf{class} Clase del avión, de tipo \emph{INTEGER}.
+    \subitem \textbf{velocity} Velocidad del avión, de tipo \emph{NUMERIC}.
+    \subitem \textbf{code} Código del avión, de tipo \emph{TEXT}.
+  \item \textbf{airport:} Contiene información de los aeropuertos.
+    \subitem \textbf{airport\_code} Código del aeropuerto, de tipo \emph{CHARACTER(3)}.
+    \subitem \textbf{airport\_name} Nombre del aeropuerto, de tipo \emph{TEXT}.
+    \subitem \textbf{city} Ciudad del aeropuerto, de tipo \emph{TEXT}.
+    \subitem \textbf{airport\_tz} Zona horaria del aeropuerto, de tipo \emph{TEXT}.
+    \subitem \textbf{continent} Continente del aeropuerto, de tipo \emph{TEXT}.
+    \subitem \textbf{iso\_country} Código del país del aeropuerto, de tipo \emph{TEXT}.
+    \subitem \textbf{iso\_region} Código de la región del aeropuerto, de tipo \emph{TEXT}.
+    \subitem \textbf{intnl} Si el aeropuerto es internacional o no, de tipo \emph{BOOLEAN}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+  \item \textbf{boarding\_pass:} Contiene información de las tarjetas de embarque.
+    \subitem \textbf{pass\_id} Identificador de la tarjeta de embarque, de tipo \emph{INTEGER}.
+    \subitem \textbf{passenger\_id} Identificador del pasajero, de tipo \emph{BIGINT}.
+    \subitem \textbf{booking\_leg\_id} Identificador de la reserva del vuelo, de tipo \emph{BIGINT}.
+    \subitem \textbf{seat} Asiento del pasajero, de tipo \emph{TEXT}.
+    \subitem \textbf{boarding\_time} Fecha de embarque, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+    \subitem \textbf{precheck} Si el pasajero ha hecho el check-in o no, de tipo \emph{BOOLEAN}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+  \item \textbf{booking:} Contiene información de las reservas.
+    \subitem \textbf{booking\_id} Identificador de la reserva, de tipo \emph{BIGINT}.
+    \subitem \textbf{booking\_ref} Referencia de la reserva, de tipo \emph{TEXT}.
+    \subitem \textbf{booking\_name} Nombre de la reserva, de tipo \emph{TEXT}.
+    \subitem \textbf{account\_id} Identificador de la cuenta, de tipo \emph{INTEGER}.
+    \subitem \textbf{email} Correo electrónico, de tipo \emph{TEXT}.
+    \subitem \textbf{phone} Teléfono, de tipo \emph{TEXT}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+    \subitem \textbf{price} Precio de la reserva, de tipo \emph{NUMERIC}.
+  \item \textbf{booking\_leg:} Contiene información de las reservas de los vuelos.
+    \subitem \textbf{booking\_leg\_id} Identificador de la reserva del vuelo, de tipo \emph{INTEGER}.
+    \subitem \textbf{booking\_id} Identificador de la reserva, de tipo \emph{INTEGER}.
+    \subitem \textbf{flight\_id} Identificador del vuelo, de tipo \emph{INTEGER}.
+    \subitem \textbf{leg\_num} Número de la reserva del vuelo, de tipo \emph{INTEGER}.
+    \subitem \textbf{is\_returning} Si el vuelo es de vuelta o no, de tipo \emph{BOOLEAN}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+  \item \textbf{flight:} Contiene información de los vuelos.
+    \subitem \textbf{flight\_id} Identificador del vuelo, de tipo \emph{INTEGER}.
+    \subitem \textbf{flight\_no} Número del vuelo, de tipo \emph{TEXT}.
+    \subitem \textbf{scheduled\_departure} Fecha de salida programada, tipo \emph{TIMESTAMP WITH TIME ZONE}.
+    \subitem \textbf{scheduled\_arrival} Fecha de llegada programada, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+    \subitem \textbf{departure\_airport} Código del aeropuerto de salida, de tipo \emph{CHARACTER(3)}.
+    \subitem \textbf{arrival\_airport} Código del aeropuerto de llegada, de tipo \emph{CHARACTER(3)}.
+    \subitem \textbf{status} Estado del vuelo, de tipo \emph{TEXT}.
+    \subitem \textbf{aircraft\_code} Código del avión, de tipo \emph{CHARACTER(3)}.
+    \subitem \textbf{actual\_departure} Fecha de salida actual, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+    \subitem \textbf{actual\_arrival} Fecha de llegada actual, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+  \item \textbf{frequent\_flyer:} Contiene información de los viajeros frecuentes.
+    \subitem \textbf{frequent\_flyer\_id} Identificador del viajero frecuente, de tipo \emph{INTEGER}.
+    \subitem \textbf{first\_name} Nombre del viajero frecuente, de tipo \emph{TEXT}.
+    \subitem \textbf{last\_name} Apellido del viajero frecuente, de tipo \emph{TEXT}.
+    \subitem \textbf{title} Título del viajero frecuente, de tipo \emph{TEXT}.
+    \subitem \textbf{card\_num} Número de la tarjeta del viajero frecuente, de tipo \emph{TEXT}.
+    \subitem \textbf{level} Nivel del viajero frecuente, de tipo \emph{INTEGER}.
+    \subitem \textbf{award\_points} Puntos del viajero frecuente, de tipo \emph{INTEGER}.
+    \subitem \textbf{email} Correo electrónico del viajero frecuente, de tipo \emph{TEXT}.
+    \subitem \textbf{phone} Teléfono del viajero frecuente, de tipo \emph{TEXT}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+  \item \textbf{passenger:} Contiene información de los pasajeros.
+    \subitem \textbf{passenger\_id} Identificador del pasajero, de tipo \emph{INTEGER}.
+    \subitem \textbf{booking\_id} Identificador de la reserva, de tipo \emph{INTEGER}.
+    \subitem \textbf{booking\_ref} Referencia de la reserva, de tipo \emph{TEXT}.
+    \subitem \textbf{passenger\_no} Número del pasajero, de tipo \emph{INTEGER}.
+    \subitem \textbf{first\_name} Nombre del pasajero, de tipo \emph{TEXT}.
+    \subitem \textbf{last\_name} Apellido del pasajero, de tipo \emph{TEXT}.
+    \subitem \textbf{account\_id} Identificador de la cuenta, de tipo \emph{INTEGER}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+    \subitem \textbf{age} Edad del pasajero, de tipo \emph{INTEGER}.
+  \item \textbf{phone:} Contiene información de los teléfonos.
+    \subitem \textbf{phone\_id} Identificador del teléfono, de tipo \emph{INTEGER}.
+    \subitem \textbf{account\_id} Identificador de la cuenta, de tipo \emph{INTEGER}.
+    \subitem \textbf{phone} Teléfono, de tipo \emph{TEXT}.
+    \subitem \textbf{phone\_type} Tipo de teléfono, de tipo \emph{TEXT}.
+    \subitem \textbf{primary\_phone} Si es el teléfono principal o no, de tipo \emph{BOOLEAN}.
+    \subitem \textbf{update\_ts} Fecha de actualización, de tipo \emph{TIMESTAMP WITH TIME ZONE}.
+\end{itemize}
+
+% Nueva página
+\cleardoublepage
+
+% Capitulo 4
+\chapter{Diagrama Entidad-Relación}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[scale=0.65]{img/diagrama_entidad_relacion.png}
+%   \caption{Diagrama Entidad-Relación}
+%   \label{fig:diagrama Entidad-Relación}
+% \end{figure}
+
+% Nueva página
+\cleardoublepage
+
+% Capitulo 5
+\chapter{Realizar la siguiente consulta}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.75]{img/consulta_5.png}
+  \label{fig:consulta}
+\end{figure}
+
+\section{Utilizar \emph{EXPLAIN} para obtener el plan de consulta}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{img/consulta_explain.png}
+  \caption{Consulta con \emph{EXPLAIN}}
+  \label{fig:consulta con EXPLAIN}
+\end{figure}
+
+\section{Obtener información de la consulta \emph{EXPLAIN}}
+\begin{itemize}
+  \item \textbf{Costo total de la consulta:} 17223.60 unidades.
+  \item \textbf{Costo de configuración:}  20.09 unidades.
+  \item \textbf{Cantidad de filas que se devolverán:} 144636 filas.
+  \item \textbf{Cantidad de filas estimadas:} 683176 filas.
+\end{itemize}
+
+\section{Repetir la consulta con \emph{EXPLAIN} con un limite de 15 registros}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.55]{img/consulta_explain_limit.png}
+  \caption{Consulta con \emph{EXPLAIN} y límite de 15 registros}
+  \label{fig:consulta con EXPLAIN y límite de 15 registros}
+\end{figure}
+
+% postgres_air=# EXPLAIN SELECT flight_id, scheduled_departure
+% FROM flight f
+% JOIN airport a
+% ON departure_airport=airport_code
+% AND iso_country='US'
+% LIMIT 15;
+%                                            QUERY PLAN                                           
+% ------------------------------------------------------------------------------------------------
+%  Limit  (cost=0.29..3.67 rows=15 width=12)
+%    ->  Nested Loop  (cost=0.29..32658.60 rows=144636 width=12)
+%          ->  Seq Scan on flight f  (cost=0.00..15398.76 rows=683176 width=16)
+%          ->  Memoize  (cost=0.29..0.31 rows=1 width=4)
+%                Cache Key: f.departure_airport
+%                Cache Mode: logical
+%                ->  Index Scan using airport_pkey on airport a  (cost=0.28..0.30 rows=1 width=4)
+%                      Index Cond: (airport_code = f.departure_airport)
+%                      Filter: (iso_country = 'US'::text)
+% (9 rows)
+
+\section{Obtener información de la consulta \emph{EXPLAIN} con un limite de 15 registros}
+Hay una reducción del costo abismal. Hay en total 2 pasos principales, que son dos los
+dos Merges. El segundo de esto se subdivide en otros dos en donde consulta los índices
+previamente creados.
+
+\begin{itemize}
+  \item \textbf{Costo del paso limitante:} 3.67 unidades.
+  \item \textbf{Costo de configuración:}  0.29 unidades.
+  \item \textbf{Cantidad de filas que se devolverán:} 15 filas.
+  \item \textbf{Cantidad de filas estimadas:} 144636 filas.
+\end{itemize}
+
+% Nueva página
+\cleardoublepage
+
+% Capitulo 6
+\chapter{Realizar la siguiente consulta similar a la anterior}
+
+% Nueva página
+\cleardoublepage
+
 \chapter{Bibliografía} % En formato APA
 \begin{enumerate}
 \item Ng Pante, C. (2001). Titulo. Nombre pagina web. Recuperado de \url{http://url.com}
