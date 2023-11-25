@@ -312,7 +312,7 @@ además devuelve muchas menos filas.
 \chapter{Comparación de consultas}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.7]{img/comparacion_rendimiento.png}
+  \includegraphics[scale=0.65]{img/comparacion_rendimiento.png}
   \label{fig:comparación de rendimiento}
 \end{figure}
 
@@ -323,16 +323,11 @@ Para construir los índices, se han usado las siguientes sentencias SQL:
   \begin{verbatim}
     CREATE INDEX flight_idx_brin ON flight USING BRIN(flight_id);
   \end{verbatim}
-
   \item Consulta B:
   \begin{verbatim}
-    
+    CREATE INDEX flight_idx_hash ON flight USING hash(flight_id);
   \end{verbatim}
 \end{itemize}
-
-
-
-
 
 \section{Evaluación del rendimiento}
 Al realizar la consulta sin índices de la consulta \emph{A} y \emph{B} obtenemos lo siguiente:
@@ -340,24 +335,54 @@ Al realizar la consulta sin índices de la consulta \emph{A} y \emph{B} obtenemo
   \begin{subfigure}{0.5\textwidth}
     \centering
     \includegraphics[scale=0.7]{img/consulta_A_sin_indice.png}
-    \caption{Descripción de la primera imagen.}
+    \caption{Consulta A sin índice.}
   \end{subfigure}%
   \begin{subfigure}{0.5\textwidth}
     \centering
     \includegraphics[scale=0.7]{img/consulta_b_sin_indice.png}
-    \caption{Descripción de la segunda imagen.}
+    \caption{Consulta B sin índice.}
   \end{subfigure}
   \caption{Consultas de ambas consultas sin índices}
 \end{figure}
 
+Ahora, al realizar la consulta con índices de la consulta \emph{A} y \emph{B} obtenemos lo siguiente:
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.45]{img/consulta_A_con_indice.png}
+    \caption{Consulta A con índice.}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.45]{img/consulta_b_con_indice.png}
+    \caption{Consulta B con índice.}
+  \end{subfigure}
+  \caption{Consultas de ambas consultas con índices}
+\end{figure}
 
+% Nueva página
+\cleardoublepage
 
+% Tabla
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{}  & \textbf{Consulta A} & \textbf{Consulta B} \\ \hline
+    Sin índice & 358,191ms & 68,007 \\ \hline
+    Con índice & 49,429ms & 65,865 \\ \hline
+  \end{tabular}
+  \caption{Tabla de resultados}
+  \label{tab:tabla de resultados}
+\end{table}
 
+Con los resultados obtenidos, con se observa en la tabla \ref{tab:tabla de resultados},
+ podemos ver que al realizar un índice en la consulta \emph{A} el rendimiento
+mejora considerablemente, mientras que en la consulta \emph{B} no mejora tanto ya que la consulta de por sí
+era bastante rápida.
 
-
-
-
-
-
+Para el caso de la consulta \emph{A}, se usa un índice del tipo \emph{BRIN} ya que es un índice que se usa
+para tablas muy grandes, y en este caso la tabla \emph{flight} tiene 144636 filas. Para el caso de la consulta
+\emph{B}, se usa un índice del tipo \emph{hash} por tratarse de una comparacion de igualdad simple.
 
 \end{document}
