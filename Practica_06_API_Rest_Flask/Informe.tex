@@ -292,13 +292,13 @@ en la tabla \emph{books}:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.4]{img/create_book.png}
+  \includegraphics[scale=0.45]{img/create_book.png}
   \caption{Insertar registros}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.27]{img/added_book.png}
+  \includegraphics[scale=0.23]{img/added_book.png}
   \caption{Registro insertado}
 \end{figure}
 
@@ -311,15 +311,73 @@ llamada \emph{delete()}, aqui el codigo en python:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/delete_books.py}
 
-Este codigo en python lo que hace es una consulta en sql para borrar una entrada de la tabla \emph{books}
+Este codigo en python lo que hace es una consulta en sql para borrar una entrada de la tabla \emph{books},
+aqui el codigo en sql:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/delete_books.psql}
 
+Además, hay que modificar el fichero \emph{base.html} para crear un apartado en el que se pueda borrar
+un registro de la base de datos. Creamos fichero \emph{delete.html} en el directorio \emph{templates} y
+lo codificamos para que se pueda borrar un registro de la base de datos con un formulario, aqui el codigo
+en html:
+\lstset{style=mystyle}
+\lstinputlisting[language=html]{practica_flask/templates/delete.html}
+
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.4]{img/delete_book.png}
+  \includegraphics[scale=0.27]{img/delete_book.png}
   \caption{Borrar registros}
 \end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.20]{img/book_already_deleted.png}
+  \caption{Registro borrado}
+\end{figure}
+
+\section{Construcción de una REST API para la operación de actualización}
+Para construir una REST API para la operación de actualización se crea una nueva función en el fichero \emph{app.py}
+llamada \emph{update()}, en el que se actualizará un registro indicando su ID, aqui el codigo en python:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/update_books.py}
+
+Este codigo en python lo que hace es una consulta en sql para actualizar una entrada de la tabla \emph{books},
+aqui el codigo en sql:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/update_books.psql}
+
+Luego, hay que modificar el fichero \emph{base.html} para crear un apartado en el que se pueda actualizar
+un registro de la base de datos. Creamos fichero \emph{update.html} en el directorio \emph{templates} y
+lo codificamos para que se pueda actualizar un registro de la base de datos con un formulario, aqui el codigo
+en html:
+\lstset{style=mystyle}
+\lstinputlisting[language=html]{practica_flask/templates/update.html}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.27]{img/update_book.png}
+  \caption{Actualizar registros}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.27]{img/non_update.png}
+    \caption{Libro no actualizado}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.27]{img/updated_book.png}
+    \caption{Libro actualizado}
+  \end{subfigure}
+  \caption{Actualización de registros}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+\chapter{Actividad 2}
+\section{}
 
 % Nueva página
 \cleardoublepage

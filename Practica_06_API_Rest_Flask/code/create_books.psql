@@ -1,2 +1,2 @@
 INSERT INTO books (title, author, pages_num, review) 
-VALUES (%s, %s, %s, %s)
+VALUES (%s, %s, %s, %s);
