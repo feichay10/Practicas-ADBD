@@ -236,7 +236,7 @@ $ python3 app.py
 
 Tambi\'en se puede ejecutar el siguiente comando para desplegar la aplicación web:
 \begin{verbatim}
-$ flask --app app.py run --host 0.0.0.0 --port=5000
+$ flask --app app.py run --host 0.0.0.0 --port=8080
 \end{verbatim}
 
 Con los comandos anteriores desplegamos la aplicación en local en el puerto 5000, pero va a
@@ -307,14 +307,19 @@ en la tabla \emph{books}:
 
 \section{Construcción de una REST API para la operación de borrado}
 Para construir una REST API para la operación de borrado se crea una nueva función en el fichero \emph{app.py}
-llamada \emph{delete()} en la que se realiza la siguiente consulta para borrar una entrada de la tabla \emph{books}, aqui
-el codigo en python:
+llamada \emph{delete()}, aqui el codigo en python:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/delete_books.py}
 
-Este codigo en python lo que hace es la siguiente consulta en sql:
+Este codigo en python lo que hace es una consulta en sql para borrar una entrada de la tabla \emph{books}
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/delete_books.psql}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{img/delete_book.png}
+  \caption{Borrar registros}
+\end{figure}
 
 % Nueva página
 \cleardoublepage

@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} - FlaskApp</title>
@@ -18,12 +19,12 @@
         }
 
         .review {
-                margin-left: 50px;
-                font-size: 20px;
+            margin-left: 50px;
+            font-size: 20px;
         }
-
     </style>
 </head>
+
 <body>
     <nav>
         <a href="{{ url_for('index') }}">FlaskApp</a>
@@ -36,4 +37,5 @@
         {% block content %} {% endblock %}
     </div>
 </body>
+
 </html>

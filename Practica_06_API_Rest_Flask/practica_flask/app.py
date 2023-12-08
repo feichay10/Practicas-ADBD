@@ -46,6 +46,7 @@ def create():
 
     return render_template('create.html')
 
+
 @app.route('/delete/', methods=['GET', 'POST'])
 def delete():
     if request.method == 'POST':
