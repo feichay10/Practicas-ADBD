@@ -1,0 +1,280 @@
+\documentclass[11pt]{report}
+
+% Paquetes y configuraciones adicionales
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{wasysym}
+\usepackage{tikzsymbols}
+\usepackage{fancyvrb}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[spanish]{babel}
+
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}
+}
+
+% Configura los márgenes
+\geometry{
+  left=2cm,   % Ajusta este valor al margen izquierdo deseado
+  right=2cm,  % Ajusta este valor al margen derecho deseado
+  top=3cm,
+  bottom=3cm,
+}
+
+% Configuración de los títulos de las secciones
+\titlespacing{\section}{0pt}{\parskip}{\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{\parskip}
+\titlespacing{\subsubsection}{0pt}{\parskip}{\parskip}
+
+% Redefinir el formato de los capítulos y añadir un punto después del número
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace*{0\p@} % Ajusta este valor para el espaciado deseado antes del título del capítulo
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \thechapter.\ % Añade un punto después del número
+    \fi
+    \interlinepenalty\@M
+    #1\par\nobreak
+    \vspace{10pt} % Ajusta este valor para el espacio deseado después del título del capítulo
+  }}
+\makeatother
+
+% Configura para que cada \chapter no comience en una pagina nueva
+\makeatletter
+\renewcommand\chapter{\@startsection{chapter}{0}{\z@}%
+    {-3.5ex \@plus -1ex \@minus -.2ex}%
+    {2.3ex \@plus.2ex}%
+    {\normalfont\Large\bfseries}}
+\makeatother
+
+% Configurar los colores para el código
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Configurar el estilo para el código
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+
+%==============================================================================
+% Cosas para la documentación LateX
+% % Sangría
+% \setlength{\parindent}{1em}Texto
+
+% % Quitar sangría
+% \noindent
+
+% % Punto
+% \CIRCLE \ \ \textbf{Texto} \emph{algo}
+% \begin{itemize}
+%   \item \textbf{Negrita:} Texto
+%   \item \textbf{Negrita:} Texto
+% \end{itemize}
+
+% % Introducir código
+% \begin{center}
+%   \begin{BVerbatim}
+%     ... Código
+%   \end{BVerbatim}
+% \end{center}
+
+% Poner una imagen
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[scale=0.55]{img/}
+%   \caption{Exportación de la base de datos en formato sql}
+%   \label{fig:exportación de la base de datos en formato sql}
+% \end{figure}
+
+% Poner dos imágenes
+% \begin{figure}[H]
+%   \begin{subfigure}{0.5\textwidth}
+%     \centering
+%     \includegraphics[scale=0.45]{img/}
+%     \caption{Texto imagen 1}
+%   \end{subfigure}%
+%   \begin{subfigure}{0.5\textwidth}
+%     \centering
+%     \includegraphics[scale=0.45]{img/}
+%     \caption{Texto imagen 2}
+%   \end{subfigure}
+%   \caption{Texto general}
+% \end{figure}
+
+% % Poner una tabla
+% \begin{table}[H]
+%   \centering
+%   \begin{tabular}{|c|c|c|c|}
+%     \hline
+%     \textbf{Campo 1} & \textbf{Campo 2} & \textbf{Campo 3} & \textbf{Campo 4} \\ \hline
+%     Texto & Texto & Texto & Texto \\ \hline
+%     Texto & Texto & Texto & Texto \\ \hline
+%     Texto & Texto & Texto & Texto \\ \hline
+%     Texto & Texto & Texto & Texto \\ \hline
+%   \end{tabular}
+%   \caption{Nombre de la tabla}
+%   \label{tab:nombre de la tabla}
+% \end{table}
+
+% % Poner codigo de un lenguaje a partir de un archivo
+% \lstset{style=mystyle}
+% The next code will be directly imported from a file
+% \lstinputlisting[language=Python]{code.py}
+
+%==============================================================================
+
+\begin{document}
+
+% Portada del informe
+\title{Práctica 06. API Rest en Flask}
+\subtitle{Administracion y Diseño de Bases de Datos}
+\author{Cheuk Kelly Ng Pante (alu0101364544@ull.edu.es)}
+\date{\today}
+
+\maketitle
+
+\pagestyle{empty} % Desactiva la numeración de página para el índice
+
+% Índice
+\tableofcontents
+
+% Nueva página
+\cleardoublepage
+
+\pagestyle{plain} % Vuelve a activar la numeración de página
+\setcounter{page}{1} % Reinicia el contador de página a 1
+
+% Secciones del informe
+% Capitulo 1
+\chapter{Introducción}
+La API RESTful es una interfaz que dos sistemas de computación utilizan para intercambiar información de
+manera segura a través de Internet. La mayoría de las aplicaciones para empresas deben comunicarse con otras
+aplicaciones internas o de terceros para llevar a cabo varias tareas
+
+Flask es un framework para desarrollo web escrito en Python. Se puede utilizar para diversos tipos de
+aplicación, entre ellas, desarrollo de APIs. Existen muchas maneras de implementar un API REST en Flask.
+Desde usar el framework con lo que ofrece de base, o con la ayuda de extensiones con diferentes
+configuraciones.
+
+% Capitulo 2
+\chapter{Actividad 1}
+% 2.1
+\section{Instalación del framework \emph{Flask} y la biblioteca \emph{psycopg2-binary}}
+Para la instalación de \emph{Flask} y \emph{psycopg2-binary}, así como el desarrollo de la práctica
+se va a crear un entorno virtual con \emph{virtualenv}. Primero se crea un directorio para el entorno
+virtual y se accede a él.
+\begin{verbatim}
+$ mkdir practica_flask
+$ cd practica_flask
+\end{verbatim}
+
+Dentro del directorio se crea el entorno virtual con \emph{virtualenv} y se instalará \emph{Flask} y
+\emph{psycopg2-binary} dentro de él. Para ello, se ejecutarán los siguientes comandos:
+\begin{verbatim}
+$ sudo apt install python3.10-venv
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install Flask
+$ pip install psycopg2-binary
+\end{verbatim}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.27]{img/instalation.png}
+  \caption{Instalación de Flask y psycopg2-binary}
+  \label{fig:instalacion_flask}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+\section{Despliegue de la aplicación web}
+Para desplegar la aplicación web se va a crea una base de datos en \emph{PostgreSQL} con el nombre
+de \emph{flask\_db}. Para ello, ejecutamos dentro psql el siguiente comando:
+\begin{verbatim}
+postgres=# CREATE DATABASE flask_db;
+\end{verbatim}
+
+Una vez creada la base de datos, sobre el directorio \emph{practica\_flask} se ponen los archivos que se van
+a utilizar para el desarrollo de la práctica. Estos archivos son: \emph{app.py} e \emph{init.py} y dentro de
+estos ficheros añadimos el usuario y contraseña de \emph{postgres} para poder acceder a la base de datos.
+
+Ya modificados los archivos, se ejecuta el siguiente comando para desplegar la aplicación web:
+\begin{verbatim}
+$ python3 app.py
+\end{verbatim}
+
+Tambi\'en se puede ejecutar el siguiente comando para desplegar la aplicación web:
+\begin{verbatim}
+$ flask --app app.py run --host 0.0.0.0 --port=5000
+\end{verbatim}
+
+Con los comandos anteriores desplegamos la aplicación en local en el puerto 5000, pero va a
+fallar ya que antes necesita la inicialización de la base de datos, lo cual se hace con el
+siguiente comando:
+\begin{verbatim}
+$ python3 init_db.py
+\end{verbatim}
+
+\section{Creación de la base de datos e inserción de datos}
+La creación de la base de datos se hizo en el apartado anterior y la inserción de datos se crean en el
+script \emph{init\_db.py}.
+
+\section{Personalizar la referencia \emph{About}}
+Para personalizar la referencia del about creamos un nuevo archivo html en el directorio
+templates \emph{about.html} en donde añadimos los nombres y apellidos de los integrantes del
+grupo. Luego modificamos \emph{base.html} y el fichero \emph{app.py} para poder acceder a la nueva
+sección.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{img/about.png}
+  \caption{About personalizado}
+  \label{fig:about_personalizado}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+\section{Verificar funcionamiento de la operación de visualizar los registros}
+
+
+% Nueva página
+\cleardoublepage
+
+\chapter{Bibliografía} % En formato APA
+\begin{enumerate}
+  \item
+\end{enumerate}
+
+\end{document}
