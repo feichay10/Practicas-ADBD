@@ -89,72 +89,6 @@
   tabsize=2
 }
 
-%==============================================================================
-% Cosas para la documentación LateX
-% % Sangría
-% \setlength{\parindent}{1em}Texto
-
-% % Quitar sangría
-% \noindent
-
-% % Punto
-% \CIRCLE \ \ \textbf{Texto} \emph{algo}
-% \begin{itemize}
-%   \item \textbf{Negrita:} Texto
-%   \item \textbf{Negrita:} Texto
-% \end{itemize}
-
-% % Introducir código
-% \begin{center}
-%   \begin{BVerbatim}
-%     ... Código
-%   \end{BVerbatim}
-% \end{center}
-
-% Poner una imagen
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[scale=0.55]{img/}
-%   \caption{Exportación de la base de datos en formato sql}
-%   \label{fig:exportación de la base de datos en formato sql}
-% \end{figure}
-
-% Poner dos imágenes
-% \begin{figure}[H]
-%   \begin{subfigure}{0.5\textwidth}
-%     \centering
-%     \includegraphics[scale=0.45]{img/}
-%     \caption{Texto imagen 1}
-%   \end{subfigure}%
-%   \begin{subfigure}{0.5\textwidth}
-%     \centering
-%     \includegraphics[scale=0.45]{img/}
-%     \caption{Texto imagen 2}
-%   \end{subfigure}
-%   \caption{Texto general}
-% \end{figure}
-
-% % Poner una tabla
-% \begin{table}[H]
-%   \centering
-%   \begin{tabular}{|c|c|c|c|}
-%     \hline
-%     \textbf{Campo 1} & \textbf{Campo 2} & \textbf{Campo 3} & \textbf{Campo 4} \\ \hline
-%     Texto & Texto & Texto & Texto \\ \hline
-%     Texto & Texto & Texto & Texto \\ \hline
-%     Texto & Texto & Texto & Texto \\ \hline
-%     Texto & Texto & Texto & Texto \\ \hline
-%   \end{tabular}
-%   \caption{Nombre de la tabla}
-%   \label{tab:nombre de la tabla}
-% \end{table}
-
-% % Poner codigo de un lenguaje a partir de un archivo
-% \lstset{style=mystyle}
-% \lstinputlisting[language=Python]{code.py}
-
-%==============================================================================
-
 \begin{document}
 
 % Portada del informe
@@ -205,7 +139,7 @@ Dentro del directorio se crea el entorno virtual con \emph{virtualenv} y se inst
 \begin{verbatim}
 $ sudo apt install python3.10-venv
 $ python3 -m venv venv
-$ source venv/bin/activate
+$ . venv/bin/activate
 $ pip install Flask
 $ pip install psycopg2-binary
 \end{verbatim}
@@ -321,7 +255,7 @@ un registro de la base de datos. Creamos fichero \emph{delete.html} en el direct
 lo codificamos para que se pueda borrar un registro de la base de datos con un formulario, aqui el codigo
 en html:
 \lstset{style=mystyle}
-\lstinputlisting[language=html]{practica_flask/templates/delete.html}
+\lstinputlisting[language=html]{actividad_1/templates/delete.html}
 
 \begin{figure}[H]
   \centering
@@ -351,7 +285,7 @@ un registro de la base de datos. Creamos fichero \emph{update.html} en el direct
 lo codificamos para que se pueda actualizar un registro de la base de datos con un formulario, aqui el codigo
 en html:
 \lstset{style=mystyle}
-\lstinputlisting[language=html]{practica_flask/templates/update.html}
+\lstinputlisting[language=html]{actividad_1/templates/update.html}
 
 \begin{figure}[H]
   \centering
@@ -377,14 +311,24 @@ en html:
 \cleardoublepage
 
 \chapter{Actividad 2}
-\section{}
+\section{Desplegar la base de datos \emph{MyHome.psql}}
+Para desplegar la base de datos a partir del script \emph{MyHome.sql} se ha utilizado el siguiente comando:
+\begin{verbatim}
+postgres=# \i MyHome.psql
+\end{verbatim}
 
-% Nueva página
-\cleardoublepage
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.65]{img/myhome_script.png}
+  \caption{Despliegue de la base de datos \emph{MyHome.psql}}
+\end{figure}
 
-\chapter{Bibliografía} % En formato APA
-\begin{enumerate}
-  \item
-\end{enumerate}
+\section{Construir con \emph{Flask} y \emph{psycopg2} las siguientes REST API}
+Se va a crear un nuevo directorio de trabajo llamado \emph{actividad\_2} en el que tendrá las definiciones de la nueva
+aplicación, las funcionalidades estarán en el fichero \emph{room\_app.py}.
+
+\subsection{Retorno de la temperatura media de todas las habitaciones}
+
+
 
 \end{document}
