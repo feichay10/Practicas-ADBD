@@ -18,6 +18,7 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{subcaption}
 \usepackage[spanish]{babel}
 
 \newcommand{\subtitle}[1]{
@@ -150,7 +151,6 @@
 
 % % Poner codigo de un lenguaje a partir de un archivo
 % \lstset{style=mystyle}
-% The next code will be directly imported from a file
 % \lstinputlisting[language=Python]{code.py}
 
 %==============================================================================
@@ -267,7 +267,54 @@ sección.
 \cleardoublepage
 
 \section{Verificar funcionamiento de la operación de visualizar los registros}
+Se puede verificar que se pueden visualizar los registros de la base de datos gracias a la función \emph{index()} que
+se encuentra en el fichero \emph{app.py}, en el que se realiza la siguiente consulta para conseguir todas las entradas
+de la tabla \emph{books}:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/select_books.psql}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{img/visualizar_registros.png}
+  \caption{Visualizar registros}
+  \label{fig:visualizar_registros}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+\section{Verificar operacion de inserción de registros}
+Se puede verificar que se pueden insertar registros en la base de datos gracias a la función \emph{create()} que
+se encuentra en el fichero \emph{app.py}, en el que se realiza la siguiente consulta para insertar una entrada
+en la tabla \emph{books}:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/create_books.psql}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{img/create_book.png}
+  \caption{Insertar registros}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.27]{img/added_book.png}
+  \caption{Registro insertado}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+\section{Construcción de una REST API para la operación de borrado}
+Para construir una REST API para la operación de borrado se crea una nueva función en el fichero \emph{app.py}
+llamada \emph{delete()} en la que se realiza la siguiente consulta para borrar una entrada de la tabla \emph{books}, aqui
+el codigo en python:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/delete_books.py}
+
+Este codigo en python lo que hace es la siguiente consulta en sql:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/delete_books.psql}
 
 % Nueva página
 \cleardoublepage
