@@ -1,0 +1,3 @@
+SELECT name 
+FROM public.rooms
+WHERE id = %s;

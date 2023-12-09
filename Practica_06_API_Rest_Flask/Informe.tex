@@ -366,5 +366,36 @@ anterior pero en la consulta extraemos la temperatura máxima de una habitación
 \cleardoublepage
 
 \subsection{Dado el \emph{room\_id} retornar el nombre de la habitación}
+Para retornar el nombre de la habitación dado el \emph{room\_id} se crea una nueva función en el fichero \emph{room\_app.py}
+llamada \emph{room\_name()}, en el que se retornará el nombre de la habitación dado el \emph{room\_id}, aqui el código
+en python:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/room_name.py}
+
+Lo que hace este código en python es una consulta en sql para obtener el nombre de la habitación dado el \emph{room\_id},
+aqui el código en sql:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/room_name.psql}
+
+Para este procedimiento se ha creados dos ficheros html, uno para mostrar el formulario y otro para mostrar el resultado.
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{img/room_name.png}
+    \caption{Formulario para obtener el nombre de la habitación}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{img/result_room_name.png}
+    \caption{Resultado de obtener el nombre de la habitación}
+  \end{subfigure}
+  \caption{Obtener el nombre de la habitación}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+\subsection{Dado el \emph{room\_id} retornar la temperatura media histórica de la habitación.}
+
 
 \end{document}
