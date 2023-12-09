@@ -8,6 +8,15 @@
       "name": "Flask_DB",
       "database": "flask_db",
       "username": "postgres"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Flask_DB_act_2",
+      "database": "myhome",
+      "username": "postgres"
     }
   ]
 }

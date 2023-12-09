@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} - FlaskApp</title>
@@ -19,18 +18,15 @@
         }
 
         .review {
-            margin-left: 50px;
-            font-size: 20px;
+                margin-left: 50px;
+                font-size: 20px;
         }
+
     </style>
 </head>
-
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">FlaskApp</a>
-        <a href="{{ url_for('create') }}">Create</a>
-        <a href="{{ url_for('delete') }}">Delete</a>
-        <a href="{{ url_for('update') }}">Update</a>
+        <a href="{{ url_for('index') }}">FlaskApp Room</a>
         <a href="{{ url_for('about') }}">About</a>
     </nav>
     <hr>
@@ -38,5 +34,4 @@
         {% block content %} {% endblock %}
     </div>
 </body>
-
 </html>
