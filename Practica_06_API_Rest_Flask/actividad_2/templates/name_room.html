@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Show room name {% endblock %}</h1>
-    <form method="POST">
-        <p>
-            <label for="ID">ID</label>
-            <input type="text" name="ID"
-                   placeholder="Room ID">
-            </input>
-        </p>
-        <p>
-            <button type="submit">Submit</button>
-        </p>
-    </form>
+<h1>{% block title %} Show room name {% endblock %}</h1>
+<form method="POST">
+    <p>
+        <label for="ID">ID</label>
+        <input type="text" name="ID" placeholder="Room ID"> </input>
+    </p>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
 {% endblock %}

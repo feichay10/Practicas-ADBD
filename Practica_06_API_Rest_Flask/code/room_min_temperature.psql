@@ -1,0 +1,5 @@
+SELECT MIN(temperature), r.name
+FROM public.rooms r
+JOIN public.temperatures t ON r.id = t.room_id
+WHERE room_id = 10
+GROUP BY(room_id, name);

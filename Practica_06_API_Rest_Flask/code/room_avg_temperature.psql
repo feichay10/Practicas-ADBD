@@ -1,0 +1,3 @@
+SELECT AVG(temperature)
+FROM temperatures
+WHERE room_id = %s;

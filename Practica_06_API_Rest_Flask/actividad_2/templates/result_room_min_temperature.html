@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Minimum Temperature of the chosen room {% endblock %}</h1>
+        <div class='room'>
+            <h3>{{ room['room_name'] }} Celsius</h3>
+            <h3>{{ room['min_temperature'] }}</h3>
+        </div>
+{% endblock %}

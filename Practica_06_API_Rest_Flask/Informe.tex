@@ -396,6 +396,48 @@ Para este procedimiento se ha creados dos ficheros html, uno para mostrar el for
 \cleardoublepage
 
 \subsection{Dado el \emph{room\_id} retornar la temperatura media histórica de la habitación.}
+Para retornar la temperatura media histórica de la habitación dado el \emph{room\_id} es similar al apartado anterior,
+se crea una nueva función en el fichero \emph{room\_app.py} llamada \emph{room\_avg\_temperature()}, en el que se retornará
+la temperatura media histórica de la habitación dado el \emph{room\_id}, aqui el código en SQL:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/room_avg_temperature.psql}
 
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.34]{img/avg_temperatura_room.png}
+    \caption{Formulario a obtener la temperatura de la habitación}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.34]{img/result_avg_temperatura_room.png}
+    \caption{Resultado de obtener la temperatura de la habitación}
+  \end{subfigure}
+  \caption{Obtener la temperatura de una habitación}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
+\subsection{Dado el \emph{room\_id} retornar la temperatura mínima en la habitación y el nombre la habitación en formato \emph{JSON}}
+Esta REST API es parecido al apartado anterior, se crea una nueva función en el fichero \emph{room\_app.py} llamada
+\emph{room\_min\_temperature()}, en el que se retornará la temperatura mínima en la habitación y el nombre la habitación
+en formato \emph{JSON}, aqui el código en SQL:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/room_min_temperature.psql}
+
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.34]{img/min_temperature.png}
+    \caption{Formulario a obtener la temperatura de la habitación}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.34]{img/result_min_temperature.png}
+    \caption{Resultado de obtener la temperatura de la habitación}
+  \end{subfigure}
+  \caption{Obtener el nombre y la temperatura mínima de una habitación}
+\end{figure}
 
 \end{document}

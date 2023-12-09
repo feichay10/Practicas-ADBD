@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Show a the minimum temperature of a room {% endblock %}</h1>
+    <form method="POST">
+        <p>
+            <label for="ID">ID</label>
+            <input type="text" name="ID"
+                   placeholder="Room ID">
+            </input>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}
