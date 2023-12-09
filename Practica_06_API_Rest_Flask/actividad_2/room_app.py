@@ -21,10 +21,34 @@ def index():
     conn = get_db_connection()
     cur = conn.cursor()
     cur.execute('SELECT * FROM public.rooms;')
+    rooms = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('index.html', rooms=rooms)
+
+
+@app.route('/average/', methods=('GET', 'POST'))
+def average():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT AVG(temperature)'
+                'FROM temperatures;')
     values = cur.fetchall()
     cur.close()
     conn.close()
-    return render_template('index.html', values=values)
+    return render_template('average.html', rooms=values)
+
+
+@app.route('/maximum/', methods=('GET', 'POST'))
+def maximum():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT MAX(temperature)'
+                'FROM temperatures;')
+    values = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('maximum.html', rooms=values)
 
 
 @app.route('/about/', methods=('GET', 'POST'))

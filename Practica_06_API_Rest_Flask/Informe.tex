@@ -241,18 +241,18 @@ en la tabla \emph{books}:
 
 \section{Construcción de una REST API para la operación de borrado}
 Para construir una REST API para la operación de borrado se crea una nueva función en el fichero \emph{app.py}
-llamada \emph{delete()}, aqui el codigo en python:
+llamada \emph{delete()}, aqui el código en python:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/delete_books.py}
 
-Este codigo en python lo que hace es una consulta en sql para borrar una entrada de la tabla \emph{books},
-aqui el codigo en sql:
+Este código en python lo que hace es una consulta en sql para borrar una entrada de la tabla \emph{books},
+aqui el código en sql:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/delete_books.psql}
 
 Además, hay que modificar el fichero \emph{base.html} para crear un apartado en el que se pueda borrar
 un registro de la base de datos. Creamos fichero \emph{delete.html} en el directorio \emph{templates} y
-lo codificamos para que se pueda borrar un registro de la base de datos con un formulario, aqui el codigo
+lo codificamos para que se pueda borrar un registro de la base de datos con un formulario, aqui el código
 en html:
 \lstset{style=mystyle}
 \lstinputlisting[language=html]{actividad_1/templates/delete.html}
@@ -271,18 +271,18 @@ en html:
 
 \section{Construcción de una REST API para la operación de actualización}
 Para construir una REST API para la operación de actualización se crea una nueva función en el fichero \emph{app.py}
-llamada \emph{update()}, en el que se actualizará un registro indicando su ID, aqui el codigo en python:
+llamada \emph{update()}, en el que se actualizará un registro indicando su ID, aqui el código en python:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/update_books.py}
 
-Este codigo en python lo que hace es una consulta en sql para actualizar una entrada de la tabla \emph{books},
-aqui el codigo en sql:
+Este código en python lo que hace es una consulta en sql para actualizar una entrada de la tabla \emph{books},
+aqui el código en sql:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/update_books.psql}
 
 Luego, hay que modificar el fichero \emph{base.html} para crear un apartado en el que se pueda actualizar
 un registro de la base de datos. Creamos fichero \emph{update.html} en el directorio \emph{templates} y
-lo codificamos para que se pueda actualizar un registro de la base de datos con un formulario, aqui el codigo
+lo codificamos para que se pueda actualizar un registro de la base de datos con un formulario, aqui el código
 en html:
 \lstset{style=mystyle}
 \lstinputlisting[language=html]{actividad_1/templates/update.html}
@@ -319,7 +319,7 @@ postgres=# \i MyHome.psql
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.65]{img/myhome_script.png}
+  \includegraphics[scale=0.5]{img/myhome_script.png}
   \caption{Despliegue de la base de datos \emph{MyHome.psql}}
 \end{figure}
 
@@ -328,7 +328,32 @@ Se va a crear un nuevo directorio de trabajo llamado \emph{actividad\_2} en el q
 aplicación, las funcionalidades estarán en el fichero \emph{room\_app.py}.
 
 \subsection{Retorno de la temperatura media de todas las habitaciones}
+Para retornar la temperatura media de todas las habitaciones se crea una nueva función en el fichero \emph{room\_app.py}
+llamada \emph{get\_avg\_temperature()}, en el que se retornará la temperatura media de todas las habitaciones, aqui el
+código en python:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/avg_temperature.py}
 
+Lo que hace este código en python es una consulta en sql para obtener la temperatura media de todas las habitaciones,
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/avg_temperature.psql}
 
+Luego, hay que modificar el fichero \emph{base.html} para crear un apartado en el que se pueda obtener la temperatura
+media de todas las habitaciones. Creamos fichero \emph{average.html} en el directorio \emph{templates} y
+lo codificamos para que se pueda obtener la temperatura media de todas las habitaciones, aqui el código en html:
+\lstset{style=mystyle}
+\lstinputlisting[language=html]{actividad_2/templates/average.html}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.45]{img/average_temperature.png}
+  \caption{Temperatura media de todas las habitaciones}
+\end{figure}
+
+\subsection{Retorno de la temperatura máxima de una habitación}
+En este apartado se va a retornar la temperatura máxima de una habitación, para ello se hará lo mismo que en el apartado
+anterior pero en la consulta extraeremos la temperatura máxima de una habitación, aqui el código en SQL:
+\lstset{style=mystyle}
+\lstinputlisting[language=sql]{code/max_temperature.psql}
 
 \end{document}

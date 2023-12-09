@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Rooms {% endblock %}</h1>
+    <h1>{% block title %} Maximun temperature {% endblock %}</h1>
     {% for room in rooms %}
         <div class='room'>
-            <h3>{{ room[0] }} - {{ room[1] }}</h3>
+            <h3>{{ room[0] }} Celsius</h3>
         </div>
     {% endfor %}
 {% endblock %}

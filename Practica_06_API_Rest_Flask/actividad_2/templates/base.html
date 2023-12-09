@@ -1,8 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %} - FlaskApp</title>
+    <title>{% block title %} {% endblock %} - FlaskApp Room</title>
     <style>
         nav a {
             color: #d64161;
@@ -10,23 +11,25 @@
             margin-left: 50px;
             text-decoration: none;
         }
-
+        
         .book {
             padding: 20px;
             margin: 10px;
             background-color: #f7f4f4;
         }
-
+        
         .review {
-                margin-left: 50px;
-                font-size: 20px;
+            margin-left: 50px;
+            font-size: 20px;
         }
-
     </style>
 </head>
+
 <body>
     <nav>
         <a href="{{ url_for('index') }}">FlaskApp Room</a>
+        <a href="{{ url_for('average') }}">Average Temperature</a>
+        <a href="{{ url_for('maximum') }}">Maximum Temperature</a>
         <a href="{{ url_for('about') }}">About</a>
     </nav>
     <hr>
@@ -34,4 +37,5 @@
         {% block content %} {% endblock %}
     </div>
 </body>
+
 </html>
