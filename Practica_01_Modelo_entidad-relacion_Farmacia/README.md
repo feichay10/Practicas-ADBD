@@ -15,3 +15,6 @@ La gestión de una farmacia requiere poder llevar control de los medicamentos ex
 misma. Se desea conocer el código del laboratorio, nombre, teléfono, dirección y fax, así como el nombre de la persona de contacto.
 * Los medicamentos se agrupan en familias, dependiendo del tipo de enfermedades a las que dicho medicamento se aplica. De este modo, si la farmacia no dispone de un medicamento concreto, puede vender otro similar aunque de distinto laboratorio.
 * La farmacia tiene algunos clientes que realizan los pagos de sus pedidos a fin de cada mes (clientes con crédito). La farmacia quiere mantener las unidades de cada medicamento comprado (con o sin crédito) así como la fecha de compra. Además, es necesario conocer los datos bancarios de los clientes con crédito, así como la fecha de pago de las compras que realizan.
+
+## Diagrama Entidad/Relación
+![Imagen de Modelo Entidad Relacion](./Practica_01_Modelo_Entidad-Relacion_Farmacia.jpg)
