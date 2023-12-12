@@ -4,8 +4,6 @@ import psycopg2
 conn = psycopg2.connect(
     host="localhost",
     database="flask_db",
-    # user=os.environ['DB_USERNAME'],
-    # password=os.environ['DB_PASSWORD']
     user='postgres',
     password='clave')
 
@@ -23,7 +21,6 @@ cur.execute('CREATE TABLE books (id serial PRIMARY KEY,'
             )
 
 # Insert data into the table
-
 cur.execute('INSERT INTO books (title, author, pages_num, review)'
             'VALUES (%s, %s, %s, %s)',
             ('A Tale of Two Cities',
@@ -40,6 +37,79 @@ cur.execute('INSERT INTO books (title, author, pages_num, review)'
              864,
              'Another great classic!')
             )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ('La Biblia',
+             'Dios',
+             1350,
+             'El libro más vendido de todos los tiempos.')
+            )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ('Citas del Presidente Mao Tse-Tung',
+             'Gobierno de la República Popular China',
+             300,
+             'El segundo libro más vendido de todos los tiempos.')
+            )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ('Harry Potter',
+             'J. K. Rowling',
+             3342,
+             'Una gran obra de fantasía.')
+            )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ('El Señor de los Anillos',
+             'J. R. R. Tolkien',
+             1216,
+             'Una gran obra de fantasía.')
+            )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ('El Principito',
+             'Antoine de Saint-Exupéry',
+             96,
+             'Un gran libro para niños y adultos.')
+            )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ('El Alquimista',
+             'Paulo Coelho',
+             208,
+             'Un gran libro de superación personal.')
+            )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ('El Código Da Vinci',
+             'Dan Brown',
+             592,
+             'Un gran libro de misterio.')
+            )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ("Yo, Robot",
+             'Isaac Asimov',
+             256,
+             'Un gran libro de ciencia ficción.')
+            )
+
+cur.execute('INSERT INTO books (title, author, pages_num, review)'
+            'VALUES (%s, %s, %s, %s)',
+            ('El Hobbit',
+             'J. R. R. Tolkien',
+             304,
+             'Una gran obra de fantasía.')
+            )
+
 
 conn.commit()
 

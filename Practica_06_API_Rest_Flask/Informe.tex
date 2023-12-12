@@ -182,7 +182,20 @@ $ python3 init_db.py
 
 \section{Creación de la base de datos e inserción de datos}
 La creación de la base de datos se hizo en el apartado anterior y la inserción de datos se crean en el
-script \emph{init\_db.py}.
+script \emph{init\_db.py} y se han realizado nueve inserciones en la tabla \emph{books}:
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{img/inserted_books_1.png}
+    \caption{Inserción de datos en la tabla desde el script}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{img/inserted_books_2.png}
+    \caption{Datos insertados en la tabla}
+  \end{subfigure}
+  \caption{Inserción de datos en la tabla \emph{books}}
+\end{figure}
 
 \section{Personalizar la referencia \emph{About}}
 Para personalizar la referencia del about creamos un nuevo archivo html en el directorio
@@ -197,8 +210,6 @@ sección.
   \label{fig:about_personalizado}
 \end{figure}
 
-% Nueva página
-\cleardoublepage
 
 \section{Verificar funcionamiento de la operación de visualizar los registros}
 Se puede verificar que se pueden visualizar los registros de la base de datos gracias a la función \emph{index()} que
@@ -439,5 +450,10 @@ en formato \emph{JSON}, aqui el código en SQL:
   \end{subfigure}
   \caption{Obtener el nombre y la temperatura mínima de una habitación}
 \end{figure}
+
+% Nueva página
+\cleardoublepage
+
+\chapter{Chequeo de excepciones}
 
 \end{document}
