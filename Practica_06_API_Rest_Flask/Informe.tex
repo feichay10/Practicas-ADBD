@@ -455,5 +455,27 @@ en formato \emph{JSON}, aqui el código en SQL:
 \cleardoublepage
 
 \chapter{Chequeo de excepciones}
+Para el chequeo de excepciones se ha creado unas funciones en el fichero \emph{app.py} que son las siguientes:
+\begin{itemize}
+  \item Manejo de errores 404: 
+\lstset{style=mystyle}
+\lstinputlisting[language=python]{code/404.py}
+
+  \item Manejo de errores 500:
+\lstset{style=mystyle}
+\lstinputlisting[language=python]{code/500.py}
+
+  \item Manejo de errores 403:
+\lstset{style=mystyle}
+\lstinputlisting[language=python]{code/403.py}
+\end{itemize}
+
+Luego dentro de cada función que hace la aplicación se ha añadido un try-except para manejar las excepciones y en todas 
+las funciones se ha añadido el mismo código para manejar las excepciones aunque en algunas se ha añadido un código adicional
+dependiendo de las necesidades de la función, aqui el código en python resumiendo como fueron implementadas las excepciones
+\lstset{style=mystyle}
+\lstinputlisting[language=python]{code/try_except.py}
+
+En el script \emph{app\_with\_check.py} se puede ver el código completo de la aplicación con el chequeo de excepciones.
 
 \end{document}

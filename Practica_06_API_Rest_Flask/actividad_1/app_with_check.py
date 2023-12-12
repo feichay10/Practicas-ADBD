@@ -20,7 +20,6 @@ def internal_server_error(error):
 # Ruta para generar un error 403 - Prohibido
 @app.route("/forbidden")
 def forbidden():
-    # Generar un error 403
     abort(403)
 
 
