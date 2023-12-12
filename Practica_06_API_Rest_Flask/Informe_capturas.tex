@@ -119,7 +119,8 @@ aplicaciones internas o de terceros para llevar a cabo varias tareas
 
 Flask es un framework para desarrollo web escrito en Python. Se puede utilizar para diversos tipos de
 aplicación, entre ellas, desarrollo de APIs. Existen muchas maneras de implementar un API REST en Flask.
-
+Desde usar el framework con lo que ofrece de base, o con la ayuda de extensiones con diferentes
+configuraciones.
 
 % Capitulo 2
 \chapter{Actividad 1}
@@ -129,8 +130,8 @@ Para la instalación de \emph{Flask} y \emph{psycopg2-binary}, así como el desa
 se va a crear un entorno virtual con \emph{virtualenv}. Primero se crea un directorio para el entorno
 virtual y se accede a él.
 \begin{verbatim}
-$ mkdir actividad_1
-$ cd actividad_1
+$ mkdir practica_flask
+$ cd practica_flask
 \end{verbatim}
 
 Dentro del directorio se crea el entorno virtual con \emph{virtualenv} y se instalará \emph{Flask} y
@@ -142,7 +143,15 @@ $ . venv/bin/activate
 $ pip install Flask
 $ pip install psycopg2-binary
 \end{verbatim}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.27]{img/instalation.png}
+  \caption{Instalación de Flask y psycopg2-binary}
+  \label{fig:instalacion_flask}
+\end{figure}
 
+% Nueva página
+\cleardoublepage
 \section{Despliegue de la aplicación web}
 Para desplegar la aplicación web se va a crea una base de datos en \emph{PostgreSQL} con el nombre
 de \emph{flask\_db}. Para ello, ejecutamos dentro psql el siguiente comando:
@@ -150,8 +159,8 @@ de \emph{flask\_db}. Para ello, ejecutamos dentro psql el siguiente comando:
 postgres=# CREATE DATABASE flask_db;
 \end{verbatim}
 
-Una vez creada la base de datos, sobre el directorio \emph{actividad\_1} se ponen los archivos que se van
-a utilizar para el desarrollo de la práctica. Estos archivos son: \emph{app.py} e \emph{init\_db.py} y dentro de
+Una vez creada la base de datos, sobre el directorio \emph{practica\_flask} se ponen los archivos que se van
+a utilizar para el desarrollo de la práctica. Estos archivos son: \emph{app.py} e \emph{init.py} y dentro de
 estos ficheros añadimos el usuario y contraseña de \emph{postgres} para poder acceder a la base de datos.
 
 Ya modificados los archivos, se ejecuta el siguiente comando para desplegar la aplicación web:
@@ -164,7 +173,7 @@ Tambi\'en se puede ejecutar el siguiente comando para desplegar la aplicación w
 $ flask --app app.py run --host 0.0.0.0 --port=8080
 \end{verbatim}
 
-Con los comandos anteriores desplegamos la aplicación en local en el puerto 8080, pero va a
+Con los comandos anteriores desplegamos la aplicación en local en el puerto 5000, pero va a
 fallar ya que antes necesita la inicialización de la base de datos, lo cual se hace con el
 siguiente comando:
 \begin{verbatim}
@@ -173,13 +182,34 @@ $ python3 init_db.py
 
 \section{Creación de la base de datos e inserción de datos}
 La creación de la base de datos se hizo en el apartado anterior y la inserción de datos se crean en el
-script \emph{init\_db.py} y se han realizado nueve inserciones en la tabla \emph{books}.
+script \emph{init\_db.py} y se han realizado nueve inserciones en la tabla \emph{books}:
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{img/inserted_books_1.png}
+    \caption{Inserción de datos en la tabla desde el script}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{img/inserted_books_2.png}
+    \caption{Datos insertados en la tabla}
+  \end{subfigure}
+  \caption{Inserción de datos en la tabla \emph{books}}
+\end{figure}
 
 \section{Personalizar la referencia \emph{About}}
 Para personalizar la referencia del about creamos un nuevo archivo html en el directorio
 templates \emph{about.html} en donde añadimos los nombres y apellidos de los integrantes del
 grupo. Luego modificamos \emph{base.html} y el fichero \emph{app.py} para poder acceder a la nueva
 sección.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{img/about.png}
+  \caption{About personalizado}
+  \label{fig:about_personalizado}
+\end{figure}
+
 
 \section{Verificar funcionamiento de la operación de visualizar los registros}
 Se puede verificar que se pueden visualizar los registros de la base de datos gracias a la función \emph{index()} que
@@ -188,12 +218,37 @@ de la tabla \emph{books}:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/select_books.psql}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{img/visualizar_registros.png}
+  \caption{Visualizar registros}
+  \label{fig:visualizar_registros}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
 \section{Verificar operacion de inserción de registros}
 Se puede verificar que se pueden insertar registros en la base de datos gracias a la función \emph{create()} que
 se encuentra en el fichero \emph{app.py}, en el que se realiza la siguiente consulta para insertar una entrada
 en la tabla \emph{books}:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/create_books.psql}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.45]{img/create_book.png}
+  \caption{Insertar registros}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.23]{img/added_book.png}
+  \caption{Registro insertado}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
 
 \section{Construcción de una REST API para la operación de borrado}
 Para construir una REST API para la operación de borrado se crea una nueva función en el fichero \emph{app.py}
@@ -213,6 +268,18 @@ en html:
 \lstset{style=mystyle}
 \lstinputlisting[language=html]{actividad_1/templates/delete.html}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.27]{img/delete_book.png}
+  \caption{Borrar registros}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.20]{img/book_already_deleted.png}
+  \caption{Registro borrado}
+\end{figure}
+
 \section{Construcción de una REST API para la operación de actualización}
 Para construir una REST API para la operación de actualización se crea una nueva función en el fichero \emph{app.py}
 llamada \emph{update()}, en el que se actualizará un registro indicando su ID, aqui el código en python:
@@ -231,6 +298,26 @@ en html:
 \lstset{style=mystyle}
 \lstinputlisting[language=html]{actividad_1/templates/update.html}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.27]{img/update_book.png}
+  \caption{Actualizar registros}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.27]{img/non_update.png}
+    \caption{Libro no actualizado}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.27]{img/updated_book.png}
+    \caption{Libro actualizado}
+  \end{subfigure}
+  \caption{Actualización de registros}
+\end{figure}
+
 % Nueva página
 \cleardoublepage
 
@@ -240,6 +327,12 @@ Para desplegar la base de datos a partir del script \emph{MyHome.sql} se ha util
 \begin{verbatim}
 postgres=# \i MyHome.psql
 \end{verbatim}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{img/myhome_script.png}
+  \caption{Despliegue de la base de datos \emph{MyHome.psql}}
+\end{figure}
 
 \section{Construir con \emph{Flask} y \emph{psycopg2} las siguientes REST API}
 Se va a crear un nuevo directorio de trabajo llamado \emph{actividad\_2} en el que tendrá las definiciones de la nueva
@@ -262,11 +355,26 @@ lo codificamos para que se pueda obtener la temperatura media de todas las habit
 \lstset{style=mystyle}
 \lstinputlisting[language=html]{actividad_2/templates/average.html}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.45]{img/average_temperature.png}
+  \caption{Temperatura media de todas las habitaciones}
+\end{figure}
+
 \subsection{Retorno de la temperatura máxima de una habitación}
 En este apartado se va a retornar la temperatura máxima de una habitación, para ello se hará lo mismo que en el apartado
 anterior pero en la consulta extraemos la temperatura máxima de una habitación, aqui el código en SQL:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/max_temperature.psql}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{img/maximum_temperature.png}
+  \caption{Temperatura máxima de una habitación}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
 
 \subsection{Dado el \emph{room\_id} retornar el nombre de la habitación}
 Para retornar el nombre de la habitación dado el \emph{room\_id} se crea una nueva función en el fichero \emph{room\_app.py}
@@ -281,6 +389,22 @@ aqui el código en sql:
 \lstinputlisting[language=sql]{code/room_name.psql}
 
 Para este procedimiento se ha creados dos ficheros html, uno para mostrar el formulario y otro para mostrar el resultado.
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{img/room_name.png}
+    \caption{Formulario para obtener el nombre de la habitación}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{img/result_room_name.png}
+    \caption{Resultado de obtener el nombre de la habitación}
+  \end{subfigure}
+  \caption{Obtener el nombre de la habitación}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
 
 \subsection{Dado el \emph{room\_id} retornar la temperatura media histórica de la habitación.}
 Para retornar la temperatura media histórica de la habitación dado el \emph{room\_id} es similar al apartado anterior,
@@ -289,6 +413,23 @@ la temperatura media histórica de la habitación dado el \emph{room\_id}, aqui 
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/room_avg_temperature.psql}
 
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.34]{img/avg_temperatura_room.png}
+    \caption{Formulario a obtener la temperatura de la habitación}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.34]{img/result_avg_temperatura_room.png}
+    \caption{Resultado de obtener la temperatura de la habitación}
+  \end{subfigure}
+  \caption{Obtener la temperatura de una habitación}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
+
 \subsection{Dado el \emph{room\_id} retornar la temperatura mínima en la habitación y el nombre la habitación en formato \emph{JSON}}
 Esta REST API es parecido al apartado anterior, se crea una nueva función en el fichero \emph{room\_app.py} llamada
 \emph{room\_min\_temperature()}, en el que se retornará la temperatura mínima en la habitación y el nombre la habitación
@@ -296,6 +437,22 @@ en formato \emph{JSON}, aqui el código en SQL:
 \lstset{style=mystyle}
 \lstinputlisting[language=sql]{code/room_min_temperature.psql}
 
+\begin{figure}[H]
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.34]{img/min_temperature.png}
+    \caption{Formulario a obtener la temperatura de la habitación}
+  \end{subfigure}%
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.34]{img/result_min_temperature.png}
+    \caption{Resultado de obtener la temperatura de la habitación}
+  \end{subfigure}
+  \caption{Obtener el nombre y la temperatura mínima de una habitación}
+\end{figure}
+
+% Nueva página
+\cleardoublepage
 
 \chapter{Chequeo de excepciones}
 Para el chequeo de excepciones se ha creado unas funciones en el script que son las siguientes:
@@ -319,6 +476,6 @@ dependiendo de las necesidades de la función, aqui el código en python resumie
 \lstset{style=mystyle}
 \lstinputlisting[language=python]{code/try_except.py}
 
-En el script \emph{app.py} se puede ver el código completo de la aplicación con el chequeo de excepciones.
+En el script \emph{app\_with\_check.py} se puede ver el código completo de la aplicación con el chequeo de excepciones.
 
 \end{document}
